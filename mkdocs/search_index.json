@@ -2,23 +2,53 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to MkDocs\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "text": "Welcome to ESP32.vn\n#\n\n\nPinout\n#\n\n\n\n\n\u0110\u1eb7c \u0111i\u1ec3m v\u00e0 t\u00ednh n\u0103ng\n#\n\n\n\n\nK\u1ebft n\u1ed1i kh\u00f4ng d\u00e2y:\n\n\nWi-Fi:\n 150.0 Mbps data rate with HT40 (40 MHz channel width, 400 ns guard interval, 1 spatial stream, 64-QAM, 5/6 coding rate).\n\n\nBluetooth:\n Bluetooth LE (low energy) \n legacy Bluetooth.\n\n\nProcessor:\n Xtensa Dual-Core 32-bit LX6 microprocessor, running at 160 or 240\nMHz, and with performance characteristics of up to 600 DMIPS. (You can have your own application processor without having to worry about the Wi-Fi portion.)\n\n\nLow power:\n Low power options to ensure that you can still do ADC conversions, computation, level thresholds, etc., while in deep sleep.\n\n\nROM:\n 448 KByte ROM.\n\n\nRAM:\n 520 kByte SRAM.\n\n\nPeripheral input/output:\n Rich peripheral interface with DMA that includes capacitive touch, ADCs (analog-to-digital converter), DACs (digital-to-analog converter), I\u00b2C (Inter-Integrated Circuit), UART (universal asynchronous receiver/transmitter), SPI (Serial Peripheral Interface), I\u00b2S (Integrated Interchip Sound), RMII (reduced media-independent interface), and PWM (Pulse Width Modulation).\n\n\nSecurity:\n Hardware accelerators for AES and SSL/TLS.\n\n\n\n\nCommunity Discussion\n#\n\n\nTools Code\n#\n\n\nChips Boards\n#\n\n\nChips\n#\n\n\n\n\nESP31B\n \u2014 Used for beta testing purposes on the pre-release ESP-WROOM-03 module.\n\n\nESP32-D0WDQ6\n \u2014 Initial chip release of the ESP32 series. [John Lee said \nthere are variations on all of these\n][2] with regard to the trailing attribute identifier code.\n\n\nD\n: Dual-core\n\n\n0\n: No internal flash\n\n\nW\n: Wi-Fi\n\n\nD\n: Dual-mode Bluetooth\n\n\nQ\n: Quad Flat No-leads (QFN) package\n\n\n6\n: 6\nmm \u00d7 6\nmm package body size\n\n\n\n\n\n\n\n\nModule Boards\n#\n\n\n\n\nEspressif ESP-WROOM-03\n \u2014\nPre-release beta test module that used the ESP31B.\n\n\nEspressif ESP-WROOM-32\n \u2014\nOfficial release module board [created by Espressif][3].\n\n\nAI-Thinker ESP3212\n \u2014\nModule based on the form factor of the AI-Thinker ESP-12F module.\n\n\n\n\nOther Boards\n#\n\n\n\n\nEspressif ESP_Module_Testboard\n \u2014 Simple break-out board included with ESP-WROOM-03 beta modules.\n\n\nEspressif ESP32_Demo Board_V2\n \u2014 A large development demo board created by Espressif for the ESP-WROOM-32 module.\n\n\nHydraBus HydraESP32\n \u2014 HydraESP32 HydraBus v1.0 shield/breakout board for ESP-WROOM-32. This shield can be used with or without a HydraBus board.\n\n\nESP32-MODULE-KIT V1.0\n \u2014 [From vendor unknown, a NodeMCU-like board that incorporates an ESP32 module.][4]", 
             "title": "Home"
         }, 
         {
-            "location": "/#welcome-to-mkdocs", 
-            "text": "For full documentation visit  mkdocs.org .", 
-            "title": "Welcome to MkDocs"
+            "location": "/#welcome-to-esp32vn", 
+            "text": "", 
+            "title": "Welcome to ESP32.vn"
         }, 
         {
-            "location": "/#commands", 
-            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.", 
-            "title": "Commands"
+            "location": "/#pinout", 
+            "text": "", 
+            "title": "Pinout"
         }, 
         {
-            "location": "/#project-layout", 
-            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
-            "title": "Project layout"
+            "location": "/#ac-iem-va-tinh-nang", 
+            "text": "K\u1ebft n\u1ed1i kh\u00f4ng d\u00e2y:  Wi-Fi:  150.0 Mbps data rate with HT40 (40 MHz channel width, 400 ns guard interval, 1 spatial stream, 64-QAM, 5/6 coding rate).  Bluetooth:  Bluetooth LE (low energy)   legacy Bluetooth.  Processor:  Xtensa Dual-Core 32-bit LX6 microprocessor, running at 160 or 240 MHz, and with performance characteristics of up to 600 DMIPS. (You can have your own application processor without having to worry about the Wi-Fi portion.)  Low power:  Low power options to ensure that you can still do ADC conversions, computation, level thresholds, etc., while in deep sleep.  ROM:  448 KByte ROM.  RAM:  520 kByte SRAM.  Peripheral input/output:  Rich peripheral interface with DMA that includes capacitive touch, ADCs (analog-to-digital converter), DACs (digital-to-analog converter), I\u00b2C (Inter-Integrated Circuit), UART (universal asynchronous receiver/transmitter), SPI (Serial Peripheral Interface), I\u00b2S (Integrated Interchip Sound), RMII (reduced media-independent interface), and PWM (Pulse Width Modulation).  Security:  Hardware accelerators for AES and SSL/TLS.", 
+            "title": "\u0110\u1eb7c \u0111i\u1ec3m v\u00e0 t\u00ednh n\u0103ng"
+        }, 
+        {
+            "location": "/#community-discussion", 
+            "text": "", 
+            "title": "Community Discussion"
+        }, 
+        {
+            "location": "/#tools-code", 
+            "text": "", 
+            "title": "Tools Code"
+        }, 
+        {
+            "location": "/#chips-boards", 
+            "text": "", 
+            "title": "Chips Boards"
+        }, 
+        {
+            "location": "/#chips", 
+            "text": "ESP31B  \u2014 Used for beta testing purposes on the pre-release ESP-WROOM-03 module.  ESP32-D0WDQ6  \u2014 Initial chip release of the ESP32 series. [John Lee said  there are variations on all of these ][2] with regard to the trailing attribute identifier code.  D : Dual-core  0 : No internal flash  W : Wi-Fi  D : Dual-mode Bluetooth  Q : Quad Flat No-leads (QFN) package  6 : 6 mm \u00d7 6 mm package body size", 
+            "title": "Chips"
+        }, 
+        {
+            "location": "/#module-boards", 
+            "text": "Espressif ESP-WROOM-03  \u2014 Pre-release beta test module that used the ESP31B.  Espressif ESP-WROOM-32  \u2014 Official release module board [created by Espressif][3].  AI-Thinker ESP3212  \u2014 Module based on the form factor of the AI-Thinker ESP-12F module.", 
+            "title": "Module Boards"
+        }, 
+        {
+            "location": "/#other-boards", 
+            "text": "Espressif ESP_Module_Testboard  \u2014 Simple break-out board included with ESP-WROOM-03 beta modules.  Espressif ESP32_Demo Board_V2  \u2014 A large development demo board created by Espressif for the ESP-WROOM-32 module.  HydraBus HydraESP32  \u2014 HydraESP32 HydraBus v1.0 shield/breakout board for ESP-WROOM-32. This shield can be used with or without a HydraBus board.  ESP32-MODULE-KIT V1.0  \u2014 [From vendor unknown, a NodeMCU-like board that incorporates an ESP32 module.][4]", 
+            "title": "Other Boards"
         }
     ]
 }
