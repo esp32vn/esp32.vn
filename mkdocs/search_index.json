@@ -1,54 +1,89 @@
 {
     "docs": [
         {
-            "location": "/", 
-            "text": "Welcome to ESP32.vn\n#\n\n\nPinout\n#\n\n\n\n\n\u0110\u1eb7c \u0111i\u1ec3m v\u00e0 t\u00ednh n\u0103ng\n#\n\n\n\n\nK\u1ebft n\u1ed1i kh\u00f4ng d\u00e2y:\n\n\nWi-Fi:\n 150.0 Mbps data rate with HT40 (40 MHz channel width, 400 ns guard interval, 1 spatial stream, 64-QAM, 5/6 coding rate).\n\n\nBluetooth:\n Bluetooth LE (low energy) \n legacy Bluetooth.\n\n\nProcessor:\n Xtensa Dual-Core 32-bit LX6 microprocessor, running at 160 or 240\nMHz, and with performance characteristics of up to 600 DMIPS. (You can have your own application processor without having to worry about the Wi-Fi portion.)\n\n\nLow power:\n Low power options to ensure that you can still do ADC conversions, computation, level thresholds, etc., while in deep sleep.\n\n\nROM:\n 448 KByte ROM.\n\n\nRAM:\n 520 kByte SRAM.\n\n\nPeripheral input/output:\n Rich peripheral interface with DMA that includes capacitive touch, ADCs (analog-to-digital converter), DACs (digital-to-analog converter), I\u00b2C (Inter-Integrated Circuit), UART (universal asynchronous receiver/transmitter), SPI (Serial Peripheral Interface), I\u00b2S (Integrated Interchip Sound), RMII (reduced media-independent interface), and PWM (Pulse Width Modulation).\n\n\nSecurity:\n Hardware accelerators for AES and SSL/TLS.\n\n\n\n\nCommunity Discussion\n#\n\n\nTools Code\n#\n\n\nChips Boards\n#\n\n\nChips\n#\n\n\n\n\nESP31B\n \u2014 Used for beta testing purposes on the pre-release ESP-WROOM-03 module.\n\n\nESP32-D0WDQ6\n \u2014 Initial chip release of the ESP32 series. [John Lee said \nthere are variations on all of these\n][2] with regard to the trailing attribute identifier code.\n\n\nD\n: Dual-core\n\n\n0\n: No internal flash\n\n\nW\n: Wi-Fi\n\n\nD\n: Dual-mode Bluetooth\n\n\nQ\n: Quad Flat No-leads (QFN) package\n\n\n6\n: 6\nmm \u00d7 6\nmm package body size\n\n\n\n\n\n\n\n\nModule Boards\n#\n\n\n\n\nEspressif ESP-WROOM-03\n \u2014\nPre-release beta test module that used the ESP31B.\n\n\nEspressif ESP-WROOM-32\n \u2014\nOfficial release module board [created by Espressif][3].\n\n\nAI-Thinker ESP3212\n \u2014\nModule based on the form factor of the AI-Thinker ESP-12F module.\n\n\n\n\nOther Boards\n#\n\n\n\n\nEspressif ESP_Module_Testboard\n \u2014 Simple break-out board included with ESP-WROOM-03 beta modules.\n\n\nEspressif ESP32_Demo Board_V2\n \u2014 A large development demo board created by Espressif for the ESP-WROOM-32 module.\n\n\nHydraBus HydraESP32\n \u2014 HydraESP32 HydraBus v1.0 shield/breakout board for ESP-WROOM-32. This shield can be used with or without a HydraBus board.\n\n\nESP32-MODULE-KIT V1.0\n \u2014 [From vendor unknown, a NodeMCU-like board that incorporates an ESP32 module.][4]", 
-            "title": "Home"
-        }, 
+            "location": "/",
+            "text": "Pinout\n#\n\n\n\n\n\u0110\u1eb7c \u0111i\u1ec3m v\u00e0 t\u00ednh n\u0103ng\n#\n\n\n\n\nK\u1ebft n\u1ed1i kh\u00f4ng d\u00e2y:\n\n\nWi-Fi:\n 150.0 Mbps data rate with HT40 (40 MHz channel width, 400 ns guard interval, 1 spatial stream, 64-QAM, 5/6 coding rate).\n\n\nBluetooth:\n Bluetooth LE (low energy) & legacy Bluetooth.\n\n\nProcessor:\n Xtensa Dual-Core 32-bit LX6 microprocessor, running at 160 or 240\u00a0MHz, and with performance characteristics of up to 600 DMIPS. (You can have your own application processor without having to worry about the Wi-Fi portion.)\n\n\nLow power:\n Low power options to ensure that you can still do ADC conversions, computation, level thresholds, etc., while in deep sleep.\n\n\nROM:\n 448 KByte ROM.\n\n\nRAM:\n 520 kByte SRAM.\n\n\nPeripheral input/output:\n Rich peripheral interface with DMA that includes capacitive touch, ADCs (analog-to-digital converter), DACs (digital-to-analog converter), I\u00b2C (Inter-Integrated Circuit), UART (universal asynchronous receiver/transmitter), SPI (Serial Peripheral Interface), I\u00b2S (Integrated Interchip Sound), RMII (reduced media-independent interface), and PWM (Pulse Width Modulation).\n\n\nSecurity:\n Hardware accelerators for AES and SSL/TLS.\n\n\n\n\nCommunity Discussion\n#\n\n\nTools Code\n#\n\n\nChips Boards\n#\n\n\nChips\n#\n\n\n\n\nESP31B\n \u2014 Used for beta testing purposes on the pre-release ESP-WROOM-03 module.\n\n\nESP32-D0WDQ6\n \u2014 Initial chip release of the ESP32 series. [John Lee said \u201cthere are variations on all of these\u201d][2] with regard to the trailing attribute identifier code.\n\n\nD\n: Dual-core\n\n\n0\n: No internal flash\n\n\nW\n: Wi-Fi\n\n\nD\n: Dual-mode Bluetooth\n\n\nQ\n: Quad Flat No-leads (QFN) package\n\n\n6\n: 6\u00a0mm \u00d7 6\u00a0mm package body size\n\n\n\n\n\n\n\n\nModule Boards\n#\n\n\n\n\nEspressif ESP-WROOM-03\n \u2014\u00a0Pre-release beta test module that used the ESP31B.\n\n\nEspressif ESP-WROOM-32\n \u2014\u00a0Official release module board [created by Espressif][3].\n\n\nAI-Thinker ESP3212\n \u2014\u00a0Module based on the form factor of the AI-Thinker ESP-12F module.\n\n\n\n\nOther Boards\n#\n\n\n\n\nEspressif ESP_Module_Testboard\n \u2014 Simple break-out board included with ESP-WROOM-03 beta modules.\n\n\nEspressif ESP32_Demo Board_V2\n \u2014 A large development demo board created by Espressif for the ESP-WROOM-32 module.\n\n\nHydraBus HydraESP32\n \u2014 HydraESP32 HydraBus v1.0 shield/breakout board for ESP-WROOM-32. This shield can be used with or without a HydraBus board.\n\n\nESP32-MODULE-KIT V1.0\n \u2014 [From vendor unknown, a NodeMCU-like board that incorporates an ESP32 module.][4]",
+            "title": "Trang ch\u1ee7"
+        },
         {
-            "location": "/#welcome-to-esp32vn", 
-            "text": "", 
-            "title": "Welcome to ESP32.vn"
-        }, 
-        {
-            "location": "/#pinout", 
-            "text": "", 
+            "location": "/#pinout",
+            "text": "",
             "title": "Pinout"
-        }, 
+        },
         {
-            "location": "/#ac-iem-va-tinh-nang", 
-            "text": "K\u1ebft n\u1ed1i kh\u00f4ng d\u00e2y:  Wi-Fi:  150.0 Mbps data rate with HT40 (40 MHz channel width, 400 ns guard interval, 1 spatial stream, 64-QAM, 5/6 coding rate).  Bluetooth:  Bluetooth LE (low energy)   legacy Bluetooth.  Processor:  Xtensa Dual-Core 32-bit LX6 microprocessor, running at 160 or 240 MHz, and with performance characteristics of up to 600 DMIPS. (You can have your own application processor without having to worry about the Wi-Fi portion.)  Low power:  Low power options to ensure that you can still do ADC conversions, computation, level thresholds, etc., while in deep sleep.  ROM:  448 KByte ROM.  RAM:  520 kByte SRAM.  Peripheral input/output:  Rich peripheral interface with DMA that includes capacitive touch, ADCs (analog-to-digital converter), DACs (digital-to-analog converter), I\u00b2C (Inter-Integrated Circuit), UART (universal asynchronous receiver/transmitter), SPI (Serial Peripheral Interface), I\u00b2S (Integrated Interchip Sound), RMII (reduced media-independent interface), and PWM (Pulse Width Modulation).  Security:  Hardware accelerators for AES and SSL/TLS.", 
+            "location": "/#ac-iem-va-tinh-nang",
+            "text": "K\u1ebft n\u1ed1i kh\u00f4ng d\u00e2y:  Wi-Fi:  150.0 Mbps data rate with HT40 (40 MHz channel width, 400 ns guard interval, 1 spatial stream, 64-QAM, 5/6 coding rate).  Bluetooth:  Bluetooth LE (low energy) & legacy Bluetooth.  Processor:  Xtensa Dual-Core 32-bit LX6 microprocessor, running at 160 or 240\u00a0MHz, and with performance characteristics of up to 600 DMIPS. (You can have your own application processor without having to worry about the Wi-Fi portion.)  Low power:  Low power options to ensure that you can still do ADC conversions, computation, level thresholds, etc., while in deep sleep.  ROM:  448 KByte ROM.  RAM:  520 kByte SRAM.  Peripheral input/output:  Rich peripheral interface with DMA that includes capacitive touch, ADCs (analog-to-digital converter), DACs (digital-to-analog converter), I\u00b2C (Inter-Integrated Circuit), UART (universal asynchronous receiver/transmitter), SPI (Serial Peripheral Interface), I\u00b2S (Integrated Interchip Sound), RMII (reduced media-independent interface), and PWM (Pulse Width Modulation).  Security:  Hardware accelerators for AES and SSL/TLS.",
             "title": "\u0110\u1eb7c \u0111i\u1ec3m v\u00e0 t\u00ednh n\u0103ng"
-        }, 
+        },
         {
-            "location": "/#community-discussion", 
-            "text": "", 
+            "location": "/#community-discussion",
+            "text": "",
             "title": "Community Discussion"
-        }, 
+        },
         {
-            "location": "/#tools-code", 
-            "text": "", 
+            "location": "/#tools-code",
+            "text": "",
             "title": "Tools Code"
-        }, 
+        },
         {
-            "location": "/#chips-boards", 
-            "text": "", 
+            "location": "/#chips-boards",
+            "text": "",
             "title": "Chips Boards"
-        }, 
+        },
         {
-            "location": "/#chips", 
-            "text": "ESP31B  \u2014 Used for beta testing purposes on the pre-release ESP-WROOM-03 module.  ESP32-D0WDQ6  \u2014 Initial chip release of the ESP32 series. [John Lee said  there are variations on all of these ][2] with regard to the trailing attribute identifier code.  D : Dual-core  0 : No internal flash  W : Wi-Fi  D : Dual-mode Bluetooth  Q : Quad Flat No-leads (QFN) package  6 : 6 mm \u00d7 6 mm package body size", 
+            "location": "/#chips",
+            "text": "ESP31B  \u2014 Used for beta testing purposes on the pre-release ESP-WROOM-03 module.  ESP32-D0WDQ6  \u2014 Initial chip release of the ESP32 series. [John Lee said \u201cthere are variations on all of these\u201d][2] with regard to the trailing attribute identifier code.  D : Dual-core  0 : No internal flash  W : Wi-Fi  D : Dual-mode Bluetooth  Q : Quad Flat No-leads (QFN) package  6 : 6\u00a0mm \u00d7 6\u00a0mm package body size",
             "title": "Chips"
-        }, 
+        },
         {
-            "location": "/#module-boards", 
-            "text": "Espressif ESP-WROOM-03  \u2014 Pre-release beta test module that used the ESP31B.  Espressif ESP-WROOM-32  \u2014 Official release module board [created by Espressif][3].  AI-Thinker ESP3212  \u2014 Module based on the form factor of the AI-Thinker ESP-12F module.", 
+            "location": "/#module-boards",
+            "text": "Espressif ESP-WROOM-03  \u2014\u00a0Pre-release beta test module that used the ESP31B.  Espressif ESP-WROOM-32  \u2014\u00a0Official release module board [created by Espressif][3].  AI-Thinker ESP3212  \u2014\u00a0Module based on the form factor of the AI-Thinker ESP-12F module.",
             "title": "Module Boards"
-        }, 
+        },
         {
-            "location": "/#other-boards", 
-            "text": "Espressif ESP_Module_Testboard  \u2014 Simple break-out board included with ESP-WROOM-03 beta modules.  Espressif ESP32_Demo Board_V2  \u2014 A large development demo board created by Espressif for the ESP-WROOM-32 module.  HydraBus HydraESP32  \u2014 HydraESP32 HydraBus v1.0 shield/breakout board for ESP-WROOM-32. This shield can be used with or without a HydraBus board.  ESP32-MODULE-KIT V1.0  \u2014 [From vendor unknown, a NodeMCU-like board that incorporates an ESP32 module.][4]", 
+            "location": "/#other-boards",
+            "text": "Espressif ESP_Module_Testboard  \u2014 Simple break-out board included with ESP-WROOM-03 beta modules.  Espressif ESP32_Demo Board_V2  \u2014 A large development demo board created by Espressif for the ESP-WROOM-32 module.  HydraBus HydraESP32  \u2014 HydraESP32 HydraBus v1.0 shield/breakout board for ESP-WROOM-32. This shield can be used with or without a HydraBus board.  ESP32-MODULE-KIT V1.0  \u2014 [From vendor unknown, a NodeMCU-like board that incorporates an ESP32 module.][4]",
             "title": "Other Boards"
+        },
+        {
+            "location": "/arduino/arduino/",
+            "text": "Arduino core cho ESP32 WiFi chip\n#",
+            "title": "Gi\u1edbi thi\u1ec7u"
+        },
+        {
+            "location": "/arduino/arduino/#arduino-core-cho-esp32-wifi-chip",
+            "text": "",
+            "title": "Arduino core cho ESP32 WiFi chip"
+        },
+        {
+            "location": "/projects/project-list/",
+            "text": "C\u00e1c d\u1ef1 \u00e1n\n#",
+            "title": "C\u00e1c d\u1ef1 \u00e1n"
+        },
+        {
+            "location": "/projects/project-list/#cac-du-an",
+            "text": "",
+            "title": "C\u00e1c d\u1ef1 \u00e1n"
+        },
+        {
+            "location": "/license/",
+            "text": "B\u1ea3n quy\u1ec1n\n#\n\n\nTo\u00e0n b\u1ed9 t\u00e0i li\u1ec7u \u0111\u01b0\u1ee3c ph\u00e2n ph\u1ed1i theo gi\u1ea5y ph\u00e9p CC BY-SA-NC\n\n\nGhi nh\u00e2\u0323n \u0111o\u0301ng go\u0301p Phi Th\u01b0\u01a1ng ma\u0323i Chia se\u0309 v\u01a1\u0301i \u0110i\u00ea\u0300u ki\u00ea\u0323n Nh\u01b0 nhau (cc by-nc-sa):\nGi\u00e2\u0301y phe\u0301p na\u0300y cho phe\u0301p ng\u01b0\u01a1\u0300i kha\u0301c ph\u00f4\u0301i la\u0323i, tu\u0300y chi\u0309nh, va\u0300 x\u00e2y d\u01b0\u0323ng d\u01b0\u0323a tr\u00ean ta\u0301c ph\u00e2\u0309m cu\u0309a Ba\u0323n v\u01a1\u0301i mu\u0323c \u0111i\u0301ch Phi Th\u01b0\u01a1ng ma\u0323i, v\u01a1\u0301i \u0111i\u00ea\u0300u ki\u00ea\u0323n chu\u0301ng n\u00e2ng cao uy ti\u0301n cu\u0309a Ba\u0323n v\u00e0 cho phe\u0301p c\u00e2\u0301p phe\u0301p \u0111\u00f4\u0301i v\u01a1\u0301i ca\u0301c ta\u0301c ph\u00e2\u0309m sa\u0301ng ta\u0323o m\u01a1\u0301i cu\u0309a ho\u0323 theo ca\u0301c \u0111i\u00ea\u0300u khoa\u0309n gi\u00f4\u0301ng h\u00ea\u0323t.",
+            "title": "B\u1ea3n quy\u1ec1n"
+        },
+        {
+            "location": "/license/#ban-quyen",
+            "text": "To\u00e0n b\u1ed9 t\u00e0i li\u1ec7u \u0111\u01b0\u1ee3c ph\u00e2n ph\u1ed1i theo gi\u1ea5y ph\u00e9p CC BY-SA-NC  Ghi nh\u00e2\u0323n \u0111o\u0301ng go\u0301p Phi Th\u01b0\u01a1ng ma\u0323i Chia se\u0309 v\u01a1\u0301i \u0110i\u00ea\u0300u ki\u00ea\u0323n Nh\u01b0 nhau (cc by-nc-sa):\nGi\u00e2\u0301y phe\u0301p na\u0300y cho phe\u0301p ng\u01b0\u01a1\u0300i kha\u0301c ph\u00f4\u0301i la\u0323i, tu\u0300y chi\u0309nh, va\u0300 x\u00e2y d\u01b0\u0323ng d\u01b0\u0323a tr\u00ean ta\u0301c ph\u00e2\u0309m cu\u0309a Ba\u0323n v\u01a1\u0301i mu\u0323c \u0111i\u0301ch Phi Th\u01b0\u01a1ng ma\u0323i, v\u01a1\u0301i \u0111i\u00ea\u0300u ki\u00ea\u0323n chu\u0301ng n\u00e2ng cao uy ti\u0301n cu\u0309a Ba\u0323n v\u00e0 cho phe\u0301p c\u00e2\u0301p phe\u0301p \u0111\u00f4\u0301i v\u01a1\u0301i ca\u0301c ta\u0301c ph\u00e2\u0309m sa\u0301ng ta\u0323o m\u01a1\u0301i cu\u0309a ho\u0323 theo ca\u0301c \u0111i\u00ea\u0300u khoa\u0309n gi\u00f4\u0301ng h\u00ea\u0323t.",
+            "title": "B\u1ea3n quy\u1ec1n"
+        },
+        {
+            "location": "/contributor/",
+            "text": "Danh s\u00e1ch th\u00e0nh vi\u00ean \u0111\u00f3ng g\u00f3p:\n#\n\n\n\n\nTu\u1ea5n PM",
+            "title": "\u0110\u00f3ng g\u00f3p"
+        },
+        {
+            "location": "/contributor/#danh-sach-thanh-vien-ong-gop",
+            "text": "Tu\u1ea5n PM",
+            "title": "Danh s\u00e1ch th\u00e0nh vi\u00ean \u0111\u00f3ng g\u00f3p:"
         }
     ]
 }
