@@ -56,6 +56,31 @@
             "title": "Arduino core cho ESP32 WiFi chip"
         },
         {
+            "location": "/arduino/install/",
+            "text": "C\u00e0i \u0111\u1eb7t\n#\n\n\nS\u1eed d\u1ee5ng git version\n#\n\n\nPh\u01b0\u01a1ng \u00e1n c\u00e0i \u0111\u1eb7t n\u00e0y khuy\u00ean d\u00f9ng cho nh\u1eefng ng\u01b0\u1eddi c\u00f3 th\u1ec3 \u0111\u00f3ng g\u00f3p v\u00e0o d\u1ef1 \u00e1n Arduino cho ESP32 v\u00e0 developers.\n\n\nChu\u1ea9n b\u1ecb\n#\n\n\n\n\nArduino 1.6.8 (hay m\u1edbi h\u01a1n, n\u1ebfu b\u1ea1n bi\u1ebft b\u1ea1n \u0111ang l\u00e0m g\u00ec) t\u1eeb \nhttps://arduino.cc\n\n\ngit\n\n\npython 2.7\n\n\nterminal, console, or command prompt (ph\u1ee5 thu\u1ed9c h\u1ec7 \u0111i\u1ec1u h\u00e0nh c\u1ee7a b\u1ea1n)\n\n\nK\u1ebft n\u1ed1i Internet\n\n\n\n\nH\u01b0\u1edbng d\u1eabn\n#\n\n\n\n\nM\u1edf \nconsole\n v\u00e0 cd \u0111\u1ebfn th\u01b0 m\u1ee5c Arduino. N\u00f3 c\u00f3 th\u1ec3 l\u00e0 th\u01b0 m\u1ee5c \nsketchbook\n (th\u01b0\u1eddng l\u00e0 \n<Documents>/Arduino\n), hay th\u01b0 m\u1ee5c c\u1ee7a \u1ee8ng d\u1ee5ng Arduino, t\u00f9y b\u1ea1n ch\u1ecdn.\n\n\nClone repository n\u00e0y \u0111\u1ebfn th\u01b0 m\u1ee5c \nhardware/espressif/esp32\n. Ho\u1eb7c b\u1ea1n c\u00f3 th\u1ec3 clone v\u00e0o n\u01a1i n\u00e0o \u0111\u00f3 v\u00e0 t\u1ea1o symlink b\u1eb1ng \nln -s\n, n\u1ebfu H\u1ec7 \u0111i\u1ec1u h\u00e0nh h\u1ed7 tr\u1ee3.\n\n\n\n\ncd hardware\nmkdir espressif\ncd espressif\ngit clone https://github.com/espressif/arduino-esp32.git esp32\n\n\n\n\nC\u1ea5u tr\u00fac d\u1ef1 \u00e1n sau khi b\u1ea1n th\u1ef1c hi\u1ec7n xong:\n\n\nArduino\n    |- hardware\n    |- espressif\n        |- esp32\n            |- bootloaders\n            |- cores\n            |- doc\n            |- libraries\n            |- package\n            |- tests\n            |- tools\n            |- variants\n            |- platform.txt\n            |- programmers.txt\n            |- README.md\n            |- boards.txt\n            `- LICENSE\n\n\n\n\n\n\nT\u1ea3i binary tools\n\n\n\n\ncd esp32/tools\npython get.py\n\n\n\n\n\n\nKh\u1edfi \u0111\u1ed9ng l\u1ea1i Arduino",
+            "title": "C\u00e0i \u0111\u1eb7t"
+        },
+        {
+            "location": "/arduino/install/#cai-at",
+            "text": "",
+            "title": "C\u00e0i \u0111\u1eb7t"
+        },
+        {
+            "location": "/arduino/install/#su-dung-git-version",
+            "text": "Ph\u01b0\u01a1ng \u00e1n c\u00e0i \u0111\u1eb7t n\u00e0y khuy\u00ean d\u00f9ng cho nh\u1eefng ng\u01b0\u1eddi c\u00f3 th\u1ec3 \u0111\u00f3ng g\u00f3p v\u00e0o d\u1ef1 \u00e1n Arduino cho ESP32 v\u00e0 developers.",
+            "title": "S\u1eed d\u1ee5ng git version"
+        },
+        {
+            "location": "/arduino/install/#chuan-bi",
+            "text": "Arduino 1.6.8 (hay m\u1edbi h\u01a1n, n\u1ebfu b\u1ea1n bi\u1ebft b\u1ea1n \u0111ang l\u00e0m g\u00ec) t\u1eeb  https://arduino.cc  git  python 2.7  terminal, console, or command prompt (ph\u1ee5 thu\u1ed9c h\u1ec7 \u0111i\u1ec1u h\u00e0nh c\u1ee7a b\u1ea1n)  K\u1ebft n\u1ed1i Internet",
+            "title": "Chu\u1ea9n b\u1ecb"
+        },
+        {
+            "location": "/arduino/install/#huong-dan",
+            "text": "M\u1edf  console  v\u00e0 cd \u0111\u1ebfn th\u01b0 m\u1ee5c Arduino. N\u00f3 c\u00f3 th\u1ec3 l\u00e0 th\u01b0 m\u1ee5c  sketchbook  (th\u01b0\u1eddng l\u00e0  <Documents>/Arduino ), hay th\u01b0 m\u1ee5c c\u1ee7a \u1ee8ng d\u1ee5ng Arduino, t\u00f9y b\u1ea1n ch\u1ecdn.  Clone repository n\u00e0y \u0111\u1ebfn th\u01b0 m\u1ee5c  hardware/espressif/esp32 . Ho\u1eb7c b\u1ea1n c\u00f3 th\u1ec3 clone v\u00e0o n\u01a1i n\u00e0o \u0111\u00f3 v\u00e0 t\u1ea1o symlink b\u1eb1ng  ln -s , n\u1ebfu H\u1ec7 \u0111i\u1ec1u h\u00e0nh h\u1ed7 tr\u1ee3.   cd hardware\nmkdir espressif\ncd espressif\ngit clone https://github.com/espressif/arduino-esp32.git esp32  C\u1ea5u tr\u00fac d\u1ef1 \u00e1n sau khi b\u1ea1n th\u1ef1c hi\u1ec7n xong:  Arduino\n    |- hardware\n    |- espressif\n        |- esp32\n            |- bootloaders\n            |- cores\n            |- doc\n            |- libraries\n            |- package\n            |- tests\n            |- tools\n            |- variants\n            |- platform.txt\n            |- programmers.txt\n            |- README.md\n            |- boards.txt\n            `- LICENSE   T\u1ea3i binary tools   cd esp32/tools\npython get.py   Kh\u1edfi \u0111\u1ed9ng l\u1ea1i Arduino",
+            "title": "H\u01b0\u1edbng d\u1eabn"
+        },
+        {
             "location": "/esp-idf/esp-idf/",
             "text": "ESP-IDF\n#",
             "title": "Gi\u1edbi thi\u1ec7u"

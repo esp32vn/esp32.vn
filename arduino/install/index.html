@@ -8,7 +8,7 @@
   
   <meta name="author" content="Tuan PM">
   
-  <title>Các dự án - Internet Of Things (IoT) với ESP32</title>
+  <title>Cài đặt - Internet Of Things (IoT) với ESP32</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -25,9 +25,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Các dự án";
-    var mkdocs_page_input_path = "projects/project-list.md";
-    var mkdocs_page_url = "/projects/project-list/";
+    var mkdocs_page_name = "Cài đặt";
+    var mkdocs_page_input_path = "arduino/install.md";
+    var mkdocs_page_url = "/arduino/install/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -78,26 +78,26 @@
 <li>
           
             <li><ul class="subnav">
-    <li class="">
-        <a class=""  id="Nội dung" style="font-size:95%;font-weight:bold;">Nội dung</a>
+    <li class="current">
+        <a class="current"  id="Nội dung" style="font-size:95%;font-weight:bold;">Nội dung</a>
     </li>
     
-        <li class="">
-            <a style="padding-left:50px;" class=""  id="ESP32 Arduino" onclick="showChildren('ESP32 Arduino')">ESP32 Arduino  <i class="fa fa-arrow-circle-down" style="padding-left:5px;font-size:13px;"></i></a>
+        <li class="current">
+            <a style="padding-left:50px;" class="current"  id="ESP32 Arduino" onclick="showChildren('ESP32 Arduino')">ESP32 Arduino  <i class="fa fa-arrow-circle-down" style="padding-left:5px;font-size:13px;"></i></a>
         </li>
         
         <div style="display:none" id="hidden_ESP32 Arduino">
         
             <li class="">
-                <a style="padding-left:70px;" class="" href="../../arduino/arduino/" id="Giới thiệu">Giới thiệu </a>
+                <a style="padding-left:70px;" class="" href="../arduino/" id="Giới thiệu">Giới thiệu </a>
             </li>
             
             <div style="display:none" id="hidden_ESP32 ArduinoGiới thiệu">
             
             </div>
         
-            <li class="">
-                <a style="padding-left:70px;" class="" href="../../arduino/install/" id="Cài đặt">Cài đặt </a>
+            <li class="current">
+                <a style="padding-left:70px;" class="current" href="./" id="Cài đặt">Cài đặt </a>
             </li>
             
             <div style="display:none" id="hidden_ESP32 ArduinoGiới thiệuCài đặt">
@@ -127,8 +127,8 @@
 <li>
           
             <li><ul class="subnav">
-    <li class="current">
-        <a class="current" href="./" id="Các dự án" style="font-size:95%;font-weight:bold;">Các dự án</a>
+    <li class="">
+        <a class="" href="../../projects/project-list/" id="Các dự án" style="font-size:95%;font-weight:bold;">Các dự án</a>
     </li>
     
     <li class="paddingtop20"></li>
@@ -174,8 +174,16 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Nội dung &raquo;</li>
+        
+      
+        
+          <li>ESP32 Arduino &raquo;</li>
+        
+      
     
-    <li>Các dự án</li>
+    <li>Cài đặt</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -189,7 +197,58 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="cac-du-an">Các dự án<a class="headerlink" href="#cac-du-an" title="Permanent link">#</a></h1>
+                <h1 id="cai-at">Cài đặt<a class="headerlink" href="#cai-at" title="Permanent link">#</a></h1>
+<h2 id="su-dung-git-version">Sử dụng git version<a class="headerlink" href="#su-dung-git-version" title="Permanent link">#</a></h2>
+<p>Phương án cài đặt này khuyên dùng cho những người có thể đóng góp vào dự án Arduino cho ESP32 và developers.</p>
+<h3 id="chuan-bi">Chuẩn bị<a class="headerlink" href="#chuan-bi" title="Permanent link">#</a></h3>
+<ul>
+<li>Arduino 1.6.8 (hay mới hơn, nếu bạn biết bạn đang làm gì) từ <a href="https://arduino.cc">https://arduino.cc</a></li>
+<li>git</li>
+<li>python 2.7</li>
+<li>terminal, console, or command prompt (phụ thuộc hệ điều hành của bạn)</li>
+<li>Kết nối Internet</li>
+</ul>
+<h3 id="huong-dan">Hướng dẫn<a class="headerlink" href="#huong-dan" title="Permanent link">#</a></h3>
+<ul>
+<li>Mở <code>console</code> và cd đến thư mục Arduino. Nó có thể là thư mục <em>sketchbook</em> (thường là <code>&lt;Documents&gt;/Arduino</code>), hay thư mục của Ứng dụng Arduino, tùy bạn chọn.</li>
+<li>Clone repository này đến thư mục <code>hardware/espressif/esp32</code>. Hoặc bạn có thể clone vào nơi nào đó và tạo symlink bằng <code>ln -s</code>, nếu Hệ điều hành hỗ trợ.</li>
+</ul>
+<pre class="code"><code class="language-bash">cd hardware
+mkdir espressif
+cd espressif
+git clone https://github.com/espressif/arduino-esp32.git esp32</code></pre>
+
+
+<p>Cấu trúc dự án sau khi bạn thực hiện xong:</p>
+<pre class="code"><code class="language-bash">Arduino
+    |- hardware
+    |- espressif
+        |- esp32
+            |- bootloaders
+            |- cores
+            |- doc
+            |- libraries
+            |- package
+            |- tests
+            |- tools
+            |- variants
+            |- platform.txt
+            |- programmers.txt
+            |- README.md
+            |- boards.txt
+            `- LICENSE</code></pre>
+
+
+<ul>
+<li>Tải binary tools</li>
+</ul>
+<pre class="code"><code class="language-bash">cd esp32/tools
+python get.py</code></pre>
+
+
+<ul>
+<li>Khởi động lại Arduino</li>
+</ul>
               
             </div>
           </div>
@@ -197,10 +256,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../license/" class="btn btn-neutral float-right" title="Bản quyền">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../esp-idf/esp-idf/" class="btn btn-neutral float-right" title="Giới thiệu">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../esp-idf/esp-idf/" class="btn btn-neutral" title="Giới thiệu"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../arduino/" class="btn btn-neutral" title="Giới thiệu"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -230,10 +289,10 @@
           <a href="https://github.com/esp32vn/esp32.vn" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../esp-idf/esp-idf/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../arduino/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../license/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../esp-idf/esp-idf/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div> -->
