@@ -56,6 +56,16 @@
             "title": "Arduino core cho ESP32 WiFi chip"
         },
         {
+            "location": "/esp-idf/esp-idf/",
+            "text": "ESP-IDF\n#",
+            "title": "Gi\u1edbi thi\u1ec7u"
+        },
+        {
+            "location": "/esp-idf/esp-idf/#esp-idf",
+            "text": "",
+            "title": "ESP-IDF"
+        },
+        {
             "location": "/projects/project-list/",
             "text": "C\u00e1c d\u1ef1 \u00e1n\n#",
             "title": "C\u00e1c d\u1ef1 \u00e1n"
