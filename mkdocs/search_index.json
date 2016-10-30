@@ -406,6 +406,16 @@
             "title": "Flashing the partition table"
         },
         {
+            "location": "/esp-idf/freertos/tutorial/",
+            "text": "FreeRTOS tutorial\n#\n\n\nhttp://www.socialledge.com/sjsu/index.php?title=FreeRTOS_Tutorial",
+            "title": "FreeRTOS"
+        },
+        {
+            "location": "/esp-idf/freertos/tutorial/#freertos-tutorial",
+            "text": "http://www.socialledge.com/sjsu/index.php?title=FreeRTOS_Tutorial",
+            "title": "FreeRTOS tutorial"
+        },
+        {
             "location": "/projects/project-list/",
             "text": "C\u00e1c d\u1ef1 \u00e1n\n#",
             "title": "C\u00e1c d\u1ef1 \u00e1n"
