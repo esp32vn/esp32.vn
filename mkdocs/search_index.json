@@ -406,6 +406,66 @@
             "title": "Flashing the partition table"
         },
         {
+            "location": "/esp-idf/api/wifi/",
+            "text": "WiFi\n#",
+            "title": "WiFi"
+        },
+        {
+            "location": "/esp-idf/api/wifi/#wifi",
+            "text": "",
+            "title": "WiFi"
+        },
+        {
+            "location": "/esp-idf/api/bluetooth/",
+            "text": "Bluetooth - BLE\n#",
+            "title": "Bluetooth - BLE"
+        },
+        {
+            "location": "/esp-idf/api/bluetooth/#bluetooth-ble",
+            "text": "",
+            "title": "Bluetooth - BLE"
+        },
+        {
+            "location": "/esp-idf/api/gpio/",
+            "text": "GPIO\n#",
+            "title": "GPIO"
+        },
+        {
+            "location": "/esp-idf/api/gpio/#gpio",
+            "text": "",
+            "title": "GPIO"
+        },
+        {
+            "location": "/esp-idf/api/logging/",
+            "text": "Logging\n#",
+            "title": "Logging"
+        },
+        {
+            "location": "/esp-idf/api/logging/#logging",
+            "text": "",
+            "title": "Logging"
+        },
+        {
+            "location": "/esp-idf/api/non-volatile-storage/",
+            "text": "Non-Volatile Storage\n#",
+            "title": "Non-Volatile Storage"
+        },
+        {
+            "location": "/esp-idf/api/non-volatile-storage/#non-volatile-storage",
+            "text": "",
+            "title": "Non-Volatile Storage"
+        },
+        {
+            "location": "/esp-idf/api/virtual-filesystem/",
+            "text": "Virtual Filesystem\n#",
+            "title": "Virtual Filesystem"
+        },
+        {
+            "location": "/esp-idf/api/virtual-filesystem/#virtual-filesystem",
+            "text": "",
+            "title": "Virtual Filesystem"
+        },
+        {
             "location": "/esp-idf/freertos/tutorial/",
             "text": "FreeRTOS tutorial\n#\n\n\nhttp://www.socialledge.com/sjsu/index.php?title=FreeRTOS_Tutorial",
             "title": "FreeRTOS"

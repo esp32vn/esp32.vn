@@ -8,34 +8,34 @@
   
   <meta name="author" content="Tuan PM">
   
-  <title>Giới thiệu - Internet Of Things (IoT) với ESP32</title>
+  <title>WiFi - Internet Of Things (IoT) với ESP32</title>
   
 
-  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
 
   
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/highlight.css">
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/highlight.css">
 
-  <link rel="stylesheet" href="../../css/custom.css">
+  <link rel="stylesheet" href="../../../css/custom.css">
 
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Giới thiệu";
-    var mkdocs_page_input_path = "arduino/arduino.md";
-    var mkdocs_page_url = "/arduino/arduino/";
+    var mkdocs_page_name = "WiFi";
+    var mkdocs_page_input_path = "esp-idf/api/wifi.md";
+    var mkdocs_page_url = "/esp-idf/api/wifi/";
   </script>
   
-  <script src="../../js/jquery-2.1.1.min.js"></script>
-  <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
-  <script src="../../js/theme.js"></script>
-  <script src="../../js/jquery.cookie-1.4.1.min.js"></script>
-  <script src="../../js/nav.js"></script> 
+  <script src="../../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../../js/highlight.pack.js"></script>
+  <script src="../../../js/theme.js"></script>
+  <script src="../../../js/jquery.cookie-1.4.1.min.js"></script>
+  <script src="../../../js/nav.js"></script> 
 
   
   <script>
@@ -57,9 +57,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> Internet Of Things (IoT) với ESP32</a>
+        <a href="../../.." class="icon icon-home"> Internet Of Things (IoT) với ESP32</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
@@ -70,7 +70,7 @@
           
             <li><ul class="subnav">
     <li class="">
-        <a class="" href="../.." id="Trang chủ" style="font-size:95%;font-weight:bold;">Trang chủ</a>
+        <a class="" href="../../.." id="Trang chủ" style="font-size:95%;font-weight:bold;">Trang chủ</a>
     </li>
     
     <li class="paddingtop20"></li>
@@ -82,22 +82,15 @@
         <a class="current"  id="Nội dung" style="font-size:95%;font-weight:bold;">Nội dung</a>
     </li>
     
-        <li class="current">
-            <a style="padding-left:50px;" class="current"  id="ESP32 Arduino" onclick="showChildren('ESP32 Arduino')"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i> ESP32 Arduino</a>
+        <li class="">
+            <a style="padding-left:50px;" class=""  id="ESP32 Arduino" onclick="showChildren('ESP32 Arduino')"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i> ESP32 Arduino</a>
         </li>
         
         <div style="display:none" id="hidden_ESP32 Arduino">
         
-            <li class="current">
-                <a style="padding-left:70px;" class="current" href="./" id="Giới thiệu">  Giới thiệu </a>
-                <!-- 
-                    <ul>
-                    
-                        <li class="toctree-l3"><a href="#arduino-core-cho-esp32-wifi-chip">Arduino core cho ESP32 WiFi chip</a></li>
-                        
-                    
-                    </ul>
-                 -->
+            <li class="">
+                <a style="padding-left:70px;" class="" href="../../../arduino/arduino/" id="Giới thiệu">  Giới thiệu </a>
+                <!--  -->
             </li>
             
             <div style="display:none" id="hidden_ESP32 ArduinoGiới thiệu">
@@ -105,7 +98,7 @@
             </div>
         
             <li class="">
-                <a style="padding-left:70px;" class="" href="../install/" id="Cài đặt">  Cài đặt </a>
+                <a style="padding-left:70px;" class="" href="../../../arduino/install/" id="Cài đặt">  Cài đặt </a>
                 <!--  -->
             </li>
             
@@ -115,14 +108,14 @@
         
         </div>
     
-        <li class="">
-            <a style="padding-left:50px;" class=""  id="ESP32 ESP-IDF" onclick="showChildren('ESP32 ESP-IDF')"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i> ESP32 ESP-IDF</a>
+        <li class="current">
+            <a style="padding-left:50px;" class="current"  id="ESP32 ESP-IDF" onclick="showChildren('ESP32 ESP-IDF')"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i> ESP32 ESP-IDF</a>
         </li>
         
         <div style="display:none" id="hidden_ESP32 ESP-IDF">
         
             <li class="">
-                <a style="padding-left:70px;" class="" href="../../esp-idf/esp-idf/" id="Giới thiệu">  Giới thiệu </a>
+                <a style="padding-left:70px;" class="" href="../../esp-idf/" id="Giới thiệu">  Giới thiệu </a>
                 <!--  -->
             </li>
             
@@ -138,70 +131,70 @@
             <div style="display:none" id="hidden_ESP32 ESP-IDFGiới thiệuCơ bản">
             
                 <li class="">
-                    <a style="padding-left:90px;" class="" href="../../esp-idf/basic/build-system/" id="Hệ thống biên dịch">Hệ thống biên dịch </a>
+                    <a style="padding-left:90px;" class="" href="../../basic/build-system/" id="Hệ thống biên dịch">Hệ thống biên dịch </a>
                 </li>
             
                 <li class="">
-                    <a style="padding-left:90px;" class="" href="../../esp-idf/basic/install-windows/" id="Cài đặt cho Windows">Cài đặt cho Windows </a>
+                    <a style="padding-left:90px;" class="" href="../../basic/install-windows/" id="Cài đặt cho Windows">Cài đặt cho Windows </a>
                 </li>
             
                 <li class="">
-                    <a style="padding-left:90px;" class="" href="../../esp-idf/basic/install-macos/" id="Cài đặt cho MacOS">Cài đặt cho MacOS </a>
+                    <a style="padding-left:90px;" class="" href="../../basic/install-macos/" id="Cài đặt cho MacOS">Cài đặt cho MacOS </a>
                 </li>
             
                 <li class="">
-                    <a style="padding-left:90px;" class="" href="../../esp-idf/basic/install-linux/" id="Cài đặt cho Linux">Cài đặt cho Linux </a>
+                    <a style="padding-left:90px;" class="" href="../../basic/install-linux/" id="Cài đặt cho Linux">Cài đặt cho Linux </a>
                 </li>
             
                 <li class="">
-                    <a style="padding-left:90px;" class="" href="../../esp-idf/basic/eclipse-setup/" id="Cài đặt cho Eclipse">Cài đặt cho Eclipse </a>
+                    <a style="padding-left:90px;" class="" href="../../basic/eclipse-setup/" id="Cài đặt cho Eclipse">Cài đặt cho Eclipse </a>
                 </li>
             
                 <li class="">
-                    <a style="padding-left:90px;" class="" href="../../esp-idf/basic/openocd/" id="Sử dụng OpenOCD">Sử dụng OpenOCD </a>
+                    <a style="padding-left:90px;" class="" href="../../basic/openocd/" id="Sử dụng OpenOCD">Sử dụng OpenOCD </a>
                 </li>
             
                 <li class="">
-                    <a style="padding-left:90px;" class="" href="../../esp-idf/basic/partition-tables/" id="Partition Tables">Partition Tables </a>
+                    <a style="padding-left:90px;" class="" href="../../basic/partition-tables/" id="Partition Tables">Partition Tables </a>
                 </li>
             
             </div>
         
-            <li class="">
-                <a style="padding-left:70px;" class=""  id="API tham khảo" onclick="showChildren('ESP32 ESP-IDFGiới thiệuCơ bảnAPI tham khảo')"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i>  API tham khảo </a>
+            <li class="current">
+                <a style="padding-left:70px;" class="current"  id="API tham khảo" onclick="showChildren('ESP32 ESP-IDFGiới thiệuCơ bảnAPI tham khảo')"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i>  API tham khảo </a>
                 <!--  -->
             </li>
             
             <div style="display:none" id="hidden_ESP32 ESP-IDFGiới thiệuCơ bảnAPI tham khảo">
             
-                <li class="">
-                    <a style="padding-left:90px;" class="" href="../../esp-idf/api/wifi/" id="WiFi">WiFi </a>
+                <li class="current">
+                    <a style="padding-left:90px;" class="current" href="./" id="WiFi">WiFi </a>
                 </li>
             
                 <li class="">
-                    <a style="padding-left:90px;" class="" href="../../esp-idf/api/bluetooth/" id="Bluetooth - BLE">Bluetooth - BLE </a>
+                    <a style="padding-left:90px;" class="" href="../bluetooth/" id="Bluetooth - BLE">Bluetooth - BLE </a>
                 </li>
             
                 <li class="">
-                    <a style="padding-left:90px;" class="" href="../../esp-idf/api/gpio/" id="GPIO">GPIO </a>
+                    <a style="padding-left:90px;" class="" href="../gpio/" id="GPIO">GPIO </a>
                 </li>
             
                 <li class="">
-                    <a style="padding-left:90px;" class="" href="../../esp-idf/api/logging/" id="Logging">Logging </a>
+                    <a style="padding-left:90px;" class="" href="../logging/" id="Logging">Logging </a>
                 </li>
             
                 <li class="">
-                    <a style="padding-left:90px;" class="" href="../../esp-idf/api/non-volatile-storage/" id="Non-Volatile Storage">Non-Volatile Storage </a>
+                    <a style="padding-left:90px;" class="" href="../non-volatile-storage/" id="Non-Volatile Storage">Non-Volatile Storage </a>
                 </li>
             
                 <li class="">
-                    <a style="padding-left:90px;" class="" href="../../esp-idf/api/virtual-filesystem/" id="Virtual Filesystem">Virtual Filesystem </a>
+                    <a style="padding-left:90px;" class="" href="../virtual-filesystem/" id="Virtual Filesystem">Virtual Filesystem </a>
                 </li>
             
             </div>
         
             <li class="">
-                <a style="padding-left:70px;" class="" href="../../esp-idf/freertos/tutorial/" id="FreeRTOS">  FreeRTOS </a>
+                <a style="padding-left:70px;" class="" href="../../freertos/tutorial/" id="FreeRTOS">  FreeRTOS </a>
                 <!--  -->
             </li>
             
@@ -217,7 +210,7 @@
           
             <li><ul class="subnav">
     <li class="">
-        <a class="" href="../../projects/project-list/" id="Các dự án" style="font-size:95%;font-weight:bold;">Các dự án</a>
+        <a class="" href="../../../projects/project-list/" id="Các dự án" style="font-size:95%;font-weight:bold;">Các dự án</a>
     </li>
     
     <li class="paddingtop20"></li>
@@ -226,7 +219,7 @@
           
             <li><ul class="subnav">
     <li class="">
-        <a class="" href="../../license/" id="Bản quyền" style="font-size:95%;font-weight:bold;">Bản quyền</a>
+        <a class="" href="../../../license/" id="Bản quyền" style="font-size:95%;font-weight:bold;">Bản quyền</a>
     </li>
     
     <li class="paddingtop20"></li>
@@ -235,7 +228,7 @@
           
             <li><ul class="subnav">
     <li class="">
-        <a class="" href="../../contributor/" id="Đóng góp" style="font-size:95%;font-weight:bold;">Đóng góp</a>
+        <a class="" href="../../../contributor/" id="Đóng góp" style="font-size:95%;font-weight:bold;">Đóng góp</a>
     </li>
     
     <li class="paddingtop20"></li>
@@ -252,7 +245,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">Internet Of Things (IoT) với ESP32</a>
+        <a href="../../..">Internet Of Things (IoT) với ESP32</a>
       </nav>
 
       
@@ -260,19 +253,19 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
+    <li><a href="../../..">Docs</a> &raquo;</li>
     
       
         
-          <li>Nội dung &raquo;</li>
+          <li>ESP32 ESP-IDF &raquo;</li>
         
       
         
-          <li>ESP32 Arduino &raquo;</li>
+          <li>API tham khảo &raquo;</li>
         
       
     
-    <li>Giới thiệu</li>
+    <li>WiFi</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -286,10 +279,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="arduino-core-cho-esp32-wifi-chip">Arduino core cho ESP32 WiFi chip<a class="headerlink" href="#arduino-core-cho-esp32-wifi-chip" title="Permanent link">#</a></h1>
-<p>Đây là một dự án mã nguồn mở giúp hỗ trợ môi trường phát triển Arduino cho ESP32. Giúp bạn có thể viết 1 Sketches sử dụng các thư viện và hàm tương tự của Arduino, có thể chạy trực tiếp trên ESP32 mà không cần bất kỳ Vi điều khiển nào khác.</p>
-<p>ESP32 Arduino core đi kèm với thư viện kết nối WiFi hỗ trợ TCP, UDP và các ứng dụng HTTP, mDNS, SSDP, DNS Servers. Ngoài ra còn có thể thực hiện cập nhật OTA, sử dụng Filesystem dùng bộ nhớ Flash hay thẻ SD, điều khiển servos, ngoại vi SPI, I2C.</p>
-<p>ESP32 Arduino hỗ trợ gần như tất cả các hàm/tính năng giống như ESP8266 Arduino, ngoài ra còn có thêm BLE, sử dụng bên trong ESP-IDF, thực thi các tác vụ của FreeRTOS</p>
+                <h1 id="wifi">WiFi<a class="headerlink" href="#wifi" title="Permanent link">#</a></h1>
               
             </div>
           </div>
@@ -297,10 +287,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../install/" class="btn btn-neutral float-right" title="Cài đặt">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../bluetooth/" class="btn btn-neutral float-right" title="Bluetooth - BLE">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../.." class="btn btn-neutral" title="Trang chủ"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../basic/partition-tables/" class="btn btn-neutral" title="Partition Tables"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -330,10 +320,10 @@
           <a href="https://github.com/esp32vn/esp32.vn" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../basic/partition-tables/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../install/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../bluetooth/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div> -->

@@ -83,13 +83,14 @@
     </li>
     
         <li class="">
-            <a style="padding-left:50px;" class=""  id="ESP32 Arduino" onclick="showChildren('ESP32 Arduino')">ESP32 Arduino  <i class="fa fa-arrow-circle-down" style="padding-left:5px;font-size:13px;"></i></a>
+            <a style="padding-left:50px;" class=""  id="ESP32 Arduino" onclick="showChildren('ESP32 Arduino')"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i> ESP32 Arduino</a>
         </li>
         
         <div style="display:none" id="hidden_ESP32 Arduino">
         
             <li class="">
-                <a style="padding-left:70px;" class="" href="../../../arduino/arduino/" id="Giới thiệu">Giới thiệu </a>
+                <a style="padding-left:70px;" class="" href="../../../arduino/arduino/" id="Giới thiệu">  Giới thiệu </a>
+                <!--  -->
             </li>
             
             <div style="display:none" id="hidden_ESP32 ArduinoGiới thiệu">
@@ -97,7 +98,8 @@
             </div>
         
             <li class="">
-                <a style="padding-left:70px;" class="" href="../../../arduino/install/" id="Cài đặt">Cài đặt </a>
+                <a style="padding-left:70px;" class="" href="../../../arduino/install/" id="Cài đặt">  Cài đặt </a>
+                <!--  -->
             </li>
             
             <div style="display:none" id="hidden_ESP32 ArduinoGiới thiệuCài đặt">
@@ -107,13 +109,14 @@
         </div>
     
         <li class="current">
-            <a style="padding-left:50px;" class="current"  id="ESP32 ESP-IDF" onclick="showChildren('ESP32 ESP-IDF')">ESP32 ESP-IDF  <i class="fa fa-arrow-circle-down" style="padding-left:5px;font-size:13px;"></i></a>
+            <a style="padding-left:50px;" class="current"  id="ESP32 ESP-IDF" onclick="showChildren('ESP32 ESP-IDF')"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i> ESP32 ESP-IDF</a>
         </li>
         
         <div style="display:none" id="hidden_ESP32 ESP-IDF">
         
             <li class="">
-                <a style="padding-left:70px;" class="" href="../../esp-idf/" id="Giới thiệu">Giới thiệu </a>
+                <a style="padding-left:70px;" class="" href="../../esp-idf/" id="Giới thiệu">  Giới thiệu </a>
+                <!--  -->
             </li>
             
             <div style="display:none" id="hidden_ESP32 ESP-IDFGiới thiệu">
@@ -121,7 +124,8 @@
             </div>
         
             <li class="">
-                <a style="padding-left:70px;" class=""  id="Cơ bản" onclick="showChildren('ESP32 ESP-IDFGiới thiệuCơ bản')">Cơ bản  <i class="fa fa-arrow-circle-down" style="padding-left:5px;font-size:13px;"></i></a>
+                <a style="padding-left:70px;" class=""  id="Cơ bản" onclick="showChildren('ESP32 ESP-IDFGiới thiệuCơ bản')"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i>  Cơ bản </a>
+                <!--  -->
             </li>
             
             <div style="display:none" id="hidden_ESP32 ESP-IDFGiới thiệuCơ bản">
@@ -156,11 +160,52 @@
             
             </div>
         
-            <li class="current">
-                <a style="padding-left:70px;" class="current" href="./" id="FreeRTOS">FreeRTOS </a>
+            <li class="">
+                <a style="padding-left:70px;" class=""  id="API tham khảo" onclick="showChildren('ESP32 ESP-IDFGiới thiệuCơ bảnAPI tham khảo')"> <i class="fa fa-plus-square" style="padding-left:5px;font-size:13px;"></i>  API tham khảo </a>
+                <!--  -->
             </li>
             
-            <div style="display:none" id="hidden_ESP32 ESP-IDFGiới thiệuCơ bảnFreeRTOS">
+            <div style="display:none" id="hidden_ESP32 ESP-IDFGiới thiệuCơ bảnAPI tham khảo">
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../../api/wifi/" id="WiFi">WiFi </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../../api/bluetooth/" id="Bluetooth - BLE">Bluetooth - BLE </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../../api/gpio/" id="GPIO">GPIO </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../../api/logging/" id="Logging">Logging </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../../api/non-volatile-storage/" id="Non-Volatile Storage">Non-Volatile Storage </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../../api/virtual-filesystem/" id="Virtual Filesystem">Virtual Filesystem </a>
+                </li>
+            
+            </div>
+        
+            <li class="current">
+                <a style="padding-left:70px;" class="current" href="./" id="FreeRTOS">  FreeRTOS </a>
+                <!-- 
+                    <ul>
+                    
+                        <li class="toctree-l3"><a href="#freertos-tutorial">FreeRTOS tutorial</a></li>
+                        
+                    
+                    </ul>
+                 -->
+            </li>
+            
+            <div style="display:none" id="hidden_ESP32 ESP-IDFGiới thiệuCơ bảnAPI tham khảoFreeRTOS">
             
             </div>
         
@@ -253,7 +298,7 @@
         <a href="../../../projects/project-list/" class="btn btn-neutral float-right" title="Các dự án">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../basic/partition-tables/" class="btn btn-neutral" title="Partition Tables"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../api/virtual-filesystem/" class="btn btn-neutral" title="Virtual Filesystem"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -283,7 +328,7 @@
           <a href="https://github.com/esp32vn/esp32.vn" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../basic/partition-tables/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../api/virtual-filesystem/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../../../projects/project-list/" style="color: #fcfcfc">Next &raquo;</a></span>
