@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Tuan PM">
+  
+  <title>Cài đặt cho Eclipse - Internet Of Things (IoT) với ESP32</title>
+  
+
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/highlight.css">
+
+  <link rel="stylesheet" href="../../../css/custom.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Cài đặt cho Eclipse";
+    var mkdocs_page_input_path = "esp-idf/basic/eclipse-setup.md";
+    var mkdocs_page_url = "/esp-idf/basic/eclipse-setup/";
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../../js/highlight.pack.js"></script>
+  <script src="../../../js/theme.js"></script>
+  <script src="../../../js/jquery.cookie-1.4.1.min.js"></script>
+  <script src="../../../js/nav.js"></script> 
+
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-60470603-7', 'esp32.vn');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> Internet Of Things (IoT) với ESP32</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li><ul class="subnav">
+    <li class="">
+        <a class="" href="../../.." id="Trang chủ" style="font-size:95%;font-weight:bold;">Trang chủ</a>
+    </li>
+    
+    <li class="paddingtop20"></li>
+</ul>
+<li>
+          
+            <li><ul class="subnav">
+    <li class="current">
+        <a class="current"  id="Nội dung" style="font-size:95%;font-weight:bold;">Nội dung</a>
+    </li>
+    
+        <li class="">
+            <a style="padding-left:50px;" class=""  id="ESP32 Arduino" onclick="showChildren('ESP32 Arduino')">ESP32 Arduino  <i class="fa fa-arrow-circle-down" style="padding-left:5px;font-size:13px;"></i></a>
+        </li>
+        
+        <div style="display:none" id="hidden_ESP32 Arduino">
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="../../../arduino/arduino/" id="Giới thiệu">Giới thiệu </a>
+            </li>
+            
+            <div style="display:none" id="hidden_ESP32 ArduinoGiới thiệu">
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="../../../arduino/install/" id="Cài đặt">Cài đặt </a>
+            </li>
+            
+            <div style="display:none" id="hidden_ESP32 ArduinoGiới thiệuCài đặt">
+            
+            </div>
+        
+        </div>
+    
+        <li class="current">
+            <a style="padding-left:50px;" class="current"  id="ESP32 ESP-IDF" onclick="showChildren('ESP32 ESP-IDF')">ESP32 ESP-IDF  <i class="fa fa-arrow-circle-down" style="padding-left:5px;font-size:13px;"></i></a>
+        </li>
+        
+        <div style="display:none" id="hidden_ESP32 ESP-IDF">
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="../../esp-idf/" id="Giới thiệu">Giới thiệu </a>
+            </li>
+            
+            <div style="display:none" id="hidden_ESP32 ESP-IDFGiới thiệu">
+            
+            </div>
+        
+            <li class="current">
+                <a style="padding-left:70px;" class="current"  id="Cơ bản" onclick="showChildren('ESP32 ESP-IDFGiới thiệuCơ bản')">Cơ bản  <i class="fa fa-arrow-circle-down" style="padding-left:5px;font-size:13px;"></i></a>
+            </li>
+            
+            <div style="display:none" id="hidden_ESP32 ESP-IDFGiới thiệuCơ bản">
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../build-system/" id="Hệ thống biên dịch">Hệ thống biên dịch </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../install-windows/" id="Cài đặt cho Windows">Cài đặt cho Windows </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../install-macos/" id="Cài đặt cho MacOS">Cài đặt cho MacOS </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../install-linux/" id="Cài đặt cho Linux">Cài đặt cho Linux </a>
+                </li>
+            
+                <li class="current">
+                    <a style="padding-left:90px;" class="current" href="./" id="Cài đặt cho Eclipse">Cài đặt cho Eclipse </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../openocd/" id="Sử dụng OpenOCD">Sử dụng OpenOCD </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../partition-tables/" id="Partition Tables">Partition Tables </a>
+                </li>
+            
+            </div>
+        
+        </div>
+    
+    <li class="paddingtop20"></li>
+</ul>
+<li>
+          
+            <li><ul class="subnav">
+    <li class="">
+        <a class="" href="../../../projects/project-list/" id="Các dự án" style="font-size:95%;font-weight:bold;">Các dự án</a>
+    </li>
+    
+    <li class="paddingtop20"></li>
+</ul>
+<li>
+          
+            <li><ul class="subnav">
+    <li class="">
+        <a class="" href="../../../license/" id="Bản quyền" style="font-size:95%;font-weight:bold;">Bản quyền</a>
+    </li>
+    
+    <li class="paddingtop20"></li>
+</ul>
+<li>
+          
+            <li><ul class="subnav">
+    <li class="">
+        <a class="" href="../../../contributor/" id="Đóng góp" style="font-size:95%;font-weight:bold;">Đóng góp</a>
+    </li>
+    
+    <li class="paddingtop20"></li>
+</ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">Internet Of Things (IoT) với ESP32</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>ESP32 ESP-IDF &raquo;</li>
+        
+      
+        
+          <li>Cơ bản &raquo;</li>
+        
+      
+    
+    <li>Cài đặt cho Eclipse</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/esp32vn/esp32.vn" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="installing-eclipse-ide">Installing Eclipse IDE<a class="headerlink" href="#installing-eclipse-ide" title="Permanent link">#</a></h1>
+<p>The Eclipse IDE gives you a graphical integrated development environment for writing, compiling and debugging ESP-IDF projects.</p>
+<ul>
+<li>
+<p>Start by installing the esp-idf for your platform (see files in this directory with steps for Windows, OS X, Linux).</p>
+</li>
+<li>
+<p>Download the Eclipse Installer for your platform from eclipse.org_.</p>
+</li>
+<li>
+<p>When running the Eclipse Installer, choose &ldquo;Eclipse for C/C++ Development&rdquo; (in other places you&rsquo;ll see this referred to as CDT.)</p>
+</li>
+</ul>
+<h1 id="setting-up-eclipse">Setting up Eclipse<a class="headerlink" href="#setting-up-eclipse" title="Permanent link">#</a></h1>
+<p>Once your new Eclipse installation launches, follow these steps:</p>
+<h2 id="import-new-project">Import New Project<a class="headerlink" href="#import-new-project" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p>Eclipse makes use of the Makefile support in ESP-IDF. This means you need to start by creating an ESP-IDF project. You can use the skeleton project from github.</p>
+</li>
+<li>
+<p>Once Eclipse is running, choose File -&gt; Import&hellip;</p>
+</li>
+<li>
+<p>In the dialog that pops up, choose &ldquo;C/C++&rdquo; -&gt; &ldquo;Existing Code as Makefile Project&rdquo; and click Next.</p>
+</li>
+<li>
+<p>On the next page, enter &ldquo;Existing Code Location&rdquo; to be the directory of your IDF project. Don&rsquo;t specify the path to the ESP-IDF directory itself.</p>
+</li>
+<li>
+<p>On the same page, under &ldquo;Toolchain for Indexer Settings&rdquo; choose &ldquo;Cross GCC&rdquo;. Then click Finish.</p>
+</li>
+</ul>
+<h2 id="project-properties">Project Properties<a class="headerlink" href="#project-properties" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p>The new project will appear under Project Explorer. Right-click the project and choose Properties from the context menu.</p>
+</li>
+<li>
+<p>Click on the &ldquo;Environment&rdquo; properties page under &ldquo;C/C++ Build&rdquo;. Click &ldquo;Add&hellip;&rdquo; and enter name <code>V</code> and value <code>1</code>.</p>
+</li>
+<li>
+<p>Click &ldquo;Add&hellip;&rdquo; again, and enter name <code>IDF_PATH</code>. The value should be the full path where ESP-IDF is installed. <em>Windows users: Use forward-slashes not backslashes for this path, ie C:/Users/MyUser/Development/esp-idf</em>.</p>
+</li>
+</ul>
+<p><em>Windows users only, follow these two additional steps:</em></p>
+<ul>
+<li>
+<p>On the same Environment property page, edit the PATH environment variable. Delete the existing value and replace it with <code>C:\msys32\usr\bin;C:\msys32\mingw32\bin;C:\msys32\opt\xtensa-esp32-elf\bin</code> (If you installed msys32 to a different directory then you&rsquo;ll need to change these paths to match).</p>
+</li>
+<li>
+<p>Click on the &ldquo;C/C++ Build&rdquo; top-level properties page then uncheck &ldquo;Use default build command&rdquo; and enter this for the custom build command: <code>bash ${IDF_PATH}/tools/windows/eclipse_make.sh</code>.</p>
+</li>
+</ul>
+<p><em>All users, continue with these steps:</em></p>
+<p>Navigate to &ldquo;C/C++ General&rdquo; -&gt; &ldquo;Preprocessor Include Paths&rdquo; property page:</p>
+<ul>
+<li>
+<p>Click the &ldquo;Providers&rdquo; tab</p>
+</li>
+<li>
+<p>In the list of providers, click &ldquo;CDT Cross GCC Built-in Compiler Settings&rdquo;. Under &ldquo;Command to get compiler specs&rdquo;, replace the text <code>${COMMAND}</code> at the beginning of the line with <code>xtensa-esp32-elf-gcc</code>. This means the full &ldquo;Command to get compiler specs&rdquo; should be <code>xtensa-esp32-elf-gcc ${FLAGS} -E -P -v -dD "${INPUTS}"</code>.</p>
+</li>
+<li>
+<p>In the list of providers, click &ldquo;CDT GCC Build Output Parser&rdquo; and type <code>xtensa-esp32-elf-</code> at the beginning of the Compiler command pattern. This means the full Compiler command pattern should be <code>xtensa-esp32-elf-(g?cc)|([gc]\+\+)|(clang)</code></p>
+</li>
+<li>
+<p>Click OK to close the Properties dialog, and choose Project -&gt; Build to build your project.</p>
+</li>
+</ul>
+<h2 id="flash-from-eclipse">Flash from Eclipse<a class="headerlink" href="#flash-from-eclipse" title="Permanent link">#</a></h2>
+<p>You can integrate the &ldquo;make flash&rdquo; target into your Eclipse project to flash using esptool.py from the Eclipse UI:</p>
+<ul>
+<li>
+<p>Right-click your project in Project Explorer (important to make sure you select the project, not a directory in the project, or Eclipse may find the wrong Makefile.)</p>
+</li>
+<li>
+<p>Select Make Targets -&gt; Create from the context menu.</p>
+</li>
+<li>
+<p>Type &ldquo;flash&rdquo; as the target name. Leave the other options as their defaults.</p>
+</li>
+<li>
+<p>Now you can use Project -&gt; Make Target -&gt; Build (Shift+F9) to build the custom flash target, which will compile and flash the project.</p>
+</li>
+</ul>
+<p>Note that you will need to use &ldquo;make menuconfig&rdquo; to set the serial port and other config options for flashing. &ldquo;make menuconfig&rdquo; still requires a command line terminal (see the instructions for your platform.)</p>
+<p>Follow the same steps to add <code>bootloader</code> and <code>partition_table</code> targets, if necessary.</p>
+<p>.. _eclipse.org: http://www.eclipse.org/</p>
+<h2 id="eclipse-troubleshooting">Eclipse Troubleshooting<a class="headerlink" href="#eclipse-troubleshooting" title="Permanent link">#</a></h2>
+<ul>
+<li><code>*** Make was invoked from ... However please do not run make from the sdk or a component directory; ...</code> - Eclipse will detect any directory with a Makefile in it as being a possible directory to run &ldquo;make&rdquo; in. All component directories also contain a Makefile (the wrong one), so it is important when using Project -&gt; Make Target to always select the top-level project directory in Project Explorer.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../openocd/" class="btn btn-neutral float-right" title="Sử dụng OpenOCD">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../install-linux/" class="btn btn-neutral" title="Cài đặt cho Linux"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2016 <a href="https://esp32.vn">ESP32 Việt Nam</a></p>
+    
+  </div>
+
+  
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<!-- <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/esp32vn/esp32.vn" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../install-linux/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../openocd/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div> -->
+
+<script type="text/javascript">
+  // If cookie is defined toggle the id
+  if (typeof $.cookie('docToggle') !== 'undefined') {
+      // Parse cookie which is an array
+      var _parsed_cookie = JSON.parse($.cookie('docToggle'));
+      // Loop over array and show hidden divs
+      $.each(_parsed_cookie, function(index, value) {
+          // Toggle
+          $("[id='hidden_" + value + "']").css('display','');
+      })
+  }
+</script>
+
+</body>
+</html>

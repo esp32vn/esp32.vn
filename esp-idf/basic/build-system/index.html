@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Tuan PM">
+  
+  <title>Hệ thống biên dịch - Internet Of Things (IoT) với ESP32</title>
+  
+
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/highlight.css">
+
+  <link rel="stylesheet" href="../../../css/custom.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Hệ thống biên dịch";
+    var mkdocs_page_input_path = "esp-idf/basic/build-system.md";
+    var mkdocs_page_url = "/esp-idf/basic/build-system/";
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../../js/highlight.pack.js"></script>
+  <script src="../../../js/theme.js"></script>
+  <script src="../../../js/jquery.cookie-1.4.1.min.js"></script>
+  <script src="../../../js/nav.js"></script> 
+
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-60470603-7', 'esp32.vn');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> Internet Of Things (IoT) với ESP32</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li><ul class="subnav">
+    <li class="">
+        <a class="" href="../../.." id="Trang chủ" style="font-size:95%;font-weight:bold;">Trang chủ</a>
+    </li>
+    
+    <li class="paddingtop20"></li>
+</ul>
+<li>
+          
+            <li><ul class="subnav">
+    <li class="current">
+        <a class="current"  id="Nội dung" style="font-size:95%;font-weight:bold;">Nội dung</a>
+    </li>
+    
+        <li class="">
+            <a style="padding-left:50px;" class=""  id="ESP32 Arduino" onclick="showChildren('ESP32 Arduino')">ESP32 Arduino  <i class="fa fa-arrow-circle-down" style="padding-left:5px;font-size:13px;"></i></a>
+        </li>
+        
+        <div style="display:none" id="hidden_ESP32 Arduino">
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="../../../arduino/arduino/" id="Giới thiệu">Giới thiệu </a>
+            </li>
+            
+            <div style="display:none" id="hidden_ESP32 ArduinoGiới thiệu">
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="../../../arduino/install/" id="Cài đặt">Cài đặt </a>
+            </li>
+            
+            <div style="display:none" id="hidden_ESP32 ArduinoGiới thiệuCài đặt">
+            
+            </div>
+        
+        </div>
+    
+        <li class="current">
+            <a style="padding-left:50px;" class="current"  id="ESP32 ESP-IDF" onclick="showChildren('ESP32 ESP-IDF')">ESP32 ESP-IDF  <i class="fa fa-arrow-circle-down" style="padding-left:5px;font-size:13px;"></i></a>
+        </li>
+        
+        <div style="display:none" id="hidden_ESP32 ESP-IDF">
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="../../esp-idf/" id="Giới thiệu">Giới thiệu </a>
+            </li>
+            
+            <div style="display:none" id="hidden_ESP32 ESP-IDFGiới thiệu">
+            
+            </div>
+        
+            <li class="current">
+                <a style="padding-left:70px;" class="current"  id="Cơ bản" onclick="showChildren('ESP32 ESP-IDFGiới thiệuCơ bản')">Cơ bản  <i class="fa fa-arrow-circle-down" style="padding-left:5px;font-size:13px;"></i></a>
+            </li>
+            
+            <div style="display:none" id="hidden_ESP32 ESP-IDFGiới thiệuCơ bản">
+            
+                <li class="current">
+                    <a style="padding-left:90px;" class="current" href="./" id="Hệ thống biên dịch">Hệ thống biên dịch </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../install-windows/" id="Cài đặt cho Windows">Cài đặt cho Windows </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../install-macos/" id="Cài đặt cho MacOS">Cài đặt cho MacOS </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../install-linux/" id="Cài đặt cho Linux">Cài đặt cho Linux </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../eclipse-setup/" id="Cài đặt cho Eclipse">Cài đặt cho Eclipse </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../openocd/" id="Sử dụng OpenOCD">Sử dụng OpenOCD </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../partition-tables/" id="Partition Tables">Partition Tables </a>
+                </li>
+            
+            </div>
+        
+        </div>
+    
+    <li class="paddingtop20"></li>
+</ul>
+<li>
+          
+            <li><ul class="subnav">
+    <li class="">
+        <a class="" href="../../../projects/project-list/" id="Các dự án" style="font-size:95%;font-weight:bold;">Các dự án</a>
+    </li>
+    
+    <li class="paddingtop20"></li>
+</ul>
+<li>
+          
+            <li><ul class="subnav">
+    <li class="">
+        <a class="" href="../../../license/" id="Bản quyền" style="font-size:95%;font-weight:bold;">Bản quyền</a>
+    </li>
+    
+    <li class="paddingtop20"></li>
+</ul>
+<li>
+          
+            <li><ul class="subnav">
+    <li class="">
+        <a class="" href="../../../contributor/" id="Đóng góp" style="font-size:95%;font-weight:bold;">Đóng góp</a>
+    </li>
+    
+    <li class="paddingtop20"></li>
+</ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">Internet Of Things (IoT) với ESP32</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>ESP32 ESP-IDF &raquo;</li>
+        
+      
+        
+          <li>Cơ bản &raquo;</li>
+        
+      
+    
+    <li>Hệ thống biên dịch</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/esp32vn/esp32.vn" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="he-thong-bien-dich-cho-esp-idf">Hệ thống biên dịch cho ESP-IDF<a class="headerlink" href="#he-thong-bien-dich-cho-esp-idf" title="Permanent link">#</a></h1>
+<p>Nội dung tài liệu này giải thích cách thức biên dịch cho Espressif IoT Development Framework và nguyên lý làm việc của &ldquo;components&rdquo;</p>
+<p>Đọc tài liệu này nếu bạn muốn biết làm thế nào để tổ chức một dự án <strong>ESP-IDF</strong> mới</p>
+<p>Bạn nên xem qua dự án mẫu <a href="https://github.com/espressif/esp-idf-template">esp-idf-template</a> để có cái nhìn khởi đầu tốt hơn.</p>
+<h2 id="tong-quan">Tổng quan<a class="headerlink" href="#tong-quan" title="Permanent link">#</a></h2>
+<p>Một dự án <strong>ESP-IDF</strong> có thể hỗn hợp nhiều &ldquo;components&rdquo;. Ví dụ: với 1 Web Server hiển thị độ ẩm hiện tại, chúng ta cần: </p>
+<ul>
+<li>Thư viện cơ bản cho ESP32 (libc, rom bindings v.v..)</li>
+<li>WiFi drivers</li>
+<li>TCP/IP stack</li>
+<li>Hệ điều hành FreeRTOS</li>
+<li>Một webserver</li>
+<li>Một driver cho cảm biến độ ẩm</li>
+<li>Chương trình chính để ghép nối tất cả</li>
+</ul>
+<p><strong>ESP-IDF</strong> làm cho các &ldquo;component&rdquo; rõ ràng và dễ dàng cấu hình. Để làm được điều đó, khi một dự án được biên soạn, môi trường biên dịch sẽ tìm tất cả các thành phần trong thư mục <strong>ESP-IDF</strong>, các thư mục dự án và thông tin cấu hình của mỗi component. Nó cho phép người sử dụng có thể cấu hình mỗi lần biên dịch sử dụng hệ thống menu dựa trên văn bản thân thiện để tùy chỉnh ESP-IDF cũng như các thành phần khác được yêu cầu bởi dự án. Sau khi các component được tùy biến, tiến trình biên dịch sẽ biên dịch tất cả mọi thứ vào một tập tin cuối cùng, để có thể được nạp vào bảng mạch ESP32.</p>
+<p>Một dự án như đã nói trên được định nghĩa như là một thư mục, theo đó yêu cầu tất cả các tập tin như hệ thống thư mục bên dưới không bao gồm các tập tin của ESP-IDF và toolchain. Một dự án đơn giản trông như sau:</p>
+<pre><code>myProject/
+  |--build/
+  |--components/ 
+  |   |-- component1/ 
+  |   |     |-- component.mk
+  |   |     |-- Kconfig
+  |   |     |-- src1.c
+  |   |-- component2/ 
+  |   |     |-- component.mk
+  |   |     |-- Kconfig
+  |   |     |-- src1.c
+  |-- main/       
+      |-- src1.c
+      |-- src2.c
+      `-- Makefile
+</code></pre>
+
+<p>Như đã thấy, một dự án có một thư mục con <code>components/</code> bao gồm các <code>components</code> chứa đựng trong 1 hoặc nhiều thư mục và các tập tin mã nguồn cho dự án, mặc định, là thư mục <code>main</code>. Dự án cũng có cả <code>Makefile</code>, chứa thông tin tên dự án cũng như các tùy chọn biên dịch. Sau khi biên dịch, dự án sẽ bao gồm thư mục <code>build</code> bao gồm tất cả các object, thư viện được biên dịch ra, bao gồm cả file binary thành phẩm cuối cùng.</p>
+<p>Mỗi component sẽ có 1 <code>Makefile</code> gọi là <code>component.mk</code> chứa đựng một số định nghĩa biên dịch cho component đó, bao gồm tiến trình biên dịch. Component cũng có thể bao gồm <code>Kconfig</code> file, định nghĩa những tùy chọn cho mỗi lần biên dịch, có thẻ cấu hình với hệ thống Menu (<code>make menuconfig</code>)</p>
+<p>Các biến chứa trong <code>Makefile</code> cho dự án có thể được set bởi lập trình viên:</p>
+<ul>
+<li><code>PROJECT_NAME</code>: Bắt buộc. Tên của dự án</li>
+<li><code>BUILD_DIR_BASE</code>: Thư mục chứa tất cả các object, thư viện, binary được biên dịch ra. Mặc định <code>$(PROJECT_PATH)/build</code></li>
+<li><code>COMPONENT_DIRS</code>: Thư mục hệ thống bien dịch sẽ tìm kiếm các component. Mặc định <code>component/</code> trong dự án ESP-IDF</li>
+<li><code>COMPONENTS</code>: Danh sách các tên component sẽ biên dịch, mặc định là tất cả các thư mục có chứa file <code>component.mk</code> bên dưới thư mục <code>COMPONENT_DIRS</code></li>
+<li><code>EXTRA_COMPONENT_DIRS</code>: Mặc định không được cấu hình, sử dụng để thêm thư mục chứa component, cùng với <code>COMPONENT_DIRS</code>.</li>
+<li><code>SRCDIRS</code>: Thư mục bên dưới thư mục dự án chứa mã nguồn, mặc định là thư mục <code>main</code> </li>
+</ul>
+<p>Các biến có trong <code>component.mk</code> có thể được cấu hình bởi lập trình viên:</p>
+<ul>
+<li><code>COMPONENT_ADD_INCLUDEDIRS</code>: Relative path to include directories to be added to the entire project. If an include directory is only needed to compile this specific component, don&rsquo;t add it here.</li>
+<li><code>COMPONENT_PRIV_INCLUDEDIRS</code>: Relative path to include directories that are only used when compiling this specific component.
+<code>COMPONENT_DEPENDS</code>: Names of any components that need to be compiled before this component.</li>
+<li><code>COMPONENT_ADD_LDFLAGS</code>: LD flags to add for the entire project. Defaults to -l$(COMPONENT_NAME). Add libraries etc in the current directory as $(abspath libwhatever.a)</li>
+<li><code>COMPONENT_EXTRA_INCLUDES</code>: Any extra include paths used when compiling the component&rsquo;s source files. These will be prefixed with &lsquo;-I&rsquo; and passed to the compiler. Similar to COMPONENT_PRIV_INCLUDEDIRS, but these paths are passed as-is instead of expanded relative to the component directory.</li>
+<li><code>COMPONENT_SRCDIRS</code>: Relative directories to look in for sources. Defaults to &lsquo;.&rsquo;, the current directory (the root of the component) only. Use this to specify any subdirectories. Note that specifying this overwrites the default action of compiling everything in the components root dir; to keep this behaviour please also add &lsquo;.&rsquo; as a directory in thislist.</li>
+<li><code>COMPONENT_OBJS</code>: Object files to compile. Defaults to the .o variants of all .c and .S files that are found in COMPONENT_SRCDIRS.</li>
+<li><code>COMPONENT_EXTRA_CLEAN</code>: Files that are generated using rules in the components Makefile that also need to be cleaned</li>
+<li><code>COMPONENT_BUILDRECIPE</code>: Recipe to build the component. Optional. Defaults to building all COMPONENT_OBJS and linking them into lib(componentname).a</li>
+<li><code>COMPONENT_CLEANRECIPE</code>: Recipe to clean the component. Optional. Defaults to removing all built objects and libraries.</li>
+<li><code>COMPONENT_BUILD_DIR</code>: Equals the cwd of the component build, which is the build dir of the component (where all the .o etc files should be created).</li>
+</ul>
+<p>These variables are already set early on in the Makefile and the values in it will
+be usable in component or project Makefiles::</p>
+<pre><code>CC, LD, AR, OBJCOPY: Xtensa gcc tools
+HOSTCC, HOSTLD etc: Host gcc tools
+LDFLAGS, CFLAGS: Set to usable values as defined in ESP-IDF Makefile
+PROJECT_NAME: Name of the project, as set in project makefile
+PROJECT_PATH: Path to the root of the project folder
+COMPONENTS: Name of the components to be included
+CONFIG_*: All values set by 'make menuconfig' have corresponding Makefile variables.
+</code></pre>
+<p>Inside your component&rsquo;s component.mk makefile, you can override or add to these variables
+as necessary. The changes are isolated from other components (see Makefile.projbuild below
+if you want to share these changes with all other components.)</p>
+<p>For components, there also are these defines::</p>
+<pre><code>COMPONENT_PATH: Absolute path to the root of the source tree of the component we're
+    compiling
+COMPONENT_LIBRARY: The full path to the static library the components compilation pass
+    is supposed to generate
+</code></pre>
+<h2 id="make-process">Make Process<a class="headerlink" href="#make-process" title="Permanent link">#</a></h2>
+<p>The Make process is always invoked from the project directory by the
+user; invoking it anywhere else gives an error. This is what happens if
+we build a binary:</p>
+<p>The Makefile first determines how it was included. It figures out
+various paths as well as the components available to it. It will also
+collect the ldflags and includes that the components specify they need.
+It does this by running a dummy make on the components with a &ldquo;get_variable&rdquo;
+target that will output these values.</p>
+<p>The Makefile will then create targets to build the lib*.a libraries of
+all components and make the elf target depend on this. The main Makefile
+invokes Make on the componen.mk of each components inside a sub-mke: this way
+the components have full freedom to do whatever is necessary to build
+the library without influencing other components. By default, the
+component.mk includes the utility makefile $(IDF_PATH)/make/component_common.mk.
+This provides default targets and configurations that will work
+out-of-the-box for most projects.</p>
+<h2 id="kconfig">KConfig<a class="headerlink" href="#kconfig" title="Permanent link">#</a></h2>
+<p>Each component can also have a Kconfig file, alongside the component.mk, that contains
+details to add to &ldquo;menuconfig&rdquo; for this component.</p>
+<h2 id="makefileprojbuild">Makefile.projbuild<a class="headerlink" href="#makefileprojbuild" title="Permanent link">#</a></h2>
+<p>For components that have parts that need to be evaluated in the top-level
+project context, you can create a file called Makefile.projbuild in the
+component root directory. These files is included into the project&rsquo;s
+top-level Makefile.</p>
+<p>For example, if your component needs to add to CFLAGS for the entire
+project (not just for its own source files) then you can set
+<code>CFLAGS +=</code> in Makefile.projbuild. Note that this isn&rsquo;t necessary for
+adding include directories to the project, you can set
+<code>COMPONENT_ADD_INCLUDEDIRS</code> (see above) in the component.mk.</p>
+<h2 id="kconfigprojbuild">KConfig.projbuild<a class="headerlink" href="#kconfigprojbuild" title="Permanent link">#</a></h2>
+<p>There&rsquo;s an equivalent to Makefile.projbuild for KConfig: if you want to include
+options at the top-level, not inside the &lsquo;components&rsquo; submenu then create a Kconfig.projbuild and
+it will be included in the main menu of menuconfig.</p>
+<p>Take good care when (re)defining stuff here: because it&rsquo;s included with all the other
+.projbuild files, it&rsquo;s possible to overwrite variables or re-declare targets defined in
+the ESP-IDF makefile/Kconfig and other .projbuild files. It&rsquo;s generally better to just
+create a KConfig file, if you can.</p>
+<h2 id="writing-component-makefiles">Writing Component Makefiles<a class="headerlink" href="#writing-component-makefiles" title="Permanent link">#</a></h2>
+<p>A component consists of a directory which doubles as the name for the
+component: a component named &lsquo;httpd&rsquo; lives in a directory called &lsquo;httpd&rsquo;
+Because components usually live under the project directory (although
+they can also reside in an other folder), the path to this may be
+something like  /home/myuser/projects/myprojects/components/httpd .</p>
+<p>Components can have any name (unique to the project) but the name
+cannot contain spaces (esp-idf does not support spaces in paths).</p>
+<p>One of the things that most components will have is a component.mk makefile,
+containing instructions on how to build the component. Because the
+build environment tries to set reasonable defaults that will work most
+of the time, component.mk can be very small.</p>
+<h1 id="simplest-componentmk">Simplest component.mk<a class="headerlink" href="#simplest-componentmk" title="Permanent link">#</a></h1>
+<p>At the  minimum, component.mk will just include the ESP-IDF component &ldquo;common&rdquo; makefile,
+which adds common component functionality::</p>
+<pre><code>include $(IDF_PATH)/make/component_common.mk
+</code></pre>
+<p>This will take all the .c and .S files in the component root and compile
+them into  object files, finally linking them into a library.</p>
+<h1 id="adding-source-directories">Adding source directories<a class="headerlink" href="#adding-source-directories" title="Permanent link">#</a></h1>
+<p>By default, subdirectories are ignored. If your project has sources in subdirectories
+instead of in the root of the component then you can tell that to the build
+system by setting COMPONENT_SRCDIRS::</p>
+<pre><code>COMPONENT_SRCDIRS := src1 src2
+include $(IDF_PATH)/make/component_common.mk
+</code></pre>
+<p>This will compile all source files in the src1/ and src2/ subdirectories
+instead.</p>
+<h1 id="specifying-source-files">Specifying source files<a class="headerlink" href="#specifying-source-files" title="Permanent link">#</a></h1>
+<p>The standard component.mk logic adds all .S and .c files in the source
+directories as sources to be compiled unconditionally. It is possible
+to circumvent that logic and hardcode the objects to be compiled by
+manually setting the COMPONENT_OBJS variable to the name of the
+objects that need to be generated::</p>
+<pre><code>COMPONENT_OBJS := file1.o file2.o thing/filea.o thing/fileb.o anotherthing/main.o
+include $(IDF_PATH)/make/component_common.mk
+</code></pre>
+<h1 id="adding-conditional-configuration">Adding conditional configuration<a class="headerlink" href="#adding-conditional-configuration" title="Permanent link">#</a></h1>
+<p>The configuration system can be used to conditionally compile some files
+dependending on the options selected in <code>make menuconfig</code>:</p>
+<p>Kconfig::
+    config FOO_ENABLE_BAR
+        bool &ldquo;Enable the BAR feature.&rdquo;
+        help
+            This enables the BAR feature of the FOO component.</p>
+<p>Makefile::
+    COMPONENT_OBJS := foo_a.o foo_b.o $(if $(CONFIG_FOO_ENABLE_BAR),foo_bar.o foo_bar_interface.o)
+    include $(IDF_PATH)/make/component_common.mk</p>
+<h1 id="source-code-generation">Source Code Generation<a class="headerlink" href="#source-code-generation" title="Permanent link">#</a></h1>
+<p>Some components will have a situation where a source file isn&rsquo;t supplied
+with the  component itself but has to be generated from another file. Say
+our component has a header file that consists of the converted binary
+data of a BMP file, converted using a hypothetical tool called bmp2h. The
+header file is then included in as C source file called graphics_lib.c::</p>
+<pre><code>COMPONENT_EXTRA_CLEAN := logo.h
+
+graphics_lib.o: logo.h
+
+logo.h: $(COMPONENT_PATH)/logo.bmp
+    bmp2h -i $^ -o $@
+
+include $(IDF_PATH)/make/component_common.mk
+</code></pre>
+<p>In this example, graphics_lib.o and logo.h will be generated in the
+current directory (the build directory) while logo.bmp comes with the
+component and resides under the component path. Because logo.h is a
+generated file, it needs to be cleaned when make clean is called which
+why it is added to the COMPONENT_EXTRA_CLEAN variable.</p>
+<h1 id="cosmetic-improvements">Cosmetic Improvements<a class="headerlink" href="#cosmetic-improvements" title="Permanent link">#</a></h1>
+<p>The above example will work just fine, but there&rsquo;s one last cosmetic
+improvement that can be done. The make system tries to make the make
+process somewhat easier on the  eyes by hiding the commands (unless you
+run make with the V=1 switch) and this does  not do that yet. Here&rsquo;s an
+improved version that will output in the same style as  the rest of the
+make process::</p>
+<p>COMPONENT_EXTRA_CLEAN := test_tjpgd_logo.h</p>
+<p>graphics_lib.o: logo.h</p>
+<pre><code>logo.h: $(COMPONENT_PATH)/logo.bmp
+    $(summary) BMP2H $@
+    $(Q) bmp2h -i $^ -o $@
+
+include $(IDF_PATH)/make/component_common.mk
+</code></pre>
+<h2 id="fully-overriding-the-component-makefile">Fully Overriding The Component Makefile<a class="headerlink" href="#fully-overriding-the-component-makefile" title="Permanent link">#</a></h2>
+<p>Obviously, there are cases where all these recipes are insufficient for a
+certain component, for example when the component is basically a wrapper
+around another third-party component not originally intended to be
+compiled under this build system. In that case, it&rsquo;s possible to forego
+the build  system entirely by setting COMPONENT_OWNBUILDTARGET and
+possibly  COMPONENT_OWNCLEANTARGET and defining your own build- and clean
+target. The build target can do anything as long as it creates
+$(COMPONENT_LIBRARY) for the main file to link into the project binary,
+and even that is not necessary: if the COMPONENT_ADD_LDFLAGS variable
+is set, the component can instruct the linker to do anything else as well.</p>
+<p>.. _esp-idf-template: https://github.com/espressif/esp-idf-template</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../install-windows/" class="btn btn-neutral float-right" title="Cài đặt cho Windows">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../esp-idf/" class="btn btn-neutral" title="Giới thiệu"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2016 <a href="https://esp32.vn">ESP32 Việt Nam</a></p>
+    
+  </div>
+
+  
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<!-- <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/esp32vn/esp32.vn" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../esp-idf/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../install-windows/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div> -->
+
+<script type="text/javascript">
+  // If cookie is defined toggle the id
+  if (typeof $.cookie('docToggle') !== 'undefined') {
+      // Parse cookie which is an array
+      var _parsed_cookie = JSON.parse($.cookie('docToggle'));
+      // Loop over array and show hidden divs
+      $.each(_parsed_cookie, function(index, value) {
+          // Toggle
+          $("[id='hidden_" + value + "']").css('display','');
+      })
+  }
+</script>
+
+</body>
+</html>

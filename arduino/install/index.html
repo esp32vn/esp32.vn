@@ -120,6 +120,42 @@
             
             </div>
         
+            <li class="">
+                <a style="padding-left:70px;" class=""  id="Cơ bản" onclick="showChildren('ESP32 ESP-IDFGiới thiệuCơ bản')">Cơ bản  <i class="fa fa-arrow-circle-down" style="padding-left:5px;font-size:13px;"></i></a>
+            </li>
+            
+            <div style="display:none" id="hidden_ESP32 ESP-IDFGiới thiệuCơ bản">
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../../esp-idf/basic/build-system/" id="Hệ thống biên dịch">Hệ thống biên dịch </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../../esp-idf/basic/install-windows/" id="Cài đặt cho Windows">Cài đặt cho Windows </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../../esp-idf/basic/install-macos/" id="Cài đặt cho MacOS">Cài đặt cho MacOS </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../../esp-idf/basic/install-linux/" id="Cài đặt cho Linux">Cài đặt cho Linux </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../../esp-idf/basic/eclipse-setup/" id="Cài đặt cho Eclipse">Cài đặt cho Eclipse </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../../esp-idf/basic/openocd/" id="Sử dụng OpenOCD">Sử dụng OpenOCD </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../../esp-idf/basic/partition-tables/" id="Partition Tables">Partition Tables </a>
+                </li>
+            
+            </div>
+        
         </div>
     
     <li class="paddingtop20"></li>
@@ -213,14 +249,14 @@
 <li>Mở <code>console</code> và cd đến thư mục Arduino. Nó có thể là thư mục <em>sketchbook</em> (thường là <code>&lt;Documents&gt;/Arduino</code>), hay thư mục của Ứng dụng Arduino, tùy bạn chọn.</li>
 <li>Clone repository này đến thư mục <code>hardware/espressif/esp32</code>. Hoặc bạn có thể clone vào nơi nào đó và tạo symlink bằng <code>ln -s</code>, nếu Hệ điều hành hỗ trợ.</li>
 </ul>
-<pre class="code"><code class="language-bash">cd hardware
+<pre><code class="bash">cd hardware
 mkdir espressif
 cd espressif
-git clone https://github.com/espressif/arduino-esp32.git esp32</code></pre>
-
+git clone https://github.com/espressif/arduino-esp32.git esp32
+</code></pre>
 
 <p>Cấu trúc dự án sau khi bạn thực hiện xong:</p>
-<pre class="code"><code class="language-bash">Arduino
+<pre><code class="bash">Arduino
     |- hardware
     |- espressif
         |- esp32
@@ -236,15 +272,15 @@ git clone https://github.com/espressif/arduino-esp32.git esp32</code></pre>
             |- programmers.txt
             |- README.md
             |- boards.txt
-            `- LICENSE</code></pre>
-
+            `- LICENSE
+</code></pre>
 
 <ul>
 <li>Tải binary tools</li>
 </ul>
-<pre class="code"><code class="language-bash">cd esp32/tools
-python get.py</code></pre>
-
+<pre><code class="bash">cd esp32/tools
+python get.py
+</code></pre>
 
 <ul>
 <li>Khởi động lại Arduino</li>

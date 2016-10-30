@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Tuan PM">
+  
+  <title>Sử dụng OpenOCD - Internet Of Things (IoT) với ESP32</title>
+  
+
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/highlight.css">
+
+  <link rel="stylesheet" href="../../../css/custom.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Sử dụng OpenOCD";
+    var mkdocs_page_input_path = "esp-idf/basic/openocd.md";
+    var mkdocs_page_url = "/esp-idf/basic/openocd/";
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../../js/highlight.pack.js"></script>
+  <script src="../../../js/theme.js"></script>
+  <script src="../../../js/jquery.cookie-1.4.1.min.js"></script>
+  <script src="../../../js/nav.js"></script> 
+
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-60470603-7', 'esp32.vn');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> Internet Of Things (IoT) với ESP32</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li><ul class="subnav">
+    <li class="">
+        <a class="" href="../../.." id="Trang chủ" style="font-size:95%;font-weight:bold;">Trang chủ</a>
+    </li>
+    
+    <li class="paddingtop20"></li>
+</ul>
+<li>
+          
+            <li><ul class="subnav">
+    <li class="current">
+        <a class="current"  id="Nội dung" style="font-size:95%;font-weight:bold;">Nội dung</a>
+    </li>
+    
+        <li class="">
+            <a style="padding-left:50px;" class=""  id="ESP32 Arduino" onclick="showChildren('ESP32 Arduino')">ESP32 Arduino  <i class="fa fa-arrow-circle-down" style="padding-left:5px;font-size:13px;"></i></a>
+        </li>
+        
+        <div style="display:none" id="hidden_ESP32 Arduino">
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="../../../arduino/arduino/" id="Giới thiệu">Giới thiệu </a>
+            </li>
+            
+            <div style="display:none" id="hidden_ESP32 ArduinoGiới thiệu">
+            
+            </div>
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="../../../arduino/install/" id="Cài đặt">Cài đặt </a>
+            </li>
+            
+            <div style="display:none" id="hidden_ESP32 ArduinoGiới thiệuCài đặt">
+            
+            </div>
+        
+        </div>
+    
+        <li class="current">
+            <a style="padding-left:50px;" class="current"  id="ESP32 ESP-IDF" onclick="showChildren('ESP32 ESP-IDF')">ESP32 ESP-IDF  <i class="fa fa-arrow-circle-down" style="padding-left:5px;font-size:13px;"></i></a>
+        </li>
+        
+        <div style="display:none" id="hidden_ESP32 ESP-IDF">
+        
+            <li class="">
+                <a style="padding-left:70px;" class="" href="../../esp-idf/" id="Giới thiệu">Giới thiệu </a>
+            </li>
+            
+            <div style="display:none" id="hidden_ESP32 ESP-IDFGiới thiệu">
+            
+            </div>
+        
+            <li class="current">
+                <a style="padding-left:70px;" class="current"  id="Cơ bản" onclick="showChildren('ESP32 ESP-IDFGiới thiệuCơ bản')">Cơ bản  <i class="fa fa-arrow-circle-down" style="padding-left:5px;font-size:13px;"></i></a>
+            </li>
+            
+            <div style="display:none" id="hidden_ESP32 ESP-IDFGiới thiệuCơ bản">
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../build-system/" id="Hệ thống biên dịch">Hệ thống biên dịch </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../install-windows/" id="Cài đặt cho Windows">Cài đặt cho Windows </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../install-macos/" id="Cài đặt cho MacOS">Cài đặt cho MacOS </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../install-linux/" id="Cài đặt cho Linux">Cài đặt cho Linux </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../eclipse-setup/" id="Cài đặt cho Eclipse">Cài đặt cho Eclipse </a>
+                </li>
+            
+                <li class="current">
+                    <a style="padding-left:90px;" class="current" href="./" id="Sử dụng OpenOCD">Sử dụng OpenOCD </a>
+                </li>
+            
+                <li class="">
+                    <a style="padding-left:90px;" class="" href="../partition-tables/" id="Partition Tables">Partition Tables </a>
+                </li>
+            
+            </div>
+        
+        </div>
+    
+    <li class="paddingtop20"></li>
+</ul>
+<li>
+          
+            <li><ul class="subnav">
+    <li class="">
+        <a class="" href="../../../projects/project-list/" id="Các dự án" style="font-size:95%;font-weight:bold;">Các dự án</a>
+    </li>
+    
+    <li class="paddingtop20"></li>
+</ul>
+<li>
+          
+            <li><ul class="subnav">
+    <li class="">
+        <a class="" href="../../../license/" id="Bản quyền" style="font-size:95%;font-weight:bold;">Bản quyền</a>
+    </li>
+    
+    <li class="paddingtop20"></li>
+</ul>
+<li>
+          
+            <li><ul class="subnav">
+    <li class="">
+        <a class="" href="../../../contributor/" id="Đóng góp" style="font-size:95%;font-weight:bold;">Đóng góp</a>
+    </li>
+    
+    <li class="paddingtop20"></li>
+</ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">Internet Of Things (IoT) với ESP32</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>ESP32 ESP-IDF &raquo;</li>
+        
+      
+        
+          <li>Cơ bản &raquo;</li>
+        
+      
+    
+    <li>Sử dụng OpenOCD</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/esp32vn/esp32.vn" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="openocd-setup-for-esp32">OpenOCD setup for ESP32<a class="headerlink" href="#openocd-setup-for-esp32" title="Permanent link">#</a></h2>
+<p>The ESP31 and ESP32 have two powerful Xtensa cores, allowing for a great deal of variety of program architectures. The FreeRTOS
+OS that comes with ESP-IDF is capable multi-core pre-emptive multithreading, allowing for an intuitive way of writing software. </p>
+<p>The downside of the ease of programming is that debugging without the right tools is harder: figuring out a bug that is caused 
+by two threads, maybe even running simultaneously on two different CPU cures, can take a long time when all you have are printf 
+statements. A better and in many cases quicker way to debug such problems is by using a debugger, connected to the processors over
+a debug port. </p>
+<p>Espressif has ported OpenOCD to support the ESP32 processor and the multicore FreeRTOS that will be the foundation of most ESP32
+apps, and has written some tools to help with features OpenOCD does not support natively. These are all available for free, and 
+this document describes how to install and use them.</p>
+<h2 id="jtag-adapter-hardware">JTAG adapter hardware<a class="headerlink" href="#jtag-adapter-hardware" title="Permanent link">#</a></h2>
+<p>You will need a JTAG adapter that is compatible with both the voltage levels on the ESP32 as well as with the OpenOCD software. 
+The JTAG port on the ESP32 is an industry-standard JTAG port which lacks (and does not need) the TRST pin. The JTAG I/O pins
+all are powered from the VDD_3P3_RTC pin (which normally would be powered by a 3.3V rail) so the JTAG adapter needs to be
+able to work with JTAG pins in that voltage range. On the software side, OpenOCD supports a fair amount of JTAG adapters.
+See http://openocd.org/doc/html/Debug-Adapter-Hardware.html for an (unfortunately slightly incomplete) list of the adapters 
+OpenOCD works with. This page lists SWD-compatible adapters as well; take note that the ESP32 does not support SWD.</p>
+<p>At Espressif, we have tested the TIAO USB Multi-protocol Adapter board as well as the Flyswatter2, which are both USB2.0 high-speed
+devices and give a good throughput. We also tested a J-link-compatible and an EasyOpenJTAG adapter; both worked as well but are 
+somewhat slower.</p>
+<p>The minimal signalling to get a working JTAG connection are TDI, TDO, TCK, TMS and Gnd. Some JTAG debuggers also need a connection 
+from the ESP32 power line to a line called e.g. Vtar to set the working voltage. SRST can optionally be connected to the CH_PD of 
+the ESP32, although for now, support in OpenOCD for that line is pretty minimal.</p>
+<h2 id="installing-openocd">Installing OpenOCD<a class="headerlink" href="#installing-openocd" title="Permanent link">#</a></h2>
+<p>The sources for the ESP32-enabled variant of OpenOCD are available from <code>Espressifs Github &lt;https://github.com/espressif/openocd-esp32&gt;</code>_. 
+To download the source, use the following commands::</p>
+<pre><code>git clone https://github.com/espressif/openocd-esp32.git
+cd openocd-esp32
+git submodule init
+git submodule update
+</code></pre>
+<p>For compilation of OpenOCD, please refer to the README, README.OSX and README.Windows file in the openocd-esp32 directory. You can skip
+the <code>make install</code> step if you want.</p>
+<h2 id="configuring-the-esp32-target-in-openocd">Configuring the ESP32 target in OpenOCD<a class="headerlink" href="#configuring-the-esp32-target-in-openocd" title="Permanent link">#</a></h2>
+<p>After OpenOCD is compiled (and optionally installed) and the JTAG adapter is connected to the ESP32 board, everything is ready to
+invoke OpenOCD for the first time. To do this, OpenOCD needs to be told what JTAG adapter to use as well as what type of board
+and processor the JTAG adapter is connected to. It is the easiest to do both using a configuration file. A template configuration
+file (esp32.cfg) is included in the same directory as this file. A way to use this would be:</p>
+<ul>
+<li>Copy esp32.cfg to the openocd-esp32 directory</li>
+<li>Edit the copied esp32.cfg file. Most importantly, change the <code>source [find interface/ftdi/tumpa.cfg]</code> line to reflect the
+  physical JTAG adapter connected.</li>
+<li>Open a terminal and <code>cd</code> to the openocd-esp32 directory.</li>
+<li>Run <code>./src/openocd -s ./tcl -f ./esp32.cfg</code> to start OpenOCD</li>
+</ul>
+<p>You should now see something like this::</p>
+<pre><code>user@machine:~/esp32/openocd-esp32$ ./src/openocd -s ./tcl/ -f ../openocd-esp32-tools/esp32.cfg 
+Open On-Chip Debugger 0.10.0-dev-00446-g6e13a97-dirty (2016-08-23-16:36)
+Licensed under GNU GPL v2
+For bug reports, read
+http://openocd.org/doc/doxygen/bugs.html
+none separate
+adapter speed: 200 kHz
+Info : clock speed 200 kHz
+Info : JTAG tap: esp32.cpu0 tap/device found: 0x120034e5 (mfg: 0x272 (Tensilica), part: 0x2003, ver: 0x1)
+Info : JTAG tap: esp32.cpu1 tap/device found: 0x120034e5 (mfg: 0x272 (Tensilica), part: 0x2003, ver: 0x1)
+Info : esp32.cpu0: Debug controller was reset (pwrstat=0x5F, after clear 0x0F).
+Info : esp32.cpu0: Core was reset (pwrstat=0x5F, after clear 0x0F).
+</code></pre>
+<ul>
+<li>If you see an error indicating permission problems, please see the &lsquo;Permissions delegation&rsquo; bit in the OpenOCD README</li>
+<li>If you see JTAG errors (&hellip;all ones/&hellip;all zeroes) please check your connections and see if everything is powered on.</li>
+</ul>
+<h2 id="connecting-a-debugger-to-openocd">Connecting a debugger to OpenOCD<a class="headerlink" href="#connecting-a-debugger-to-openocd" title="Permanent link">#</a></h2>
+<p>OpenOCD should now be ready to accept gdb connections. If you have compiled the ESP32 toolchain using Crosstool-NG, or
+if you have downloaded a precompiled toolchain from the Espressif website, you should already have xtensa-esp32-elf-gdb, 
+a version of gdb that can be used for this. First, make sure the project you want to debug is compiled and flashed 
+into the ESP32s SPI flash. Then, in a different console than OpenOCD is running in, invoke gdb. For example, for the 
+template app, you would do this like such::</p>
+<pre><code>cd esp-idf-template
+xtensa-esp32-elf-gdb -ex 'target remote localhost:3333' ./build/app-template.elf
+</code></pre>
+<p>This should give you a gdb prompt.</p>
+<h2 id="freertos-support">FreeRTOS support<a class="headerlink" href="#freertos-support" title="Permanent link">#</a></h2>
+<p>OpenOCD has explicit support for the ESP-IDF FreeRTOS; FreeRTOS detection can be disabled in esp32.conf. When enabled,
+gdb can see FreeRTOS tasks as threads. Viewing them all can be done using the gdb <code>i threads</code> command, changing
+to a certain task is done with <code>thread x</code>, with x being the number of the thread. All threads can be switched to
+except for a thread actually running on the other CPU, please see <code>ESP32 quirks</code> for more information.</p>
+<h2 id="esp32-quirks">ESP32 quirks<a class="headerlink" href="#esp32-quirks" title="Permanent link">#</a></h2>
+<p>Normal gdb breakpoints (<code>b myFunction</code>) can only be set in IRAM, because that memory is writable. Setting these types of
+breakpoints in code in flash will not work. Instead, use a hardware breakpoint (<code>hb myFunction</code>). The esp32 supports
+2 hardware breakpoints. It also supports two watchpoint, so two variables can be watched for change or read by the gdb
+command <code>watch myVariable</code>.</p>
+<p>Connecting gdb to the APP or PRO cpu happens by changing the port gdb connects to. <code>target remote localhost:3333</code> connects
+to the PRO CPU, <code>target remote localhost:3334</code> to the APP CPU. Hardware-wise, when one CPU is halted because of debugging
+reasons, the other one will be halted as well; resuming also happens simultaneously.</p>
+<p>Because gdb only sees the system from the point of view of the selected CPU, only the FreeRTOS tasks that are suspended
+and the task running on the CPU gdb is connected to, will be shown correctly. The task that was active on the other
+cpu can be inspected, but its state may be wildly inconsistent.</p>
+<p>The ESP-IDF code has the option of compiling in various support options for OpenOCD: it can stop execution when the first 
+thread is started and break the system if a panic or unhandled exception is thrown. Both options are enabled by default 
+but can be disabled using the esp-idf configuration menu. Please see the <code>make menuconfig</code> menu for more details.</p>
+<p>Normally, under OpenOCD, a board can be reset by entering &lsquo;mon reset&rsquo; or &lsquo;mon reset halt&rsquo; into gdb. For
+the ESP32, these commands work more or less, but have side effects. First of all, an OpenOCD reset only
+resets the CPU cores, not the peripherals, which may lead to undefined behaviour if software assumes the
+after-reset state of peripherals. Secondly, &lsquo;mon reset halt&rsquo; stops before FreeRTOS is initialized. 
+OpenOCD assumes (in the default configuration, you can change this by editing esp32.cfg) a running 
+FreeRTOS and may get confused.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../partition-tables/" class="btn btn-neutral float-right" title="Partition Tables">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../eclipse-setup/" class="btn btn-neutral" title="Cài đặt cho Eclipse"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Copyright &copy; 2016 <a href="https://esp32.vn">ESP32 Việt Nam</a></p>
+    
+  </div>
+
+  
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<!-- <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/esp32vn/esp32.vn" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../eclipse-setup/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../partition-tables/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div> -->
+
+<script type="text/javascript">
+  // If cookie is defined toggle the id
+  if (typeof $.cookie('docToggle') !== 'undefined') {
+      // Parse cookie which is an array
+      var _parsed_cookie = JSON.parse($.cookie('docToggle'));
+      // Loop over array and show hidden divs
+      $.each(_parsed_cookie, function(index, value) {
+          // Toggle
+          $("[id='hidden_" + value + "']").css('display','');
+      })
+  }
+</script>
+
+</body>
+</html>
