@@ -4,12 +4,24 @@
     
     <url>
      <loc>https://esp32.vn/</loc>
-     <lastmod>2016-10-30</lastmod>
+     <lastmod>2016-11-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
+        
+    <url>
+     <loc>https://esp32.vn/introduction/</loc>
+     <lastmod>2016-11-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://esp32.vn/hardware/</loc>
+     <lastmod>2016-11-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
         
     <url>
      <loc>https://esp32.vn</loc>
@@ -28,7 +40,7 @@
     
     <url>
      <loc>https://esp32.vn/projects/project-list/</loc>
-     <lastmod>2016-10-30</lastmod>
+     <lastmod>2016-11-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -36,7 +48,7 @@
     
     <url>
      <loc>https://esp32.vn/license/</loc>
-     <lastmod>2016-10-30</lastmod>
+     <lastmod>2016-11-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -44,7 +56,7 @@
     
     <url>
      <loc>https://esp32.vn/contributor/</loc>
-     <lastmod>2016-10-30</lastmod>
+     <lastmod>2016-11-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

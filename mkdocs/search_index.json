@@ -51,6 +51,41 @@
             "title": "Other Boards"
         },
         {
+            "location": "/introduction/",
+            "text": "The Internet of Things with ESP32\n#",
+            "title": "Gi\u1edbi thi\u1ec7u v\u1ec1 ESP32"
+        },
+        {
+            "location": "/introduction/#the-internet-of-things-with-esp32",
+            "text": "",
+            "title": "The Internet of Things with ESP32"
+        },
+        {
+            "location": "/hardware/",
+            "text": "Ph\u1ea7n c\u1ee9ng h\u1ed7 tr\u1ee3\n\n\nNANO32\n\n\nNoduino Quantum\n\n\nWemos Lolin\n\n\n\n\n\n\n\n\n\n\nPh\u1ea7n c\u1ee9ng h\u1ed7 tr\u1ee3\n#\n\n\nNANO32\n#\n\n\n\n\n40MHz Crystal for CPU, 32.768KHz Crystal for RTC and low power operation\n\n\n4MB Flash (32Mbit)\n\n\nFTDI231 for USB to Serial\n\n\nAuto-Reset for automatic flash\n\n\n3.3V 0.5A Regulator (tested for working up to 1A)\n\n\n2.5dBi Peak Gain, 0.5dBi Average Gain Chip Antenna\n\n\nHigh quality PCB: design and manufacture in Thailand\n\n\n\n\n\nWebsite s\u1ea3n ph\u1ea9m: \nhttps://www.gravitechthai.com/product_detail.php?d=1470 \n\n\nNoduino Quantum\n#\n\n\nNoduino Quantum - ESP32 - Wifi - BLE - IoT v\u1edbi MCU l\u00e0 ESP32 Dual core, t\u00edch h\u1ee3p WiFi SoC\nv\u00e0 dual mode Bluetooth. Board \u0111\u01b0\u1ee3c thi\u1ebft k\u1ebf t\u01b0\u01a1ng th\u00edch v\u1edbi Arduino, h\u1ed5\ntr\u1ee3 t\u1ef1 \u0111\u1ed9ng upload ch\u01b0\u01a1ng tr\u00ecnh qua MicroUSB, \u0111\u1ed3ng th\u1eddi gi\u00fap vi\u1ec7c x\u00e2y\nd\u1ef1ng m\u1ed9t IoT prototype m\u1ed9t c\u00e1ch nhanh ch\u00f3ng\n\n\n\n\n\n\nWemos Lolin\n#",
+            "title": "Ph\u1ea7n c\u1ee9ng h\u1ed7 tr\u1ee3"
+        },
+        {
+            "location": "/hardware/#phan-cung-ho-tro",
+            "text": "",
+            "title": "Ph\u1ea7n c\u1ee9ng h\u1ed7 tr\u1ee3"
+        },
+        {
+            "location": "/hardware/#nano32",
+            "text": "40MHz Crystal for CPU, 32.768KHz Crystal for RTC and low power operation  4MB Flash (32Mbit)  FTDI231 for USB to Serial  Auto-Reset for automatic flash  3.3V 0.5A Regulator (tested for working up to 1A)  2.5dBi Peak Gain, 0.5dBi Average Gain Chip Antenna  High quality PCB: design and manufacture in Thailand   \nWebsite s\u1ea3n ph\u1ea9m:  https://www.gravitechthai.com/product_detail.php?d=1470",
+            "title": "NANO32"
+        },
+        {
+            "location": "/hardware/#noduino-quantum",
+            "text": "Noduino Quantum - ESP32 - Wifi - BLE - IoT v\u1edbi MCU l\u00e0 ESP32 Dual core, t\u00edch h\u1ee3p WiFi SoC\nv\u00e0 dual mode Bluetooth. Board \u0111\u01b0\u1ee3c thi\u1ebft k\u1ebf t\u01b0\u01a1ng th\u00edch v\u1edbi Arduino, h\u1ed5\ntr\u1ee3 t\u1ef1 \u0111\u1ed9ng upload ch\u01b0\u01a1ng tr\u00ecnh qua MicroUSB, \u0111\u1ed3ng th\u1eddi gi\u00fap vi\u1ec7c x\u00e2y\nd\u1ef1ng m\u1ed9t IoT prototype m\u1ed9t c\u00e1ch nhanh ch\u00f3ng",
+            "title": "Noduino Quantum"
+        },
+        {
+            "location": "/hardware/#wemos-lolin",
+            "text": "",
+            "title": "Wemos Lolin"
+        },
+        {
             "location": "/arduino/arduino/",
             "text": "Arduino core cho ESP32 WiFi chip\n#\n\n\n\u0110\u00e2y l\u00e0 m\u1ed9t d\u1ef1 \u00e1n m\u00e3 ngu\u1ed3n m\u1edf gi\u00fap h\u1ed7 tr\u1ee3 m\u00f4i tr\u01b0\u1eddng ph\u00e1t tri\u1ec3n Arduino cho ESP32. Gi\u00fap b\u1ea1n c\u00f3 th\u1ec3 vi\u1ebft 1 Sketches s\u1eed d\u1ee5ng c\u00e1c th\u01b0 vi\u1ec7n v\u00e0 h\u00e0m t\u01b0\u01a1ng t\u1ef1 c\u1ee7a Arduino, c\u00f3 th\u1ec3 ch\u1ea1y tr\u1ef1c ti\u1ebfp tr\u00ean ESP32 m\u00e0 kh\u00f4ng c\u1ea7n b\u1ea5t k\u1ef3 Vi \u0111i\u1ec1u khi\u1ec3n n\u00e0o kh\u00e1c.\n\n\nESP32 Arduino core \u0111i k\u00e8m v\u1edbi th\u01b0 vi\u1ec7n k\u1ebft n\u1ed1i WiFi h\u1ed7 tr\u1ee3 TCP, UDP v\u00e0 c\u00e1c \u1ee9ng d\u1ee5ng HTTP, mDNS, SSDP, DNS Servers. Ngo\u00e0i ra c\u00f2n c\u00f3 th\u1ec3 th\u1ef1c hi\u1ec7n c\u1eadp nh\u1eadt OTA, s\u1eed d\u1ee5ng Filesystem d\u00f9ng b\u1ed9 nh\u1edb Flash hay th\u1ebb SD, \u0111i\u1ec1u khi\u1ec3n servos, ngo\u1ea1i vi SPI, I2C.\n\n\nESP32 Arduino h\u1ed7 tr\u1ee3 g\u1ea7n nh\u01b0 t\u1ea5t c\u1ea3 c\u00e1c h\u00e0m/t\u00ednh n\u0103ng gi\u1ed1ng nh\u01b0 ESP8266 Arduino, ngo\u00e0i ra c\u00f2n c\u00f3 th\u00eam BLE, s\u1eed d\u1ee5ng b\u00ean trong ESP-IDF, th\u1ef1c thi c\u00e1c t\u00e1c v\u1ee5 c\u1ee7a FreeRTOS",
             "title": "Gi\u1edbi thi\u1ec7u"
