@@ -1,0 +1,11 @@
+language: python
+python:
+  - 2.7
+install:
+  - pip install sphinx sphinx_rtd_theme==0.2.0 sphinxcontrib.youtube sphinxcontrib-googleanalytics
+script: make html
+after_success:
+  - ./push.sh
+env:
+  global:
+    - secure: "qGEkUEfPrf7k5DWTsKkxXGQ5qfPeSoGeeYl/JoMUTWkJpuU9KnX/cCOMSuM7JiVo2AGotu11S5vZ4xWSSlFaIcQpoXahkJKM1LYS5XIv3ItFO1e5iF+hGmYHOmt2akv0OIJtkAy9TZfM0FqXg7vD6ylcTh2QpEEyTNw8JN1B2Srv/qzj5Icu3RTh6GBa8xCkI2MTOEsXcVfOGMCwDj7n7dSE0VYnVOwrI+ld3yk+EQYuf3rYZTnVdSTz5Nk5j2/1bUkVNkXyD3c2Foi1rzlrDjQo4UoTNr2NsIdD+qzg0Pa54z7Fo0aRj+HADHUiG/QO7VAr45Pqhv0i7LoBcaQ/o4GA14YoZ7ac9yXN+51/EAH1/8sTk3iaxyr3bVL0NxcMLuK4ZTEBwolLvpowtZN8ufY4Mc2TlU+JDvE4Om7q9RxVq6S9xy/M6ph/d7AeGBjoti8259BElvgjq9yXQsBmbpqlz3rIa23hLpqDT9OdwCzw7R7YIuUzfzKYVoToUxY0OMr9Wy+1TVhYrcGzBG31G4UTSXMIGVzzBIZ1vywGXYGBjgT6fKlsGmuPw6bTS+jDEIP0odej26cFDdjDr9mRZVfsZrpGF37LFiTLHSpQjP9ho8t1HnyTMS1UUvMsw/P+WLvVLGZWQyUiad8ZmYrPha4N5L5KNeGM1r6m1E8lfgE="
