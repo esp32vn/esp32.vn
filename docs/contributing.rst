@@ -10,7 +10,7 @@ Cài đặt công cụ cần thiết
 
 Viết bài
 ========
-* Fork dự án về tài khoản cá nhân: https://github.com/openstemvn/openstem.vn
+* Fork dự án về tài khoản cá nhân: https://github.com/esp32vn/esp32.vn
 * Xem qua về định dạng `reStructuredText <http://www.sphinx-doc.org/en/stable/rest.html>`_
 * Mẫu bài cơ bản bao gồm các thành phần demo, chuẩn bị, đấu nối, cài đặt thư viện, lập trình, lưu ý, giống:
 
@@ -18,7 +18,7 @@ Viết bài
     * Nếu cần `Pinout <https://github.com/iotmakervn/iot-wifi-uno-hw/raw/master/assets/Iot-wifi-uno-hw-pinout.png>`_
 
 * Commit và push lên repository trên github (tài khoản cá nhân)
-* Gởi pull-request đến https://github.com/openstemvn/openstem.vn
+* Gởi pull-request đến https://github.com/esp32vn/esp32.vn
 
 Một số lưu ý khác
 =================

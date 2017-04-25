@@ -2,8 +2,8 @@
 # Push HTML files to gh-pages automatically.
 
 # Fill this out with the correct org/repo
-ORG=openstemvn
-REPO=openstem.vn
+ORG=esp32vn
+REPO=esp32.vn
 # This probably should match an email for one of your users.
 EMAIL=tuanpm@live.com
 

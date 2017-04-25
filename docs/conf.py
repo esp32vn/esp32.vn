@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# arduino for esp8266 documentation build configuration file, created by
+# ESP32 documentation build configuration file, created by
 # sphinx-quickstart on Tue Jan 31 15:57:47 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -42,7 +42,7 @@ extensions = ['sphinx.ext.autodoc',
     'sphinxcontrib.youtube',
     'sphinxcontrib.googleanalytics']
 
-googleanalytics_id = 'UA-60470603-9'
+googleanalytics_id = 'UA-60470603-x'
 
 html_theme_options = {
     'collapse_navigation': False,
@@ -63,7 +63,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Open STEM'
+project = u'ESP32'
 copyright = u'2017, TuanPM'
 author = u'TuanPM'
 
@@ -100,7 +100,7 @@ ports = OrderedDict((
     ('unix', 'unix'),
     ('pyboard', 'the pyboard'),
     ('wipy', 'the WiPy'),
-    ('esp8266', 'the ESP8266'),
+    ('esp32doc', 'the ESP32'),
 ))
 micropy_port = os.getenv('MICROPY_PORT') or 'pyboard'
 tags.add('port_' + micropy_port)
@@ -154,7 +154,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'arduinoforesp8266doc'
+htmlhelp_basename = 'esp32doc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -181,7 +181,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'arduinoforesp8266.tex', u'arduino for esp8266 Documentation',
+    (master_doc, 'esp32doc.tex', u'ESP32 Documentation',
      u'TuanPM', 'manual'),
 ]
 
@@ -191,7 +191,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'arduinoforesp8266', u'arduino for esp8266 Documentation',
+    (master_doc, 'esp32doc', u'ESP32 Documentation',
      [author], 1)
 ]
 
@@ -202,8 +202,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'arduinoforesp8266', u'arduino for esp8266 Documentation',
-     author, 'arduinoforesp8266', 'One line description of project.',
+    (master_doc, 'esp32doc', u'ESP32 Documentation',
+     author, 'esp32doc', 'One line description of project.',
      'Miscellaneous'),
 ]
 
