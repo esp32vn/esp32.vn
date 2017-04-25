@@ -23,8 +23,6 @@ Lập trình ESP32
 .. image:: _static/Esp32-boad__1_.png
    :width: 800
 
-Dự án hỗ trợ và phát triển bởi `IoT Maker Việt Nam <https://iotmaker.vn>`_
-
 
 .. toctree::
    :caption: Cơ bản
