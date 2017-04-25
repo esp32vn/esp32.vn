@@ -19,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tìm Kiếm &mdash; Tài liệu ESP32 1.0</title>
+  <title>Hướng dẫn tham gia đóng góp &mdash; Tài liệu ESP32 1.0</title>
   
 
   
@@ -43,7 +43,7 @@
   
         <link rel="index" title="Index"
               href="genindex.html"/>
-        <link rel="search" title="Tìm Kiếm" href="#"/>
+        <link rel="search" title="Tìm Kiếm" href="search.html"/>
     <link rel="top" title="Tài liệu ESP32 1.0" href="index.html"/> 
 
   
@@ -73,7 +73,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -88,7 +88,16 @@
             
             
                 <!-- Local TOC -->
-                <div class="local-toc"></div>
+                <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Hướng dẫn tham gia đóng góp</a><ul>
+<li><a class="reference internal" href="#cai-dat-cong-cu-can-thiet">Cài đặt công cụ cần thiết</a></li>
+<li><a class="reference internal" href="#viet-bai">Viết bài</a></li>
+<li><a class="reference internal" href="#mot-so-luu-y-khac">Một số lưu ý khác</a></li>
+<li><a class="reference internal" href="#danh-sach-cac-thanh-vien-da-dong-gop">Danh sách các thành viên đã đóng góp</a></li>
+</ul>
+</li>
+</ul>
+</div>
             
           
         </div>
@@ -131,10 +140,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Tìm Kiếm</li>
+      <li>Hướng dẫn tham gia đóng góp</li>
     
     
       <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/contributing.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -146,19 +159,53 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="huong-dan-tham-gia-dong-gop">
+<h1>Hướng dẫn tham gia đóng góp<a class="headerlink" href="#huong-dan-tham-gia-dong-gop" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="cai-dat-cong-cu-can-thiet">
+<h2>Cài đặt công cụ cần thiết<a class="headerlink" href="#cai-dat-cong-cu-can-thiet" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">python</span></code>: Cài đặt python 2.7</li>
+<li>Cài đặt <code class="docutils literal"><span class="pre">pip</span></code></li>
+<li><code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">sphinx</span> <span class="pre">sphinx_rtd_theme==0.2.0</span> <span class="pre">sphinxcontrib.youtube</span> <span class="pre">sphinxcontrib-googleanalytics</span></code></li>
+<li><code class="docutils literal"><span class="pre">make</span> <span class="pre">livehtml</span></code> rồi truy cập vào <a class="reference external" href="http://localhost:8000">http://localhost:8000</a></li>
+</ul>
+</div>
+<div class="section" id="viet-bai">
+<h2>Viết bài<a class="headerlink" href="#viet-bai" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Fork dự án về tài khoản cá nhân: <a class="reference external" href="https://github.com/esp32vn/esp32.vn">https://github.com/esp32vn/esp32.vn</a></p>
+</li>
+<li><p class="first">Xem qua về định dạng <a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">reStructuredText</a></p>
+</li>
+<li><p class="first">Mẫu bài cơ bản bao gồm các thành phần demo, chuẩn bị, đấu nối, cài đặt thư viện, lập trình, lưu ý, giống:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Sử dụng thư viện <a class="reference external" href="https://github.com/iotmakervn/iot-wifi-uno-hw/blob/master/assets/iot-wifi-uno.fzpz">Fritzing</a> cho việc đấu nối</li>
+<li>Nếu cần <a class="reference external" href="https://github.com/iotmakervn/iot-wifi-uno-hw/raw/master/assets/Iot-wifi-uno-hw-pinout.png">Pinout</a></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Commit và push lên repository trên github (tài khoản cá nhân)</p>
+</li>
+<li><p class="first">Gởi pull-request đến <a class="reference external" href="https://github.com/esp32vn/esp32.vn">https://github.com/esp32vn/esp32.vn</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="mot-so-luu-y-khac">
+<h2>Một số lưu ý khác<a class="headerlink" href="#mot-so-luu-y-khac" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Các bải hướng dẫn nên sử dụng board <strong>IoT WiFi Uno</strong> để thực hành</li>
+<li>Các nội dung cần bổ sung đã được lên danh sách sẵn, nhưng còn trống, có thể viết thêm</li>
+</ul>
+</div>
+<div class="section" id="danh-sach-cac-thanh-vien-da-dong-gop">
+<h2>Danh sách các thành viên đã đóng góp<a class="headerlink" href="#danh-sach-cac-thanh-vien-da-dong-gop" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/tuanpmt">&#64;tuanpmt</a></li>
+</ul>
+</div>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            <div class="articleComments">
@@ -206,7 +253,6 @@
       <script type="text/javascript" src="_static/doctools.js"></script>
       <script type="text/javascript" src="_static/translations.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-      <script type="text/javascript" src="_static/searchtools.js"></script>
 
   
 
@@ -222,14 +268,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
