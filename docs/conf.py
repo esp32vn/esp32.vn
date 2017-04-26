@@ -42,7 +42,7 @@ extensions = ['sphinx.ext.autodoc',
     'sphinxcontrib.youtube',
     'sphinxcontrib.googleanalytics']
 
-googleanalytics_id = 'UA-60470603-x'
+googleanalytics_id = 'UA-60470603-07'
 
 html_theme_options = {
     'collapse_navigation': False,
