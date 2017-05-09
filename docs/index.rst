@@ -27,7 +27,7 @@ Pinout
 Mạch nguyên lý
 **************
 
-.. image:: _static/sch.svg
+.. image:: _static/sch.png
    :width: 800
 
 .. toctree::
