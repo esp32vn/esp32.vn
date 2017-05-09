@@ -18,11 +18,17 @@ Lập trình ESP32
 - Hỗ trợ Camera/LCD
 - Lowpower với dynamic clock switch & ULP Processor siêu tiết kiệm năng lượng
 
-
+Pinout
+******
 
 .. image:: _static/Esp32-boad__1_.png
    :width: 800
 
+Mạch nguyên lý
+**************
+
+.. image:: _static/sch.svg
+   :width: 800
 
 .. toctree::
    :caption: Cơ bản
