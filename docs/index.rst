@@ -17,6 +17,11 @@ Hardware features
 - 1 Power LED, 1 programable LED, 1 Charger LED
 - Compatible with Shields for ESP32 in the future (Gateway - GSM/GPRS/GPS and Lora Shield, Connectivity - CAN, RS485, RS232 Shield, Audio Shield, ...)
 
+Github repository
+*****************
+
+- `https://github.com/esp32vn/esp32-iot-uno <https://github.com/esp32vn/esp32-iot-uno>`_
+
 Pinout
 ******
 
