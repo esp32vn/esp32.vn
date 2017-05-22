@@ -3,8 +3,8 @@ python:
 - 2.7
 install:
 - pip install sphinx sphinx_rtd_theme==0.2.5b1 sphinxcontrib.youtube
-script: make html
-after_success:
+script:
+- make html
 - chmod +x ./push.sh
 - ./push.sh
 env:
