@@ -5,23 +5,14 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-60470603-07']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Lập trình ESP32 &mdash; Tài liệu ESP32 1.0</title>
+  <title>ESP32 Development Hardware &mdash; Tài liệu ESP32 1.0</title>
   
 
+  
+  
   
   
 
@@ -88,11 +79,14 @@
           
             
             
-                <p class="caption"><span class="caption-text">Cơ bản</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Cơ bản</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="basic/index.html">Cài đặt</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Đóng góp và bản quyền</span></p>
+<p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Hướng dẫn đóng góp</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="contributing.html#cai-dat-cong-cu-can-thiet">Cài đặt công cụ cần thiết</a></li>
@@ -145,7 +139,7 @@
     
       <li><a href="#">Docs</a> &raquo;</li>
         
-      <li>Lập trình ESP32</li>
+      <li>ESP32 Development Hardware</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -164,25 +158,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="lap-trinh-esp32">
-<h1>Lập trình ESP32<a class="headerlink" href="#lap-trinh-esp32" title="Permalink to this headline">¶</a></h1>
-<p>Đây là một dự án tài liệu/phần cứng/mã nguồn mở hỗ trợ lập trình ESP32 một cách nhanh chóng dựa trên nền tảng IoT Development Kit (IDF) từ Espressif.</p>
-<p>Đi kèm với chương trình là board mạch phần cứng mở <code class="docutils literal"><span class="pre">ESP32-Uno</span></code> với các tính năng:</p>
+  <div class="section" id="esp32-development-hardware">
+<h1>ESP32 Development Hardware<a class="headerlink" href="#esp32-development-hardware" title="Permalink to this headline">¶</a></h1>
+<p>Openhardware <code class="docutils literal"><span class="pre">ESP32-IoT-Uno</span></code> :</p>
+<div class="section" id="hardware-features">
+<h2>Hardware features<a class="headerlink" href="#hardware-features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Duacore CPU ESP32 240MHz, 512KB Internal RAM, 4MB FLASH</li>
-<li>WiFi 2.4GHz tốc độ cao, nhiều chế độ hoạt động (Station, access point)</li>
-<li>Bluetooth 4.2, BLE, Audio</li>
-<li>Tương thích Arduino UNO, và tương thích với thư viện arduino cho ESP32</li>
-<li>Có nút nhấn, LED, oled header, nguồn dòng 2A cho các shield ứng dụng GSM, khe cắm thẻ nhớ</li>
-<li>Hỗ trợ network GPRS/3G thông qua module external với các api network sẵn có</li>
-<li>Hỗ trợ các giao thức kết nối có dây: Serial, CAN, Ethernet, I2C, SPI, IRDA, TOUCH</li>
-<li>Hỗ trợ nhiều thư viện kết nối cho #ioT: MQTT, CoAP, HTTP, SSL, Websocket, IPv6 ...</li>
-<li>Hỗ trợ 4MB PSRAM bên ngoài dùng cho ứng dụng phức tạp</li>
-<li>Hỗ trợ I2S/DAC/ADC cho các ứng dụng Audio</li>
-<li>Hỗ trợ Camera/LCD</li>
-<li>Lowpower với dynamic clock switch &amp; ULP Processor siêu tiết kiệm năng lượng</li>
+<li>ESP32 WiFi, Bluetooth LE SoC - 240Mhz - Module ESP-WROOM-32</li>
+<li>Automatic select 3 power sources (DC6-28V, USB and Battery)</li>
+<li>Auto download Flash mode</li>
+<li>Integrated SDCARD slot (support 1-bit mode)</li>
+<li>Open hardware design with KiCad, CC-BY-SA license.</li>
+<li>I2C OLED display header</li>
+<li>Lithium-Ion Battery Charger</li>
+<li>1 Reset button, 1 programable button</li>
+<li>1 Power LED, 1 programable LED, 1 Charger LED</li>
+<li>Compatible with Shields for ESP32 in the future (Gateway - GSM/GPRS/GPS and Lora Shield, Connectivity - CAN, RS485, RS232 Shield, Audio Shield, ...)</li>
 </ul>
+</div>
+<div class="section" id="pinout">
+<h2>Pinout<a class="headerlink" href="#pinout" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="_images/Esp32-boad__1_.png"><img alt="_images/Esp32-boad__1_.png" src="_images/Esp32-boad__1_.png" style="width: 800px;" /></a>
+</div>
+<div class="section" id="mach-nguyen-ly">
+<h2>Mạch nguyên lý<a class="headerlink" href="#mach-nguyen-ly" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/sch.png"><img alt="_images/sch.png" src="_images/sch.png" style="width: 800px;" /></a>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Cơ bản</span></p>
 <ul>
@@ -196,10 +196,11 @@
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Đóng góp và bản quyền</span></p>
+<p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Hướng dẫn đóng góp</a></li>
 </ul>
+</div>
 </div>
 </div>
 <div class="section" id="indices">
@@ -219,7 +220,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="basic/index.html" class="btn btn-neutral float-right" title="Basic" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="basic/index.html" class="btn btn-neutral float-right" title="Basic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -252,6 +253,7 @@
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
             VERSION:'1.0',
+            LANGUAGE:'vi',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -278,7 +280,18 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-   
+  
+ 
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-60470603-07");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
 
 </body>
 </html>

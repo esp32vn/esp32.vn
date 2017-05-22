@@ -1,28 +1,33 @@
-Lập trình ESP32
-===============
+ESP32 Development Hardware
+==========================
 
-Đây là một dự án tài liệu/phần cứng/mã nguồn mở hỗ trợ lập trình ESP32 một cách nhanh chóng dựa trên nền tảng IoT Development Kit (IDF) từ Espressif.
+Openhardware ``ESP32-IoT-Uno`` :
 
-Đi kèm với chương trình là board mạch phần cứng mở ``ESP32-Uno`` với các tính năng:
+Hardware features
+*****************
 
-- Duacore CPU ESP32 240MHz, 512KB Internal RAM, 4MB FLASH
-- WiFi 2.4GHz tốc độ cao, nhiều chế độ hoạt động (Station, access point)
-- Bluetooth 4.2, BLE, Audio
-- Tương thích Arduino UNO, và tương thích với thư viện arduino cho ESP32
-- Có nút nhấn, LED, oled header, nguồn dòng 2A cho các shield ứng dụng GSM, khe cắm thẻ nhớ
-- Hỗ trợ network GPRS/3G thông qua module external với các api network sẵn có
-- Hỗ trợ các giao thức kết nối có dây: Serial, CAN, Ethernet, I2C, SPI, IRDA, TOUCH
-- Hỗ trợ nhiều thư viện kết nối cho #ioT: MQTT, CoAP, HTTP, SSL, Websocket, IPv6 ...
-- Hỗ trợ 4MB PSRAM bên ngoài dùng cho ứng dụng phức tạp
-- Hỗ trợ I2S/DAC/ADC cho các ứng dụng Audio
-- Hỗ trợ Camera/LCD
-- Lowpower với dynamic clock switch & ULP Processor siêu tiết kiệm năng lượng
+- ESP32 WiFi, Bluetooth LE SoC - 240Mhz - Module ESP-WROOM-32
+- Automatic select 3 power sources (DC6-28V, USB and Battery)
+- Auto download Flash mode
+- Integrated SDCARD slot (support 1-bit mode)
+- Open hardware design with KiCad, CC-BY-SA license.
+- I2C OLED display header
+- Lithium-Ion Battery Charger
+- 1 Reset button, 1 programable button
+- 1 Power LED, 1 programable LED, 1 Charger LED
+- Compatible with Shields for ESP32 in the future (Gateway - GSM/GPRS/GPS and Lora Shield, Connectivity - CAN, RS485, RS232 Shield, Audio Shield, ...)
 
-
+Pinout
+******
 
 .. image:: _static/Esp32-boad__1_.png
    :width: 800
 
+Mạch nguyên lý
+**************
+
+.. image:: _static/sch.png
+   :width: 800
 
 .. toctree::
    :caption: Cơ bản
@@ -43,7 +48,7 @@ Lập trình ESP32
    :caption: Tài liệu ESP32
 
 .. toctree::
-   :caption: Đóng góp và bản quyền
+   :caption: Contributing
    :maxdepth: 1
 
    Hướng dẫn đóng góp <contributing>
