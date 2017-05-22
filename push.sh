@@ -7,7 +7,7 @@ REPO=esp32.vn
 # This probably should match an email for one of your users.
 EMAIL=tuanpm@live.com
 
-set -e
+#set -e
 
 # Clone the gh-pages branch outside of the repo and cd into it.
 cd ..
