@@ -39,10 +39,9 @@ extensions = ['sphinx.ext.autodoc',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
-    'sphinxcontrib.youtube',
-    'sphinxcontrib.googleanalytics']
+    'sphinxcontrib.youtube']
 
-googleanalytics_id = 'UA-60470603-07'
+# googleanalytics_id = 'UA-60470603-07'
 
 html_theme_options = {
     'collapse_navigation': False,
