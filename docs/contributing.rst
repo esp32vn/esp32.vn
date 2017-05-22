@@ -12,10 +12,7 @@ Viết bài
 ========
 * Fork dự án về tài khoản cá nhân: https://github.com/esp32vn/esp32.vn
 * Xem qua về định dạng `reStructuredText <http://www.sphinx-doc.org/en/stable/rest.html>`_
-* Mẫu bài cơ bản bao gồm các thành phần demo, chuẩn bị, đấu nối, cài đặt thư viện, lập trình, lưu ý, giống:
-
-    * Sử dụng thư viện `Fritzing <https://github.com/iotmakervn/iot-wifi-uno-hw/blob/master/assets/iot-wifi-uno.fzpz>`_ cho việc đấu nối
-    * Nếu cần `Pinout <https://github.com/iotmakervn/iot-wifi-uno-hw/raw/master/assets/Iot-wifi-uno-hw-pinout.png>`_
+* Mẫu bài cơ bản bao gồm các thành phần demo, chuẩn bị, đấu nối, cài đặt thư viện, lập trình,
 
 * Commit và push lên repository trên github (tài khoản cá nhân)
 * Gởi pull-request đến https://github.com/esp32vn/esp32.vn
