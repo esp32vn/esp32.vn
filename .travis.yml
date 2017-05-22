@@ -5,7 +5,8 @@ install:
 - pip install sphinx sphinx_rtd_theme==0.2.5b1 sphinxcontrib.youtube
 script: make html
 after_success:
-- "./push.sh"
+- chmod +x ./push.sh
+- ./push.sh
 env:
   global:
   - secure: kGzrzUUePVPJp2e93d4vMaX6tzAyVAdFWKREkU9tPyr46nI3e0Q2xJ5FzaidNrqh7Ut8m9s3aQnRLgZnTKjlVZ711vc2wViY3RYyljy6COqDWOQnmJJvaIAyK/gA0cuBpdKgrp77En0ktc0iXc71HxqMA7FEKnWFwHJIlR9aJVMooYDLVZIOkJNxnawIU8wd2fG+n6CAfO3mJRjdsmVeHlL4sYJPVG+bKKRywNfwewxMEpwOtwfzmISyPweGmi698Z2EqXl4yiUTmoGIDEMkvJ3J6wXs4+/3iwf5+KE+GXwEqGJHVJu+0NOx4qf86ImKqz/erRaQNJ8yZCJ0yOFkkEkrcEjFPjbz3kmXpIgQ6eIso7RNaIxLJshZJ9Lm7JZ557LV/xzLGfMWNIzCA4Y8Z+uoJZJKCS2dN1vFDDhRxzFlMaYQwQTrPsw/lMPVVaR8gf8wRyuW/+dhIZl5tqVWoz5PFgBA6XjhnEAqhmIqAGGueNjVtMtlUsaGDISsg8nSllNLoIr6sJx4BbvAat+6yKD10hPLGXSkB8Ea8zms2h3h10xLqK761pSo34yD4I3KNu8tm/OFxxo4dQWBw/gCXGbtP4LC77u6SGBJHhDfediQ62gMfxXwBGUQ3pGrep/eC+CJJHnxWBkde0A85LxC7XcQW4XCcCWLrighrhkOYJQ=
