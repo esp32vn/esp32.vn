@@ -1,5 +1,5 @@
 Lập trình "Hello World" với ESP32 IDF
-----------------------------
+-------------------------------------
 Giới thiệu
 =================
 Espressif Internet Development Framework (ESP-IDF) sử dụng FreeRTOS để tận dụng tốt hơn hai bộ xử lý tốc độ cao và quản lý nhiều thiết bị ngoại vi được cài sẵn. Nó được thực hiện bằng cách tạo các tác vụ. Hãy bắt đầu bằng chương trình "Hello world" để hiểu rõ hơn.
@@ -8,14 +8,14 @@ Chương trình Hello world sau mỗi 10 giây in ra một chuỗi "Hello world"
 
 Demo
 ==================
-.. youtube:: https://www.youtube.com/watch?v=COB2TvLqbPk
+.. youtube:: https://www.youtube.com/watch?v=SxPDVPu8tug
 
 Chuẩn bị
 ==================
     +--------------------+----------------------------------------------------------+
     | **Tên board mạch** | **Link**                                                 |
     +====================+==========================================================+
-    | Board IoT Wifi Uno | https://iotmaker.vn/esp32-wifi-uno.html                  |
+    | Board IoT Wifi Uno | https://github.com/esp32vn/esp32-iot-uno                 |
     +--------------------+----------------------------------------------------------+
 
 Hướng dẫn
@@ -105,3 +105,4 @@ Lưu ý
 * Hướng dẫn cài đặt ESP-IDF `tại đây <https://esp-idf.readthedocs.io/en/latest/index.html>`_
 * Nạp và Debug chương trình xem `tại đây <https://esp-idf.readthedocs.io/en/latest/index.html>`_
 * Tài nguyên hệ thống xem `tại đây <https://github.com/espressif/esp-idf>`_
+..
