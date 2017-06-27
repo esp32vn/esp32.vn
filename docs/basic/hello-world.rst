@@ -34,6 +34,64 @@ Include thư viện
 * freertos/task.h: Cung cấp chức năng đa nhiệm. (Chúng tôi sẽ làm đa nhiệm ở các ví dụ sau)
 * esp_system.h: Bao gồm cấu hình các thiết bị ngoại vi trong hệ thống ESP. Chức năng của nó như là hệ thống khởi tạo.
 
+Tải dự án mẫu:
+******************
+.. code:: cpp
+
+    git clone https://github.com/espressif/esp-idf.git
+
+Một dự án trông như thế này:
+
+.. code:: cpp
+
+    - myProject/
+                     - Makefile
+                     - sdkconfig
+                     - components/ - component1/ - component.mk
+                                                 - Kconfig
+                                                 - src1.c
+                                   - component2/ - component.mk
+                                                 - Kconfig
+                                                 - src1.c
+                                                 - include/ - component2.h
+                     - main/       - src1.c
+                                   - src2.c
+                                   - component.mk
+
+                     - build/
+
+Ví dụ "myProject" chứa các yếu tố sau:
+
+* Một Makefile dự án cấp cao nhất. Makefile này thiết lập biến PROJECT_NAME và (tùy ý) xác định các biến tạo khác trên toàn dự án. Nó bao gồm cốt lõi $(IDF_PATH)/make/project.mk makefile mà thực hiện phần còn lại của hệ thống xây dựng ESP-IDF.
+* "Sdkconfig" tập tin cấu hình dự án. Tập tin này được tạo ra / cập nhật khi "make menuconfig" chạy, và giữ cấu hình cho tất cả các thành phần trong dự án (bao gồm esp-idf). Tập tin "sdkconfig" có thể hoặc không thể được thêm vào hệ thống kiểm soát nguồn của dự án.
+* Tùy chọn "components" thư mục chứa các thành phần là một phần của dự án. Một dự án không phải chứa các thành phần tùy chỉnh của loại này, nhưng có thể hữu ích cho việc cấu trúc mã tái sử dụng hoặc bao gồm các thành phần bên thứ ba không thuộc ESP-IDF.
+* "Main" thư mục là một đặc biệt "pseudo-component" có chứa mã nguồn cho dự án chính nó. "Main" là một tên mặc định, biến SRCDIRS Makefile mặc định này nhưng có thể được đặt để tìm các thành phần giả trong các thư mục khác.
+* "build" thư mục là nơi sản xuất xây dựng được tạo ra. Sau khi chạy quá trình make, thư mục này sẽ chứa các tệp đối tượng tạm thời và các thư viện cũng như tệp tin đầu ra nhị phân cuối cùng. Thư mục này thường không được thêm vào kiểm soát nguồn hoặc phân phối với mã nguồn dự án.
+
+Hướng dẫn sửa và tạo make file:
+******************
+.. code:: cpp
+
+    PROJECT_NAME := myProject
+    include $(IDF_PATH)/make/project.mk
+
+* PROJECT_NAME: Tên của dự án. Tạo ra một mã nhị phân với tên này tức là - myProject.bin, myProject.elf.
+
+Hướng dẫn config, nạp và debug chương trình:
+******************
+.. code:: cpp
+
+    cd ~/esp-idf/examples/get-started/hello_world
+    make menuconfig
+    make flash
+    make moniter
+
+* make menuconfig: Câu lệnh này sẽ hiển hiện ra một menu để cấu hình ESP32 như: Lựa chọn com port, lựa chọn tốc độ baud rate, ...
+* make flash: Câu lệnh này để đổ chương trình xuống esp32
+* make monitor: Câu lệnh này cho phép nạp và debug chương trình
+* make simple_moniter: Câu lẹnh này cho phép debug chương trình
+* make help: Còn nhiều lệnh khác xem trong đây.
+
 Hàm app_main()
 ******************
 
@@ -44,6 +102,29 @@ Ngay khi khởi động thực hiện chương trình bắt đầu với app_mai
     void app_main()
     {
         xTaskCreate(&hello_task, "hello_task", 2048, NULL, 5, NULL);
+    }
+
+xTaskCreate() để khởi tạo Task, Khi gọi hàm này thì Task mới thực sự được tạo ra.
+
+xTaskCreate(TaskFunction_t pxTaskCode, const char * pcName, const uint16_t usStackDepth, void *pvParameters, UBaseType_t uxPriority, TaskHandle_t *pxCreatedTask);
+
+* pvTaskCode: con trỏ tới hàm task.
+* pcName: là tên đặt cho task.
+* usStackDepth: là giá trị số thanh ghi Stack được cấp cho Task.
+* pvParameters: Biến được truyền vào Task.
+* uxPriority: giá trị ưu tiên của Task.
+* pxCreatedTask: Như kiểu là cái tên định danh để ta có thể tác động vào task. ví dụ như khi thay đổi Priority của Task.
+
+xTaskCreatePinnedToCore(TaskFunction_t pxTaskCode, const char * pcName, const uint16_t usStackDepth, void *pvParameters, UBaseType_t uxPriority, TaskHandle_t *pxCreatedTask, const BasType_t xCoreID)
+Hàm xTaskCreatePinnedToCore() hoạt động giống như xTaskCreate() nhưng có thêm một đối số xCoreID cho phép lựa chọn core vì ESP32 có 2 core.
+
+Ví dụ: Khởi tạo task hoạt động ở core 0
+
+.. code:: cpp
+
+    void app_main()
+    {
+        xTaskCreatePinnedToCore(&hello_task, "hello_task", 2048, NULL, 5, NULL, 0);
     }
 
 

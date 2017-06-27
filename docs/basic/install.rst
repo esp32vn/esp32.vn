@@ -72,11 +72,11 @@ Cài đặt cho Windows
 
 - Mở ``terminal`` và cd đến thư mục Arduino. Nó có thể là thư mục *sketchbook* (thường là ``<Documents>/Arduino``), hay thư mục của Ứng dụng Arduino, tùy bạn chọn.
 
-- Clone/download repository https://github.com/espressif/arduino-esp32.git này đến thư mục ``hardware/esp32com``
+- Clone/download repository https://github.com/espressif/arduino-esp32.git này đến thư mục ``hardware/esp32com`` 
 
 - Thường là ``C:/Users/[YOUR_USER_NAME]/Documents/Arduino/hardware/espressif/esp32``
 
-- Hoặc thay đổi *sketchbook* trên phù hợp với thư mục đã cài đặt Ứng dụng Arduino phù hợp trên máy.
+- Hoặc thay đổi *sketchbook* trên phù hợp với thư mục đã cài đặt Ứng dụng Arduino phù hợp trên máy. 
 
 - Mở ``C:/Users/[YOUR_USER_NAME]/Documents/Arduino/hardware/esp32/tools`` và double-click vào ``get.exe``
 
@@ -84,7 +84,7 @@ Cài đặt cho Windows
     :target: _static/win-gui-get-exe.png
     :width: 800
 
-- Khi ``get.exe`` thực hiện xong, cấu trúc có thể thấy như sau:
+- Khi ``get.exe`` thực hiện xong, cấu trúc có thể thấy như sau: 
 
 .. image:: ../_static/win-gui-get-exe2.png
     :target: _static/win-gui-get-exe2.png
