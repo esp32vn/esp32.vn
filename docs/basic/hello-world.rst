@@ -4,7 +4,7 @@ Giới thiệu
 =================
 Espressif Internet Development Framework (ESP-IDF) sử dụng FreeRTOS để tận dụng tốt hơn hai bộ xử lý tốc độ cao và quản lý nhiều thiết bị ngoại vi được cài sẵn. Nó được thực hiện bằng cách tạo các tác vụ. Hãy bắt đầu bằng chương trình "Hello world" để hiểu rõ hơn.
 
-Chương trình Hello world sau mỗi 10 giây in ra một chuỗi "Hello world" và hiển thị trên màn hình máy tính thông qua chuẩn truyền thông UART.
+Chương trình Hello world sau mỗi 10 giây in ra một chuỗi "Hello world" và hiển thị trên terminal máy tính xuất từ cổng UART của ESP32.
 
 Demo
 ==================
@@ -95,7 +95,7 @@ Hướng dẫn config, nạp và debug chương trình:
 Hàm app_main()
 ******************
 
-Ngay khi khởi động thực hiện chương trình bắt đầu với app_main (), cũng giống như hàm main () thường dùng. Đây là chức năng đầu tiên được gọi tự động.
+app_main() được thực thi sau khi hoàn tất quá trình khởi động chip ESP32.
 
 .. code:: cpp
 
@@ -110,10 +110,10 @@ xTaskCreate(TaskFunction_t pxTaskCode, const char * pcName, const uint16_t usSta
 
 * pvTaskCode: con trỏ tới hàm task.
 * pcName: là tên đặt cho task.
-* usStackDepth: là giá trị số thanh ghi Stack được cấp cho Task.
-* pvParameters: Biến được truyền vào Task.
+* usStackDepth: Bộ nhớ stack sẽ được cấp phát cho task, phụ thuộc vào bộ nhớ biến cục bộ định nghĩa trong task và số lần gọi hàm.
+* pvParameters: Context đưa vào argument của task.
 * uxPriority: giá trị ưu tiên của Task.
-* pxCreatedTask: Như kiểu là cái tên định danh để ta có thể tác động vào task. ví dụ như khi thay đổi Priority của Task.
+* pxCreatedTask: Reference để điều khiển task.
 
 Ngoài ra chúng ta cũng có thể sử dụng hàm này:
 xTaskCreatePinnedToCore(TaskFunction_t pxTaskCode, const char * pcName, const uint16_t usStackDepth, void *pvParameters, UBaseType_t uxPriority, TaskHandle_t *pxCreatedTask, const BasType_t xCoreID)
