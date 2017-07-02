@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Phần cứng &mdash; Tài liệu ESP32 1.0</title>
+  <title>Kết nối phần cứng và cài đặt &mdash; Tài liệu ESP32 1.0</title>
   
 
   
@@ -36,8 +36,9 @@
               href="../genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu ESP32 1.0" href="../index.html"/>
-        <link rel="next" title="Board" href="board.html"/>
-        <link rel="prev" title="ESP32 Development Hardware" href="../index.html"/> 
+        <link rel="up" title="Phần cứng" href="index.html"/>
+        <link rel="next" title="Cài đặt" href="../arduino/index.html"/>
+        <link rel="prev" title="Board" href="board.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -85,12 +86,12 @@
             
               <p class="caption"><span class="caption-text">Phần cứng</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Phần cứng</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Phần cứng</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="board.html">Board ESP32vn IoT Uno</a></li>
-<li class="toctree-l2"><a class="reference internal" href="connection.html">Kết nối máy tính</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="connection.html#ket-noi-phan-cung">Kết nối phần cứng</a></li>
-<li class="toctree-l3"><a class="reference internal" href="connection.html#cai-dat-usb-driver">Cài đặt USB Driver</a></li>
-<li class="toctree-l3"><a class="reference internal" href="connection.html#cau-hinh-ket-noi">Cấu hình kết nối</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Kết nối máy tính</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ket-noi-phan-cung">Kết nối phần cứng</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cai-dat-usb-driver">Cài đặt USB Driver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cau-hinh-ket-noi">Cấu hình kết nối</a></li>
 </ul>
 </li>
 </ul>
@@ -177,13 +178,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Phần cứng</li>
+          <li><a href="index.html">Phần cứng</a> &raquo;</li>
+        
+      <li>Kết nối phần cứng và cài đặt</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/hardware/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/hardware/connection.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -196,18 +199,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="phan-cung">
-<h1>Phần cứng<a class="headerlink" href="#phan-cung" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
+  <div class="section" id="ket-noi-phan-cung-va-cai-dat">
+<h1>Kết nối phần cứng và cài đặt<a class="headerlink" href="#ket-noi-phan-cung-va-cai-dat" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ket-noi-phan-cung">
+<h2>Kết nối phần cứng<a class="headerlink" href="#ket-noi-phan-cung" title="Permalink to this headline">¶</a></h2>
+<p>Kết nối USB với Board mạch <strong>ESP32 WiFi Uno</strong> như hình bên dưới, đảm bảo đèn LED nguồn sáng.</p>
+<a class="reference external image-reference" href="../_static/connection-board.jpg"><img alt="../_images/connection-board.jpg" src="../_images/connection-board.jpg" style="width: 800px;" /></a>
+</div>
+<div class="section" id="cai-dat-usb-driver">
+<h2>Cài đặt USB Driver<a class="headerlink" href="#cai-dat-usb-driver" title="Permalink to this headline">¶</a></h2>
+<p>Tùy thuộc từng hệ điều hành mà chọn và tải bản cài đặt <a class="reference external" href="http://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">CP210x USB to UART</a> phù hợp.</p>
+</div>
+<div class="section" id="cau-hinh-ket-noi">
+<h2>Cấu hình kết nối<a class="headerlink" href="#cau-hinh-ket-noi" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="board.html">Board ESP32vn IoT Uno</a></li>
-<li class="toctree-l1"><a class="reference internal" href="connection.html">Kết nối máy tính</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="connection.html#ket-noi-phan-cung">Kết nối phần cứng</a></li>
-<li class="toctree-l2"><a class="reference internal" href="connection.html#cai-dat-usb-driver">Cài đặt USB Driver</a></li>
-<li class="toctree-l2"><a class="reference internal" href="connection.html#cau-hinh-ket-noi">Cấu hình kết nối</a></li>
+<li><p class="first">Sau khi cài đặt xong và kết nối, sẽ xuất hiện cổng COM ảo trên máy tính (Tùy từng loại hệ điều hành mà có những tên cổng như: <code class="docutils literal"><span class="pre">COM1,</span> <span class="pre">COM2</span> <span class="pre">...</span></code> đối với Windows, <code class="docutils literal"><span class="pre">/dev/tty.wchusbserial1420</span></code> trên Mac OS), <code class="docutils literal"><span class="pre">/dev/ttyUSB0</span></code> trên Ubuntu Linux)</p>
+</li>
+<li><p class="first">Mở Arduino IDE và lựa chọn board (tham khảo cấu hình kết nối như hình dưới):</p>
+<blockquote>
+<div><ul class="simple">
+<li>Board: <code class="docutils literal"><span class="pre">ESP32vn</span> <span class="pre">IoT</span> <span class="pre">Uno</span></code></li>
+<li>Flash Frequency: <code class="docutils literal"><span class="pre">80MHz</span></code></li>
+<li>Port: chọn cổng khi gắn thiết bị vào sẽ thấy xuất hiện</li>
+<li>Upload speed: Chọn cao nhất, nếu nạp không được chọn thấp dần</li>
 </ul>
+</div></blockquote>
 </li>
 </ul>
+<a class="reference external image-reference" href="../_static/setup-board.png"><img alt="../_images/setup-board.png" src="../_images/setup-board.png" style="width: 800px;" /></a>
 </div>
 </div>
 
@@ -221,10 +240,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="board.html" class="btn btn-neutral float-right" title="Board" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../arduino/index.html" class="btn btn-neutral float-right" title="Cài đặt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="ESP32 Development Hardware" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="board.html" class="btn btn-neutral" title="Board" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
