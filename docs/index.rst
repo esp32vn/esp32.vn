@@ -35,12 +35,22 @@ Mạch nguyên lý
    :width: 800
 
 .. toctree::
-   :caption: Cơ bản
+   :caption: Phần cứng
    :maxdepth: 2
 
-   Cài đặt <basic/index>
-   Hello World <basic/hello-world>
+   Phần cứng <hardware/index>
 
+.. toctree::
+   :caption: ESP32 Arduino
+   :maxdepth: 2
+
+   Arduino cơ bản <arduino/index>
+
+.. toctree::
+   :caption: ESP32 IDF
+   :maxdepth: 2
+
+   ESP-IDF cơ bản <idf/index>
 
 .. toctree::
    :caption: Network/Protocol

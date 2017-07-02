@@ -5,7 +5,7 @@ Cài đặt công cụ cần thiết
 =========================
 * ``python``: Cài đặt python 2.7
 * Cài đặt ``pip``
-* ``pip install sphinx sphinx_rtd_theme==0.2.0 sphinxcontrib.youtube sphinxcontrib-googleanalytics``
+* ``pip install sphinx sphinx_rtd_theme==0.2.5b1 sphinxcontrib.youtube``
 * ``make livehtml`` rồi truy cập vào http://localhost:8000
 
 Viết bài
@@ -19,10 +19,12 @@ Viết bài
 
 Một số lưu ý khác
 =================
-* Các bải hướng dẫn nên sử dụng board **IoT WiFi Uno** để thực hành
+* Các bải hướng dẫn nên sử dụng board **ESP32 IoT Uno** để thực hành
 * Các nội dung cần bổ sung đã được lên danh sách sẵn, nhưng còn trống, có thể viết thêm
 
 
 Danh sách các thành viên đã đóng góp
 ====================================
 * `@tuanpmt <https://github.com/tuanpmt>`_
+* `@trinhduc <https://github.com/trinhduc>`_
+* `@ducvinh727 <https://github.com/ducvinh727>`_
