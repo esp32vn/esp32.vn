@@ -51,6 +51,7 @@ Mạch nguyên lý
    :maxdepth: 2
 
    ESP-IDF cơ bản <idf/index>
+   Thẻ nhớ <idf/sdcard>
 
 .. toctree::
    :caption: Network/Protocol
