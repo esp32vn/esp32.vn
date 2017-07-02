@@ -75,7 +75,7 @@ Hướng dẫn sửa và tạo make file:
     PROJECT_NAME := myProject
     include $(IDF_PATH)/make/project.mk
 
-* PROJECT_NAME: Tên của dự án. Tạo ra một mã nhị phân với tên này tức là - myProject.bin, myProject.elf.
+* PROJECT_NAME := myProject : Tạo ra một mã nhị phân với tên này tức là - myProject.bin, myProject.elf.
 
 Hướng dẫn config, nạp và debug chương trình:
 ******************
@@ -87,9 +87,9 @@ Hướng dẫn config, nạp và debug chương trình:
     make moniter
 
 * make menuconfig: Câu lệnh này sẽ hiển hiện ra một menu để cấu hình ESP32 như: Lựa chọn com port, lựa chọn tốc độ baud rate, ...
-* make flash: Câu lệnh này để đổ chương trình xuống esp32
+* make flash: Câu lệnh này biên dịch và đổ chương trình xuống esp32
 * make monitor: Câu lệnh này cho phép nạp và debug chương trình
-* make simple_moniter: Câu lẹnh này cho phép debug chương trình
+* make simple_moniter: Câu lệnh này cho phép debug chương trình
 * make help: Còn nhiều lệnh khác xem trong đây.
 
 Hàm app_main()
@@ -115,6 +115,7 @@ xTaskCreate(TaskFunction_t pxTaskCode, const char * pcName, const uint16_t usSta
 * uxPriority: giá trị ưu tiên của Task.
 * pxCreatedTask: Như kiểu là cái tên định danh để ta có thể tác động vào task. ví dụ như khi thay đổi Priority của Task.
 
+Ngoài ra chúng ta cũng có thể sử dụng hàm này:
 xTaskCreatePinnedToCore(TaskFunction_t pxTaskCode, const char * pcName, const uint16_t usStackDepth, void *pvParameters, UBaseType_t uxPriority, TaskHandle_t *pxCreatedTask, const BasType_t xCoreID)
 Hàm xTaskCreatePinnedToCore() hoạt động giống như xTaskCreate() nhưng có thêm một đối số xCoreID cho phép lựa chọn core vì ESP32 có 2 core.
 
