@@ -37,14 +37,14 @@ Mạch nguyên lý
 .. toctree::
    :caption: Cơ bản
    :maxdepth: 2
-   
+
    Cài đặt <basic/index>
-   Hello World <basic/hello>
-      
+   Hello World <basic/hello-world>
+
 
 .. toctree::
    :caption: Network/Protocol
-   :maxdepth: 1
+   :maxdepth: 2
 
 
 .. toctree::
