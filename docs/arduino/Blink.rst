@@ -1,31 +1,33 @@
 Lập trình GPIO với  ESP32 bằng Arduino IDE.
---------------------------------------------------------
+--------------------------------------------
 
 Giới thiệu.
-===============
+============
 
-Sau khi Arduino IDE đã hỗ trợ board ESP32vn IoT Uno thì mình làm một bài ví dụ đơn giản về IO  là nhấp nháy LED.
+	* Trong ESP32 có tất cả 34 chân GPIO:
+		* GPIO 00 - GPIO 19
+		* GPIO 21 - GPIO 23
+		* GPIO 25 - GPIO 27
+		* GPIO 32 - GPIO 39
+	**Lưu ý** 
+		* ``Không bao gồm`` các chân ``20, 24, 28, 29, 30 và 31``.
+		* Các chân ``GPIO 34 - GPIO39`` chỉ thiết lập ở chế độ ``INPUT``.
+		* Các chân ``GPIO 06 - GPIO 11`` thường được dùng để giao tiếp với thẻ nhớ ngoài thông qua giao thức SPI nên hạn chế sử dụng để thiết lập IO.
+	* Dưới đây là ví dụ đơn giản về thiết lập IO bằng Arduino để nhấp nháy LED cho ESP32 sử dụng board ESP32-Wifi-Uno.
 
 Chuẩn bị.
-==========
+=========
 
-* Phần cứng:
-
-    * Board ``ESP32 IoT Wifi Uno.``
-    * ``LED``.
-    * ``Trở 330 ohm``.
-    * ``Testboard cắm``.
-    * ``Dây nối``.
-
-* Phần mềm:
-	
-    * Arduino IDE (xem cài đặt `Arduino IDE với ESP IoT Wifi Uno tại đây <https://esp32.vn/arduino/install.html>`_.
+ 	+------------------------+----------------------------------------------------------+
+	| **Phần cứng**	 | **Link**                                 		    |
+	+========================+==========================================================+
+	| Board ESP32-Wifi-UNO	 | https://github.com/esp32vn/esp32-iot-uno                 |
+	+------------------------+----------------------------------------------------------+
 
 Kết nối.
 ========
 
-    * Chân ``Anode`` của ``LED``  nối với điện trở đi vào chân 21 trên board ``ESP32 IoT Wifi Uno``.
-    * Chân ``Cathode`` nối với cổng GND trên board ``ESP32 IoT Wifi Uno``.
+    * Trên board ESP32-Wifi-Uno có đèn D3 nối với chân số GPIO23 và nút nhấn nối với chân GPIO18. 
 
 Chưong trình.
 =============
@@ -33,25 +35,37 @@ Chạy chương trình Arduino IDE lên và copy toàn bộ code dưới đây v
 
 .. code:: cpp
 
-    int LED = 21; 
+    int LED = 23;
+	int inPin = 18;
+	int val = 0;
 
-    void setup(){
-        pinMode(LED, OUTPUT);
-    }
+	void setup(){
+		pinMode(LED, OUTPUT);
+		pinMode(inPin, INPUT_PULLUP);
+	}
 
-    void loop(){
-        digitalWrite(LED, HIGH);
-        delay(500);
-        digitalWrite(LED, LOW);
-        delay(500);
-    }
+	void loop(){
+  		while(digitalRead(inPin)==val)
+  		{
+    	delay(200);
+    	digitalWrite(LED, LOW);
+    	val = digitalRead(inPin);
+    	delay(200);
+    	digitalWrite(LED, HIGH);
+  		}
+	}
 
-Nạp chương trình
-===================
+**Lưu ý**
+	* Khi chân được thiết lập ``INPUT`` không nối với gì thì mặc định khi trả về sẽ là mức ``HIGH``.
+	* Đèn D3 trên board ESP32-Wifi-Uno sẽ sáng khi chân ``OUTPUT`` ở mức ``LOW``.
 
-Kết nối ``ESP32 IoT Wifi Uno`` với máy tính và thực hiện theo `hướng dẫn tại đây <https://esp32.vn/hardware/connection.html#cau-hinh-ket-noi>`_ 
+Nạp chương trình.
+=================
 
-Kết luận
+Kết nối ``ESP32 IoT Wifi Uno`` với máy tính và thực hiện theo `hướng dẫn tại đây. <https://esp32.vn/hardware/connection.html#cau-hinh-ket-noi>`_ 
+
+Kết luận.
 =========
 
-Vì đây chỉ là một chương trình IO đơn giản nên bài viết này mình xin dừng ở đây, chúc các bạn thành công và hẹn gặp lại ở các bài viết khác.
+	* Các chân GPIO trên ESP32 là khá ít và đặc biệt trên board ESP32-Wifi-Uno sẽ còn ít hơn nữa, nên khi muốn điều khiển nhiều hơn thì có thể mở rộng thêm bằng các IC như PCF8574 hoặc MCP23017...
+	* Ngoài chức năng xuất các tín hiệu vào ra ở các chân GPIO, thì vẫn còn chức năng đó là xử lý ngắt (interrupt handling). Về việc tìm hiểu chức năng thì sẽ được giới thiệu ở bài viết sau.

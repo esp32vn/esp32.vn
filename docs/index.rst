@@ -42,7 +42,7 @@ Mạch nguyên lý
 
 .. toctree::
    :caption: ESP32 Arduino
-   :maxdepth: 2
+   :maxdepth: 3
 
    Arduino cơ bản <arduino/index>
 
