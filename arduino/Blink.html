@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Thư viện &mdash; Tài liệu ESP32 1.0</title>
+  <title>Lập trình GPIO với ESP32 bằng Arduino IDE. &mdash; Tài liệu ESP32 1.0</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu ESP32 1.0" href="../index.html"/>
         <link rel="up" title="Cài đặt" href="index.html"/>
-        <link rel="next" title="Lập trình GPIO với ESP32 bằng Arduino IDE." href="Blink.html"/>
-        <link rel="prev" title="Arduino cơ bản" href="install.html"/> 
+        <link rel="next" title="ESP32 IDF" href="../idf/index.html"/>
+        <link rel="prev" title="Thư viện" href="library.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -105,14 +105,14 @@
 <li class="toctree-l3"><a class="reference internal" href="install.html#huong-dan">Hướng dẫn</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Cài đặt thư viện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Blink.html">Blink</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Blink.html#gioi-thieu">Giới thiệu.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Blink.html#chuan-bi">Chuẩn bị.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Blink.html#ket-noi">Kết nối.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Blink.html#chuong-trinh">Chưong trình.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Blink.html#nap-chuong-trinh">Nạp chương trình.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Blink.html#ket-luan">Kết luận.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="library.html">Cài đặt thư viện</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Blink</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gioi-thieu">Giới thiệu.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chuan-bi">Chuẩn bị.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ket-noi">Kết nối.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chuong-trinh">Chưong trình.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nap-chuong-trinh">Nạp chương trình.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ket-luan">Kết luận.</a></li>
 </ul>
 </li>
 </ul>
@@ -194,13 +194,13 @@
         
           <li><a href="index.html">Cài đặt</a> &raquo;</li>
         
-      <li>Thư viện</li>
+      <li>Lập trình GPIO với  ESP32 bằng Arduino IDE.</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/arduino/library.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/arduino/Blink.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -213,8 +213,97 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="thu-vien">
-<h1>Thư viện<a class="headerlink" href="#thu-vien" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="lap-trinh-gpio-voi-esp32-bang-arduino-ide">
+<h1>Lập trình GPIO với  ESP32 bằng Arduino IDE.<a class="headerlink" href="#lap-trinh-gpio-voi-esp32-bang-arduino-ide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="gioi-thieu">
+<h2>Giới thiệu.<a class="headerlink" href="#gioi-thieu" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>Trong ESP32 có tất cả 34 chân GPIO:</dt>
+<dd><ul class="first last">
+<li>GPIO 00 - GPIO 19</li>
+<li>GPIO 21 - GPIO 23</li>
+<li>GPIO 25 - GPIO 27</li>
+<li>GPIO 32 - GPIO 39</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="docutils">
+<dt><strong>Lưu ý</strong></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">Không</span> <span class="pre">bao</span> <span class="pre">gồm</span></code> các chân <code class="docutils literal"><span class="pre">20,</span> <span class="pre">24,</span> <span class="pre">28,</span> <span class="pre">29,</span> <span class="pre">30</span> <span class="pre">và</span> <span class="pre">31</span></code>.</li>
+<li>Các chân <code class="docutils literal"><span class="pre">GPIO</span> <span class="pre">34</span> <span class="pre">-</span> <span class="pre">GPIO39</span></code> chỉ thiết lập ở chế độ <code class="docutils literal"><span class="pre">INPUT</span></code>.</li>
+<li>Các chân <code class="docutils literal"><span class="pre">GPIO</span> <span class="pre">06</span> <span class="pre">-</span> <span class="pre">GPIO</span> <span class="pre">11</span></code> thường được dùng để giao tiếp với thẻ nhớ ngoài thông qua giao thức SPI nên hạn chế sử dụng để thiết lập IO.</li>
+</ul>
+</dd>
+</dl>
+<ul class="simple">
+<li>Dưới đây là ví dụ đơn giản về thiết lập IO bằng Arduino để nhấp nháy LED cho ESP32 sử dụng board ESP32-Wifi-Uno.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="chuan-bi">
+<h2>Chuẩn bị.<a class="headerlink" href="#chuan-bi" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div></div></blockquote>
+</div>
+<div class="section" id="ket-noi">
+<h2>Kết nối.<a class="headerlink" href="#ket-noi" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Trên board ESP32-Wifi-Uno có đèn D3 nối với chân số GPIO23 và nút nhấn nối với chân GPIO18.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="chuong-trinh">
+<h2>Chưong trình.<a class="headerlink" href="#chuong-trinh" title="Permalink to this headline">¶</a></h2>
+<p>Chạy chương trình Arduino IDE lên và copy toàn bộ code dưới đây vào và save với lại với một tên bất kì.</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">LED</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">inPin</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+    <span class="nb">int</span> <span class="n">val</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="n">void</span> <span class="n">setup</span><span class="p">(){</span>
+            <span class="n">pinMode</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+            <span class="n">pinMode</span><span class="p">(</span><span class="n">inPin</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">void</span> <span class="n">loop</span><span class="p">(){</span>
+            <span class="k">while</span><span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">inPin</span><span class="p">)</span><span class="o">==</span><span class="n">val</span><span class="p">)</span>
+            <span class="p">{</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">digitalRead</span><span class="p">(</span><span class="n">inPin</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><strong>Lưu ý</strong></dt>
+<dd><ul class="first last simple">
+<li>Khi chân được thiết lập <code class="docutils literal"><span class="pre">INPUT</span></code> không nối với gì thì mặc định khi trả về sẽ là mức <code class="docutils literal"><span class="pre">HIGH</span></code>.</li>
+<li>Đèn D3 trên board ESP32-Wifi-Uno sẽ sáng khi chân <code class="docutils literal"><span class="pre">OUTPUT</span></code> ở mức <code class="docutils literal"><span class="pre">LOW</span></code>.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="nap-chuong-trinh">
+<h2>Nạp chương trình.<a class="headerlink" href="#nap-chuong-trinh" title="Permalink to this headline">¶</a></h2>
+<p>Kết nối <code class="docutils literal"><span class="pre">ESP32</span> <span class="pre">IoT</span> <span class="pre">Wifi</span> <span class="pre">Uno</span></code> với máy tính và thực hiện theo <a class="reference external" href="https://esp32.vn/hardware/connection.html#cau-hinh-ket-noi">hướng dẫn tại đây.</a></p>
+</div>
+<div class="section" id="ket-luan">
+<h2>Kết luận.<a class="headerlink" href="#ket-luan" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Các chân GPIO trên ESP32 là khá ít và đặc biệt trên board ESP32-Wifi-Uno sẽ còn ít hơn nữa, nên khi muốn điều khiển nhiều hơn thì có thể mở rộng thêm bằng các IC như PCF8574 hoặc MCP23017...</li>
+<li>Ngoài chức năng xuất các tín hiệu vào ra ở các chân GPIO, thì vẫn còn chức năng đó là xử lý ngắt (interrupt handling). Về việc tìm hiểu chức năng thì sẽ được giới thiệu ở bài viết sau.</li>
+</ul>
+</div></blockquote>
+</div>
 </div>
 
 
@@ -227,10 +316,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Blink.html" class="btn btn-neutral float-right" title="Lập trình GPIO với ESP32 bằng Arduino IDE." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../idf/index.html" class="btn btn-neutral float-right" title="ESP32 IDF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="install.html" class="btn btn-neutral" title="Arduino cơ bản" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="library.html" class="btn btn-neutral" title="Thư viện" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
