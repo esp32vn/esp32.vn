@@ -6,4 +6,4 @@ Cài đặt
 
    Cài đặt Arduino IDE<install>
    Cài đặt thư viện <library>
-   Blink <Blink>
+   Blink <blink>
