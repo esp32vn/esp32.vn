@@ -148,19 +148,19 @@ Gía trị:
 Gía trị:
 	-``ADC1_CHANNEL_0 = 0``     : ADC1 kênh 0 (GPIO36)
 
-	-``ADC1_CHANNEL_1 = 1``	    : ADC1 kênh 1 (GPIO37)
+	-``ADC1_CHANNEL_1``	    : ADC1 kênh 1 (GPIO37)
 
-	-``ADC1_CHANNEL_2 = 2``	    : ADC1 kênh 2 (GPIO38)
+	-``ADC1_CHANNEL_2``	    : ADC1 kênh 2 (GPIO38)
 
-	-``ADC1_CHANNEL_3 = 3``	    : ADC1 kênh 3 (GPIO39)
+	-``ADC1_CHANNEL_3``	    : ADC1 kênh 3 (GPIO39)
 	
-	-``ADC1_CHANNEL_4 = 4``	    : ADC1 kênh 4 (GPIO32)
+	-``ADC1_CHANNEL_4``	    : ADC1 kênh 4 (GPIO32)
 	
-	-``ADC1_CHANNEL_5 = 5``	    : ADC1 kênh 5 (GPIO33)
+	-``ADC1_CHANNEL_5``	    : ADC1 kênh 5 (GPIO33)
 	
-	-``ADC1_CHANNEL_6 = 6``	    : ADC1 kênh 6 (GPIO34)
+	-``ADC1_CHANNEL_6``	    : ADC1 kênh 6 (GPIO34)
 	
-	-``ADC1_CHANNEL_7 = 7``     : ADC1 kênh 7 (GPIO35)
+	-``ADC1_CHANNEL_7``     : ADC1 kênh 7 (GPIO35)
 
 	-``ADC1_CHANNEL_MAX``
 
@@ -171,7 +171,17 @@ Chúng ta sẽ thực hiện Demo một chương trình mẫu trong thư mục e
 
 lưu ý: thay đổi ``ADC1_TEST_CHANNEL (4)`` thành ``ADC1_TEST_CHANNEL (0)``
 
-**Demo**
+**Chuẩn bị**
+
+  +--------------------+----------------------------------------------------------+
+  | **Tên board mạch** | **Link**                                                 |
+  +====================+==========================================================+
+  | Board IoT Wifi Uno | https://github.com/esp32vn/esp32-iot-uno                 |
+  +--------------------+----------------------------------------------------------+
+
+**Đấu nối:**
+
+Ta kết nối chân GPIO36 của Esp32 Uno với chân nguồn 3v3 ( hoặc bất kì chân nào có tín hiệu ).
 
 **Code**
 
@@ -214,4 +224,11 @@ Chạy các lệnh dưới đây trên terminal
 	$make flash
 	$make moniter
 
+**Demo**
 
+
+Lưu ý
+-----
+* Hướng dẫn cài đặt `ESP-IDF <https://esp-idf.readthedocs.io/en/latest/index.html>`_
+* Nạp và Debug chương trình `xem tại đây <https://esp-idf.readthedocs.io/en/latest/index.html>`_
+* Tài nguyên hệ thống xem `tại đây <https://github.com/espressif/esp-idf>`_
