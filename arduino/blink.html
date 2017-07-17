@@ -110,7 +110,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#gioi-thieu">Giới thiệu.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#chuan-bi">Chuẩn bị.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ket-noi">Kết nối.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#chuong-trinh">Chưong trình.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chuong-trinh">Chương trình.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nap-chuong-trinh">Nạp chương trình.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ket-luan">Kết luận.</a></li>
 </ul>
@@ -134,6 +134,16 @@
 <li class="toctree-l3"><a class="reference internal" href="../idf/hello-world.html#huong-dan">Hướng dẫn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../idf/hello-world.html#lap-trinh">Lập trình</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../idf/hello-world.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../idf/blink-idf.html">Blink</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../idf/blink-idf.html#gioi-thieu">Giới thiệu.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../idf/blink-idf.html#chuan-bi">Chuẩn bị.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../idf/blink-idf.html#ket-noi">Kết nối.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../idf/blink-idf.html#demo">Demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../idf/blink-idf.html#huong-dan">Hướng dẫn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../idf/blink-idf.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../idf/blink-idf.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 </ul>
@@ -222,8 +232,7 @@
 <h1>Lập trình GPIO với  ESP32 bằng Arduino IDE.<a class="headerlink" href="#lap-trinh-gpio-voi-esp32-bang-arduino-ide" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="gioi-thieu">
 <h2>Giới thiệu.<a class="headerlink" href="#gioi-thieu" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Trong ESP32 có tất cả 34 chân GPIO:</dt>
 <dd><ul class="first last">
@@ -235,24 +244,22 @@
 </dd>
 </dl>
 </li>
-</ul>
-<p><strong>Lưu ý</strong></p>
-<blockquote>
-<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>Lưu ý:</dt>
+<dd><ul class="first last">
 <li><code class="docutils literal"><span class="pre">Không</span> <span class="pre">bao</span> <span class="pre">gồm</span></code> các chân <code class="docutils literal"><span class="pre">20,</span> <span class="pre">24,</span> <span class="pre">28,</span> <span class="pre">29,</span> <span class="pre">30</span> <span class="pre">và</span> <span class="pre">31</span></code>.</li>
 <li>Các chân <code class="docutils literal"><span class="pre">GPIO</span> <span class="pre">34</span> <span class="pre">-</span> <span class="pre">GPIO39</span></code> chỉ thiết lập ở chế độ <code class="docutils literal"><span class="pre">INPUT</span></code>.</li>
 <li>Các chân <code class="docutils literal"><span class="pre">GPIO</span> <span class="pre">06</span> <span class="pre">-</span> <span class="pre">GPIO</span> <span class="pre">11</span></code> thường được dùng để giao tiếp với thẻ nhớ ngoài thông qua giao thức SPI nên hạn chế sử dụng để thiết lập IO.</li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</dd>
+</dl>
+</li>
 <li>Dưới đây là ví dụ đơn giản về thiết lập IO bằng Arduino để nhấp nháy LED cho ESP32 sử dụng board ESP32-Wifi-Uno.</li>
 </ul>
-</div></blockquote>
 </div>
 <div class="section" id="chuan-bi">
 <h2>Chuẩn bị.<a class="headerlink" href="#chuan-bi" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><table border="1" class="docutils">
+<table border="1" class="docutils">
 <colgroup>
 <col width="41%" />
 <col width="59%" />
@@ -268,7 +275,6 @@
 </tr>
 </tbody>
 </table>
-</div></blockquote>
 </div>
 <div class="section" id="ket-noi">
 <h2>Kết nối.<a class="headerlink" href="#ket-noi" title="Permalink to this headline">¶</a></h2>
@@ -279,27 +285,26 @@
 </div></blockquote>
 </div>
 <div class="section" id="chuong-trinh">
-<h2>Chưong trình.<a class="headerlink" href="#chuong-trinh" title="Permalink to this headline">¶</a></h2>
+<h2>Chương trình.<a class="headerlink" href="#chuong-trinh" title="Permalink to this headline">¶</a></h2>
 <p>Chạy chương trình Arduino IDE lên và copy toàn bộ code dưới đây vào và save với lại với một tên bất kì.</p>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">LED</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
-    <span class="nb">int</span> <span class="n">inPin</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
-    <span class="nb">int</span> <span class="n">val</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">inPin</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">val</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    <span class="n">void</span> <span class="n">setup</span><span class="p">(){</span>
-            <span class="n">pinMode</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
-            <span class="n">pinMode</span><span class="p">(</span><span class="n">inPin</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="n">void</span> <span class="n">setup</span><span class="p">(){</span>
+        <span class="n">pinMode</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+        <span class="n">pinMode</span><span class="p">(</span><span class="n">inPin</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span>
+<span class="p">}</span>
 
-    <span class="n">void</span> <span class="n">loop</span><span class="p">(){</span>
-            <span class="k">while</span><span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">inPin</span><span class="p">)</span><span class="o">==</span><span class="n">val</span><span class="p">)</span>
-            <span class="p">{</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
-    <span class="n">val</span> <span class="o">=</span> <span class="n">digitalRead</span><span class="p">(</span><span class="n">inPin</span><span class="p">);</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-            <span class="p">}</span>
-    <span class="p">}</span>
+<span class="n">void</span> <span class="n">loop</span><span class="p">(){</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">inPin</span><span class="p">)</span><span class="o">==</span><span class="n">val</span><span class="p">){</span>
+                <span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+                <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+                <span class="n">val</span> <span class="o">=</span> <span class="n">digitalRead</span><span class="p">(</span><span class="n">inPin</span><span class="p">);</span>
+                <span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+                <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+        <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <dl class="docutils">

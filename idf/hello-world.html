@@ -37,7 +37,7 @@
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu ESP32 1.0" href="../index.html"/>
         <link rel="up" title="ESP32 IDF" href="index.html"/>
-        <link rel="next" title="Thẻ nhớ" href="sdcard.html"/>
+        <link rel="next" title="Lập trình chớp tắt LED với ESP32 bằng ESP-IDF" href="blink-idf.html"/>
         <link rel="prev" title="Cài đặt" href="install.html"/> 
 
   
@@ -110,7 +110,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../arduino/blink.html#gioi-thieu">Giới thiệu.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../arduino/blink.html#chuan-bi">Chuẩn bị.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../arduino/blink.html#ket-noi">Kết nối.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../arduino/blink.html#chuong-trinh">Chưong trình.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../arduino/blink.html#chuong-trinh">Chương trình.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../arduino/blink.html#nap-chuong-trinh">Nạp chương trình.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../arduino/blink.html#ket-luan">Kết luận.</a></li>
 </ul>
@@ -134,6 +134,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#huong-dan">Hướng dẫn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="blink-idf.html">Blink</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#gioi-thieu">Giới thiệu.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#chuan-bi">Chuẩn bị.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#ket-noi">Kết nối.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#demo">Demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#huong-dan">Hướng dẫn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 </ul>
@@ -230,27 +240,31 @@
 <iframe width="640" height="360" src="//www.youtube.com/embed/SxPDVPu8tug?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
 <div class="section" id="chuan-bi">
 <h2>Chuẩn bị<a class="headerlink" href="#chuan-bi" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><table border="1" class="docutils">
+<table border="1" class="docutils">
 <colgroup>
-<col width="26%" />
-<col width="74%" />
+<col width="41%" />
+<col width="59%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>Tên board mạch</strong></th>
+<tr class="row-odd"><th class="head"><strong>Phần cứng</strong></th>
 <th class="head"><strong>Link</strong></th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Board IoT Wifi Uno</td>
+<tr class="row-even"><td>Board ESP32-Wifi-Uno</td>
 <td><a class="reference external" href="https://github.com/esp32vn/esp32-iot-uno">https://github.com/esp32vn/esp32-iot-uno</a></td>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
 </div>
 <div class="section" id="huong-dan">
 <h2>Hướng dẫn<a class="headerlink" href="#huong-dan" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tai-du-an-mau">
+<h3>Tải dự án mẫu:<a class="headerlink" href="#tai-du-an-mau" title="Permalink to this headline">¶</a></h3>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">espressif</span><span class="o">/</span><span class="n">esp</span><span class="o">-</span><span class="n">idf</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="include-thu-vien">
 <h3>Include thư viện<a class="headerlink" href="#include-thu-vien" title="Permalink to this headline">¶</a></h3>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &lt;stdio.h&gt;</span>
@@ -260,16 +274,11 @@
 </pre></div>
 </div>
 <ul class="simple">
+<li><code class="docutils literal"><span class="pre">stdio.h</span></code>: Cung cấp cốt lõi của những khả năng nhập trong C. Tập tin này bao gồm họ hàm printf.</li>
 <li><code class="docutils literal"><span class="pre">freertos/FreeRTOS.h</span></code>: Thư viện này bao gồm các thiết lập cấu hình yêu cầu để chạy freeRTOS trên ESP32.</li>
 <li><code class="docutils literal"><span class="pre">freertos/task.h</span></code>: Cung cấp chức năng đa nhiệm. (Chúng tôi sẽ làm đa nhiệm ở các ví dụ sau)</li>
 <li><code class="docutils literal"><span class="pre">esp_system.h</span></code>: Bao gồm cấu hình các thiết bị ngoại vi trong hệ thống ESP. Chức năng của nó như là hệ thống khởi tạo.</li>
 </ul>
-</div>
-<div class="section" id="tai-du-an-mau">
-<h3>Tải dự án mẫu:<a class="headerlink" href="#tai-du-an-mau" title="Permalink to this headline">¶</a></h3>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">espressif</span><span class="o">/</span><span class="n">esp</span><span class="o">-</span><span class="n">idf</span><span class="o">.</span><span class="n">git</span>
-</pre></div>
-</div>
 <p>Một dự án trông như thế này:</p>
 <div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">myProject</span><span class="o">/</span>
                  <span class="o">-</span> <span class="n">Makefile</span>
@@ -304,7 +313,7 @@ include $(IDF_PATH)/make/project.mk
 </pre></div>
 </div>
 <ul class="simple">
-<li>PROJECT_NAME := myProject : Tạo ra một mã nhị phân với tên này tức là - myProject.bin, myProject.elf.</li>
+<li><code class="docutils literal"><span class="pre">PROJECT_NAME</span> <span class="pre">:=</span> <span class="pre">myProject</span></code> : Tạo ra một mã nhị phân với tên này tức là - myProject.bin, myProject.elf.</li>
 </ul>
 </div>
 <div class="section" id="huong-dan-config-nap-va-debug-chuong-trinh">
@@ -430,7 +439,7 @@ include $(IDF_PATH)/make/project.mk
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sdcard.html" class="btn btn-neutral float-right" title="Thẻ nhớ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="blink-idf.html" class="btn btn-neutral float-right" title="Lập trình chớp tắt LED với ESP32 bằng ESP-IDF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="install.html" class="btn btn-neutral" title="Cài đặt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
