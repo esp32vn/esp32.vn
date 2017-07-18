@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Lập trình chớp tắt LED với ESP32 bằng ESP-IDF &mdash; Tài liệu ESP32 1.0</title>
+  <title>Lập trình nút nhấn với ESP32 bằng ESP-IDF &mdash; Tài liệu ESP32 1.0</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu ESP32 1.0" href="../index.html"/>
         <link rel="up" title="ESP32 IDF" href="index.html"/>
-        <link rel="next" title="Lập trình nút nhấn với ESP32 bằng ESP-IDF" href="button.html"/>
-        <link rel="prev" title="Lập trình &#34;Hello World&#34; với ESP32 IDF" href="hello-world.html"/> 
+        <link rel="next" title="Thẻ nhớ" href="sdcard.html"/>
+        <link rel="prev" title="Lập trình chớp tắt LED với ESP32 bằng ESP-IDF" href="blink-idf.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -136,7 +136,17 @@
 <li class="toctree-l3"><a class="reference internal" href="hello-world.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Blink</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="blink-idf.html">Blink</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#gioi-thieu">Giới thiệu.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#chuan-bi">Chuẩn bị.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#ket-noi">Kết nối.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#demo">Demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#huong-dan">Hướng dẫn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Nút nhấn</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gioi-thieu">Giới thiệu.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#chuan-bi">Chuẩn bị.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ket-noi">Kết nối.</a></li>
@@ -144,16 +154,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#huong-dan">Hướng dẫn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="button.html">Nút nhấn</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="button.html#gioi-thieu">Giới thiệu.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="button.html#chuan-bi">Chuẩn bị.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="button.html#ket-noi">Kết nối.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="button.html#demo">Demo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="button.html#huong-dan">Hướng dẫn</a></li>
-<li class="toctree-l3"><a class="reference internal" href="button.html#lap-trinh">Lập trình</a></li>
-<li class="toctree-l3"><a class="reference internal" href="button.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 </ul>
@@ -219,13 +219,13 @@
         
           <li><a href="index.html">ESP32 IDF</a> &raquo;</li>
         
-      <li>Lập trình chớp tắt LED với ESP32 bằng ESP-IDF</li>
+      <li>Lập trình nút nhấn với ESP32 bằng ESP-IDF</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/idf/blink-idf.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/idf/button.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -238,8 +238,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="lap-trinh-chop-tat-led-voi-esp32-bang-esp-idf">
-<h1>Lập trình chớp tắt LED với ESP32 bằng ESP-IDF<a class="headerlink" href="#lap-trinh-chop-tat-led-voi-esp32-bang-esp-idf" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="lap-trinh-nut-nhan-voi-esp32-bang-esp-idf">
+<h1>Lập trình nút nhấn với ESP32 bằng ESP-IDF<a class="headerlink" href="#lap-trinh-nut-nhan-voi-esp32-bang-esp-idf" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="gioi-thieu">
 <h2>Giới thiệu.<a class="headerlink" href="#gioi-thieu" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -264,7 +264,7 @@
 </dd>
 </dl>
 </li>
-<li>Dưới đây là ví dụ đơn giản nhấp nháy LED sử dụng board ESP32-Wifi-Uno.</li>
+<li>Dưới đây là ví dụ đơn giản bật tắt LED sử dụng nút nhấn lập trình trên board ESP32-Wifi-Uno.</li>
 </ul>
 </div>
 <div class="section" id="chuan-bi">
@@ -290,17 +290,17 @@
 <h2>Kết nối.<a class="headerlink" href="#ket-noi" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
-<li>Trên board ESP32-Wifi-Uno đã có đèn D3 nối với chân GPIO23.</li>
+<li>Trên board ESP32-Wifi-Uno có đèn D3 nối với chân số GPIO23 và nút nhấn nối với chân GPIO18.</li>
 </ul>
 </div></blockquote>
 </div>
 <div class="section" id="demo">
 <h2>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h2>
-<iframe width="640" height="360" src="//www.youtube.com/embed/E0ZU68mlbj4?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
+<iframe width="640" height="360" src="//www.youtube.com/embed/d7jUb5BKkmg?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
 <div class="section" id="huong-dan">
 <h2>Hướng dẫn<a class="headerlink" href="#huong-dan" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="tai-du-an-mau">
-<h3>Tải dự án mẫu:<a class="headerlink" href="#tai-du-an-mau" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="du-an-mau">
+<h3>Dự án mẫu:<a class="headerlink" href="#du-an-mau" title="Permalink to this headline">¶</a></h3>
 <div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">espressif</span><span class="o">/</span><span class="n">esp</span><span class="o">-</span><span class="n">idf</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
@@ -319,11 +319,13 @@
 </div>
 <div class="section" id="define">
 <h3>Define<a class="headerlink" href="#define" title="Permalink to this headline">¶</a></h3>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#define BLINK_GPIO 23</span>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#define LED_GPIO 23</span>
+<span class="c1">#define BTN_GPIO 18</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>Định nghĩa <code class="docutils literal"><span class="pre">BLINK_GPIO</span></code> là <code class="docutils literal"><span class="pre">GPIO23</span></code>.</li>
+<li>Định nghĩa <code class="docutils literal"><span class="pre">LED_GPIO</span> <span class="pre">23</span></code> là <code class="docutils literal"><span class="pre">GPIO23</span></code>.</li>
+<li>Định nghĩa <code class="docutils literal"><span class="pre">BTN_GPIO</span> <span class="pre">18</span></code> là <code class="docutils literal"><span class="pre">GPIO18</span></code>.</li>
 </ul>
 </div>
 <div class="section" id="gpio">
@@ -367,7 +369,46 @@
 </dl>
 </li>
 </ul>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">gpio_set_level</span> <span class="p">(</span><span class="n">gpio_num_t</span> <span class="n">gpio_num</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">level</span><span class="p">);</span>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">gpio_set_pull_mode</span> <span class="p">(</span><span class="n">gpio_num_t</span> <span class="n">gpio_num</span><span class="p">,</span> <span class="n">gpio_pull_mode_t</span> <span class="n">pull</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Sử dụng chức năng này để configure GPIO pull mode, chẳng hạn như pull-up, pull-down.</li>
+<li><dl class="first docutils">
+<dt>Hàm này có 2 đối số được truyền vào:</dt>
+<dd><ul class="first last">
+<li><code class="docutils literal"><span class="pre">gpio_num_t</span> <span class="pre">gpio_num</span></code>: Lựa chon PIN</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">gpio_pull_mode_t</span> <span class="pre">pull</span></code> <span class="classifier-delimiter">:</span> <span class="classifier">Lựa chon chế độ</span></dt>
+<dd><ul class="first last">
+<li><code class="docutils literal"><span class="pre">GPIO_PULLUP_ONLY</span></code>: Pad pull up</li>
+<li><code class="docutils literal"><span class="pre">GPIO_PULLDOWN_ONLY</span></code>: Pad pull down</li>
+<li><code class="docutils literal"><span class="pre">GPIO_PULLUP_PULLDOWN</span></code>: Pad pull up and pull down</li>
+<li><code class="docutils literal"><span class="pre">GPIO_FLOATING</span></code>: Pad floating</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">gpio_get_level</span> <span class="p">(</span><span class="n">gpio_num_t</span> <span class="n">gpio_num</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Hàm này trả về mức logic giá trị đầu vào:</dt>
+<dd><ul class="first last">
+<li><code class="docutils literal"><span class="pre">0</span></code>: nếu ngõ vào là mức thấp.</li>
+<li><code class="docutils literal"><span class="pre">1</span></code>: nếu ngõ vào là mức cao.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">gpio_set_direction</span> <span class="p">(</span><span class="n">gpio_num_t</span> <span class="n">gpio_num</span><span class="p">,</span> <span class="n">gpio_mode_t</span> <span class="n">mode</span><span class="p">);</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -413,8 +454,10 @@ include $(IDF_PATH)/make/project.mk
 <h2>Lập trình<a class="headerlink" href="#lap-trinh" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div>Bây giờ, bạn có thể xem code hoàn chỉnh.</div></blockquote>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">Blink</span> <span class="n">Example</span>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">Button</span> <span class="n">Example</span>
+
    <span class="n">This</span> <span class="n">example</span> <span class="n">code</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">Public</span> <span class="n">Domain</span> <span class="p">(</span><span class="ow">or</span> <span class="n">CC0</span> <span class="n">licensed</span><span class="p">,</span> <span class="n">at</span> <span class="n">your</span> <span class="n">option</span><span class="o">.</span><span class="p">)</span>
+
    <span class="n">Unless</span> <span class="n">required</span> <span class="n">by</span> <span class="n">applicable</span> <span class="n">law</span> <span class="ow">or</span> <span class="n">agreed</span> <span class="n">to</span> <span class="ow">in</span> <span class="n">writing</span><span class="p">,</span> <span class="n">this</span>
    <span class="n">software</span> <span class="ow">is</span> <span class="n">distributed</span> <span class="n">on</span> <span class="n">an</span> <span class="s2">&quot;AS IS&quot;</span> <span class="n">BASIS</span><span class="p">,</span> <span class="n">WITHOUT</span> <span class="n">WARRANTIES</span> <span class="n">OR</span>
    <span class="n">CONDITIONS</span> <span class="n">OF</span> <span class="n">ANY</span> <span class="n">KIND</span><span class="p">,</span> <span class="n">either</span> <span class="n">express</span> <span class="ow">or</span> <span class="n">implied</span><span class="o">.</span>
@@ -424,34 +467,48 @@ include $(IDF_PATH)/make/project.mk
 <span class="c1">#include &quot;freertos/task.h&quot;</span>
 <span class="c1">#include &quot;driver/gpio.h&quot;</span>
 
-<span class="c1">#define BLINK_GPIO 23</span>
+<span class="c1">#define LED_GPIO 23</span>
+<span class="c1">#define BTN_GPIO 18</span>
 
-<span class="n">void</span> <span class="n">blink_task</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pvParameter</span><span class="p">)</span>
+<span class="n">void</span> <span class="n">button_task</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pvParameter</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="o">/*</span> <span class="n">Configure</span> <span class="n">the</span> <span class="n">IOMUX</span> <span class="n">register</span> <span class="k">for</span> <span class="n">pad</span> <span class="n">BLINK_GPIO</span> <span class="p">(</span><span class="n">some</span> <span class="n">pads</span> <span class="n">are</span>
+    <span class="o">/*</span> <span class="n">Configure</span> <span class="n">the</span> <span class="n">IOMUX</span> <span class="n">register</span> <span class="k">for</span> <span class="n">pad</span> <span class="n">LED_GPIO</span><span class="p">,</span> <span class="n">BTN_GPIO</span> <span class="p">(</span><span class="n">some</span> <span class="n">pads</span> <span class="n">are</span>
        <span class="n">muxed</span> <span class="n">to</span> <span class="n">GPIO</span> <span class="n">on</span> <span class="n">reset</span> <span class="n">already</span><span class="p">,</span> <span class="n">but</span> <span class="n">some</span> <span class="n">default</span> <span class="n">to</span> <span class="n">other</span>
        <span class="n">functions</span> <span class="ow">and</span> <span class="n">need</span> <span class="n">to</span> <span class="n">be</span> <span class="n">switched</span> <span class="n">to</span> <span class="n">GPIO</span><span class="o">.</span> <span class="n">Consult</span> <span class="n">the</span>
        <span class="n">Technical</span> <span class="n">Reference</span> <span class="k">for</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">pads</span> <span class="ow">and</span> <span class="n">their</span> <span class="n">default</span>
        <span class="n">functions</span><span class="o">.</span><span class="p">)</span>
     <span class="o">*/</span>
-    <span class="n">gpio_pad_select_gpio</span><span class="p">(</span><span class="n">BLINK_GPIO</span><span class="p">);</span>
+    <span class="n">gpio_pad_select_gpio</span><span class="p">(</span><span class="n">LED_GPIO</span><span class="p">);</span>
+    <span class="n">gpio_pad_select_gpio</span><span class="p">(</span><span class="n">BTN_GPIO</span><span class="p">);</span>
+
     <span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">GPIO</span> <span class="k">as</span> <span class="n">a</span> <span class="n">push</span><span class="o">/</span><span class="n">pull</span> <span class="n">output</span> <span class="o">*/</span>
-    <span class="n">gpio_set_direction</span><span class="p">(</span><span class="n">BLINK_GPIO</span><span class="p">,</span> <span class="n">GPIO_MODE_OUTPUT</span><span class="p">);</span>
+    <span class="n">gpio_set_direction</span><span class="p">(</span><span class="n">LED_GPIO</span><span class="p">,</span> <span class="n">GPIO_MODE_OUTPUT</span><span class="p">);</span>
+
+    <span class="n">gpio_set_direction</span><span class="p">(</span><span class="n">BTN_GPIO</span><span class="p">,</span> <span class="n">GPIO_MODE_INPUT</span><span class="p">);</span>
+    <span class="n">gpio_set_pull_mode</span><span class="p">(</span><span class="n">BTN_GPIO</span><span class="p">,</span> <span class="n">GPIO_PULLUP_ONLY</span><span class="p">);</span>
+
     <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="o">/*</span> <span class="n">Blink</span> <span class="n">off</span> <span class="p">(</span><span class="n">output</span> <span class="n">low</span><span class="p">)</span> <span class="o">*/</span>
-        <span class="n">gpio_set_level</span><span class="p">(</span><span class="n">BLINK_GPIO</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-        <span class="n">vTaskDelay</span><span class="p">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">);</span>
-        <span class="o">/*</span> <span class="n">Blink</span> <span class="n">on</span> <span class="p">(</span><span class="n">output</span> <span class="n">high</span><span class="p">)</span> <span class="o">*/</span>
-        <span class="n">gpio_set_level</span><span class="p">(</span><span class="n">BLINK_GPIO</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-        <span class="n">vTaskDelay</span><span class="p">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">gpio_get_level</span><span class="p">(</span><span class="n">BTN_GPIO</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">gpio_set_level</span><span class="p">(</span><span class="n">LED_GPIO</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+                <span class="n">gpio_set_level</span><span class="p">(</span><span class="n">LED_GPIO</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">void</span> <span class="n">app_main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">xTaskCreate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">blink_task</span><span class="p">,</span> <span class="s2">&quot;blink_task&quot;</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">NULL</span><span class="p">);</span>
+    <span class="n">xTaskCreate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">button_task</span><span class="p">,</span> <span class="s2">&quot;button_task&quot;</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">NULL</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+<div class="section" id="huong-dan-config-nap-va-debug-chuong-trinh">
+<h3>Hướng dẫn config, nạp và debug chương trình:<a class="headerlink" href="#huong-dan-config-nap-va-debug-chuong-trinh" title="Permalink to this headline">¶</a></h3>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">menuconfig</span>
+<span class="n">make</span> <span class="n">flash</span>
+<span class="n">make</span> <span class="n">moniter</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="luu-y">
@@ -474,10 +531,10 @@ include $(IDF_PATH)/make/project.mk
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="button.html" class="btn btn-neutral float-right" title="Lập trình nút nhấn với ESP32 bằng ESP-IDF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sdcard.html" class="btn btn-neutral float-right" title="Thẻ nhớ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="hello-world.html" class="btn btn-neutral" title="Lập trình &#34;Hello World&#34; với ESP32 IDF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="blink-idf.html" class="btn btn-neutral" title="Lập trình chớp tắt LED với ESP32 bằng ESP-IDF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
