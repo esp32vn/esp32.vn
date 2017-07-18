@@ -11,7 +11,7 @@ ESP32 tích hợp 12-bit SAR (Successive Approximation Register) ADCs và hỗ t
     SAR (thanh ghi xấp xỉ liên tiếp)  sử dụng thuật toán tìm kiếm nhị phân giúp hội tụ tín hiệu đầu vào, từ đó giúp tăng dung lượng và tốc độ so sánh của ADC    
 
 Các API điểu khiển ADC hiện tại chỉ hổ trợ 9 kênh ADC1 (từ GPIO32 đến GPIO39).
-Việc đo ADC bao gồm cấu hình ADC với độ chính sác mong muốn , cài đặt các thiết lập liên quan, gọi hàm adc1_get_voltage() để lấy gía trị đo được.
+Việc đo ADC bao gồm cấu hình ADC với độ chính sác mong muốn , cài đặt độ suy giảm, gọi hàm adc1_get_voltage() để lấy gía trị đo được.
 
 Bạn cũng có thể đọc được gía trị từ cảm biến hiệu ứng Hall thông qua ADC1.
 
@@ -68,24 +68,24 @@ Các đối số
 
 Cấu hình điện áp lấy mẫu cho kênh .
 
-Điện áp mặc định của ADC là 1.1V. Để có thể đọc được các điện áp cao hơn (bằng với điện áp tối đa của chân esp32 là 3.3v) thì cần phải cài đặt chia áp tín hiệu cho kênh ADC đó.
+Điện áp mặc định của ADC là 1.1V. Để có thể đọc được các điện áp cao hơn (bằng với điện áp tối đa của chân esp32 là 3.3v) thì cần phải cài đặc độ  suy giảm tín hiệu cho kênh ADC đó.
 
 Chú ý:
 	Hàm này cũng được dùng để cấu hình ngõ vào GPIO pin mux để kết nối với kênh ADC1. Vì thế nên hàm này cần được gọi trước khi gọi hàm ``adc_get_voltage()``.
 	Khi VDD_A bằng 3v3:
-		* chia áp 0dB (ADC_ATTEN_0db) cung cấp cho điện áp full-scale 1.1V.
-		* chia áp 2.5dB (ADC_ATTEN_2_5db) cung cấp cho điện áp full-scale 1.5V.
-		* chia áp 6dB (ADC_ATTEN_6db) cung cấp cho điện áp full-scale 2.2V.
-		* chia áp 11dB (ADC_ATTEN_11db) cung cấp cho điện áp full-scale 3.9V.( xem chú ý bên dưới)
+		* Độ suy giảm 0dB (ADC_ATTEN_0db) cung cấp cho điện áp full-scale 1.1V.
+		* Độ suy giảm 2.5dB (ADC_ATTEN_2_5db) cung cấp cho điện áp full-scale 1.5V.
+		* Độ suy giảm 6dB (ADC_ATTEN_6db) cung cấp cho điện áp full-scale 2.2V.
+		* Độ suy giảm 11dB (ADC_ATTEN_11db) cung cấp cho điện áp full-scale 3.9V.( xem chú ý bên dưới)
 	chú ý: điện áp full_scale là điện áp tương ứng với mức đọc tối đa ( phụ thuộc vào cấu hình độ rộng bit của ADC1, gía trị này là : 4095 cho 12 bit,2047 cho 11 bit, 1023 cho 10 bit và 511 cho 9 bit).
-	Tại chia áp 11dB, điện áp tối đa bị giới hạn bởi VDD_a chứ không phải là điện áp full_scale.
+	Với độ suy giảm 11dB, điện áp tối đa bị giới hạn bởi VDD_a (3.3V) chứ không phải là điện áp full_scale (3.9V).
 
 Gía trị trả về:
 	- ``ESP_OK`` : thành công.
 	- ``ESP_ERR_INVALID_ARG`` : lỗi đối số
 Các đối số:
 	- ``channel`` : Kênh ADC được cấu hình 
-	- ``atten`` : mức chia áp.
+	- ``atten`` : Độ suy giảm.
 
 ****
 
