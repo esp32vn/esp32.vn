@@ -8,22 +8,29 @@ Espressif Internet Development Framework (ESP-IDF) sử dụng FreeRTOS để t�
 Chương trình Hello world sau mỗi 10 giây in ra một chuỗi "Hello world" và hiển thị trên terminal máy tính xuất từ cổng UART của ESP32.
 
 Demo
-==================
+====
 .. youtube:: https://www.youtube.com/watch?v=SxPDVPu8tug
 
 Chuẩn bị
 ========
-    +--------------------+----------------------------------------------------------+
-    | **Tên board mạch** | **Link** a                                                |
-    +====================+==========================================================+
-    | Board IoT Wifi Uno | https://github.com/esp32vn/esp32-iot-uno                 |
-    +--------------------+----------------------------------------------------------+
+
++-------------------------------+--------------------------------------------+
+| **Phần cứng**                 | **Link**                                   |
++===============================+============================================+
+| Board ESP32-Wifi-Uno          | https://github.com/esp32vn/esp32-iot-uno   |
++-------------------------------+--------------------------------------------+
 
 Hướng dẫn
-==================
+=========
+
+Tải dự án mẫu:
+**************
+.. code:: bash
+
+    git clone https://github.com/espressif/esp-idf.git
 
 Include thư viện
-*****************
+****************
 .. code:: cpp
 
     #include <stdio.h>
@@ -31,15 +38,10 @@ Include thư viện
     #include "freertos/task.h"
     #include "esp_system.h"
 
+* ``stdio.h``: Cung cấp cốt lõi của những khả năng nhập trong C. Tập tin này bao gồm họ hàm printf.
 * ``freertos/FreeRTOS.h``: Thư viện này bao gồm các thiết lập cấu hình yêu cầu để chạy freeRTOS trên ESP32.
 * ``freertos/task.h``: Cung cấp chức năng đa nhiệm. (Chúng tôi sẽ làm đa nhiệm ở các ví dụ sau)
 * ``esp_system.h``: Bao gồm cấu hình các thiết bị ngoại vi trong hệ thống ESP. Chức năng của nó như là hệ thống khởi tạo.
-
-Tải dự án mẫu:
-**************
-.. code:: bash
-
-    git clone https://github.com/espressif/esp-idf.git
 
 Một dự án trông như thế này:
 
@@ -76,7 +78,7 @@ Hướng dẫn sửa và tạo make file:
     PROJECT_NAME := myProject
     include $(IDF_PATH)/make/project.mk
 
-* PROJECT_NAME := myProject : Tạo ra một mã nhị phân với tên này tức là - myProject.bin, myProject.elf.
+* ``PROJECT_NAME := myProject`` : Tạo ra một mã nhị phân với tên này tức là - myProject.bin, myProject.elf.
 
 Hướng dẫn config, nạp và debug chương trình:
 ********************************************

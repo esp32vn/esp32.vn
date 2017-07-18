@@ -48,7 +48,7 @@ Mạch nguyên lý
 
 .. toctree::
    :caption: ESP32 IDF
-   :maxdepth: 2
+   :maxdepth: 3
 
    ESP-IDF cơ bản <idf/index>
    Thẻ nhớ <idf/sdcard>

@@ -1,21 +1,25 @@
-Analog to Digital Converter
-===========================
+CHUYỂN ĐỔI TƯƠNG TỰ SANG SỐ
+============================
 
 Tổng quan
 --------
 
-ESP32 tích hợp 12-bit SAR ("Successive Approximation Register") ADCs (Analog to Digital Converters) và hỗ trợ đo trên 18 chân analog. Một trong số các chân này được dùng để xây dựng bộ khuyếch đại có độ lợi khả trình (programmable gain amplifier) nhằm đo các tín hiệu analog yếu.
+ESP32 tích hợp 12-bit SAR (Successive Approximation Register) ADCs và hỗ trợ đo trên 18 chân analog. Một trong số các chân này được dùng để xây dựng bộ khuyếch đại có độ lợi khả trình (programmable gain amplifier) nhằm đo các tín hiệu analog yếu.
+
+.. note::
+
+    SAR (thanh ghi xấp xỉ liên tiếp)  sử dụng thuật toán tìm kiếm nhị phân giúp hội tụ tín hiệu đầu vào, từ đó giúp tăng dung lượng và tốc độ so sánh của ADC    
+
 Các API điểu khiển ADC hiện tại chỉ hổ trợ 9 kênh ADC1 (từ GPIO32 đến GPIO39).
-
-
-The ADC driver API currently only supports ADC1 (9 channels, attached to GPIOs 32-39).
 Việc đo ADC bao gồm cấu hình ADC với độ chính sác mong muốn , cài đặt các thiết lập liên quan, gọi hàm adc1_get_voltage() để lấy gía trị đo được.
 
 Bạn cũng có thể đọc được gía trị từ cảm biến hiệu ứng Hall thông qua ADC1.
 
 **Ví dụ**
 
-Đọc gía trị điện áp ở kênh 0 của ADC1(GPIO26)::
+Đọc gía trị điện áp ở kênh 0 của ADC1(GPIO26)
+
+.. code:: cpp
 
     #include <driver/adc.h>
 
@@ -25,7 +29,10 @@ Bạn cũng có thể đọc được gía trị từ cảm biến hiệu ứng 
         adc1_config_channel_atten(ADC1_CHANNEL_0,ADC_ATTEN_0db);
         int val = adc1_get_voltage(ADC1_CHANNEL_0);
 
-Đọc tín hiệu từ  cảm biến hiệu ứng Hall::
+
+Đọc tín hiệu từ  cảm biến hiệu ứng Hall
+
+.. code:: cpp
 
     #include <driver/adc.h>
 
@@ -41,7 +48,7 @@ API Reference
 
 **Một số hàm trong thư viện ``adc.h``**
 
-.. code:: bash
+.. code:: cpp
 
 	esp_err_t  adc1_config_width(adc_bits_width_t width_bit)
 
@@ -53,34 +60,36 @@ Gía trị trả về :
 Các đối số
 	- ``width``: Độ rộng bit của ADC1.
 
+****
 
-.. code:: bash
+.. code:: cpp
 
 	esp_err_t adc1_config_channel_atten(adc1_channel_t channel, adc_atten_t atten)
 
 Cấu hình điện áp lấy mẫu cho kênh .
 
-Điện áp mặc định của ADC là 1.1V. Để có thể đọc được các điện áp cao hơn (bằng với điện áp tối đa của chân esp32 là 3.3v) thì cần phải cài đặt suy giảm tín hiệu cho kênh ADC đó.
+Điện áp mặc định của ADC là 1.1V. Để có thể đọc được các điện áp cao hơn (bằng với điện áp tối đa của chân esp32 là 3.3v) thì cần phải cài đặt chia áp tín hiệu cho kênh ADC đó.
 
 Chú ý:
 	Hàm này cũng được dùng để cấu hình ngõ vào GPIO pin mux để kết nối với kênh ADC1. Vì thế nên hàm này cần được gọi trước khi gọi hàm ``adc_get_voltage()``.
 	Khi VDD_A bằng 3v3:
-		* suy giảm 0dB (ADC_ATTEN_0db) cung cấp cho điện áp full-scale 1.1V.
-		* suy giảm 2.5dB (ADC_ATTEN_2_5db) cung cấp cho điện áp full-scale 1.5V.
-		* suy giảm 6dB (ADC_ATTEN_6db) cung cấp cho điện áp full-scale 2.2V.
-		* suy giảm 11dB (ADC_ATTEN_11db) cung cấp cho điện áp full-scale 3.9V.( xem chú ý bên dưới)
+		* chia áp 0dB (ADC_ATTEN_0db) cung cấp cho điện áp full-scale 1.1V.
+		* chia áp 2.5dB (ADC_ATTEN_2_5db) cung cấp cho điện áp full-scale 1.5V.
+		* chia áp 6dB (ADC_ATTEN_6db) cung cấp cho điện áp full-scale 2.2V.
+		* chia áp 11dB (ADC_ATTEN_11db) cung cấp cho điện áp full-scale 3.9V.( xem chú ý bên dưới)
 	chú ý: điện áp full_scale là điện áp tương ứng với mức đọc tối đa ( phụ thuộc vào cấu hình độ rộng bit của ADC1, gía trị này là : 4095 cho 12 bit,2047 cho 11 bit, 1023 cho 10 bit và 511 cho 9 bit).
-	Tại suy giảm 11dB, điện áp tối đa bị giới hạn bởi VDD_a chứ không phải là điện áp full_scale.
+	Tại chia áp 11dB, điện áp tối đa bị giới hạn bởi VDD_a chứ không phải là điện áp full_scale.
 
 Gía trị trả về:
 	- ``ESP_OK`` : thành công.
 	- ``ESP_ERR_INVALID_ARG`` : lỗi đối số
 Các đối số:
 	- ``channel`` : Kênh ADC được cấu hình 
-	- ``atten`` : mức suy giảm.
+	- ``atten`` : mức chia áp.
 
+****
 
-.. code:: bash
+.. code:: cpp
 
 	int adc1_get_voltage(adc1_channel_t channel)
 
@@ -94,19 +103,21 @@ Gía trị trả về :
 Đối số:
 	``channel``: Kênh ADC được cấu hình
 
+****
 
-.. code:: bash
+.. code:: cpp
 
 	void adc1_ulp_enable()
 
-Khai báo ADC1 sử dụng ULP
+Khai báo ADC1 sử dụng `ULP <https://github.com/espressif/esp-idf/tree/master/components/ulp>`_
+
 Hàm này khai báo lại ADC1 để nó có thể được điều khiển bơi ULP. chức năng của hàm này có thể hoàn nguyên bằng cách sử dụng hàm ``adc1_get_voltage.``
 
 Lưu ý rằng cần phải gọi hàm ``adc1_config_channel_atten`` , ``adc1_config_width`` để định cấu hình kênh ADC1, trước khi khai báo ADC1 được sử dụng ULP.
 
+****
 
-
-.. code:: bash
+.. code:: cpp
 
 	int hall_sensor_read()
 
@@ -120,7 +131,7 @@ chú ý:
 **Các đối số**
 
 
-.. code:: bash
+.. code:: cpp
 
 	enum adc_atten_t
 
@@ -130,10 +141,11 @@ Gía trị:
 	- ``ADC_ATTEN_6db = 2`` : Điện áp đo được tối đa là 2.2V
 	- ``ADC_ATTEN_11db = 3`` : Điện áp đo được tối đa là 3.3V
 
+****
 
-.. code:: bash	
+.. code:: cpp
 
-	enum adc_bít_width_t
+	enum adc_bit_width_t
 
 Gía trị:
 	- ``ADC_WIDTH_9Bit = 0`` :ADC độ rộng 9bit.
@@ -141,7 +153,9 @@ Gía trị:
 	- ``ADC_WIDTH_11Bit = 2`` :ADC độ rộng 11bit.
 	- ``ADC_WIDTH_12Bit = 3`` :ADC độ rộng 12bit.
 
-.. code:: bash
+****
+
+.. code:: cpp
 
 	enum adc1_channel_t
 
@@ -179,13 +193,13 @@ lưu ý: thay đổi ``ADC1_TEST_CHANNEL (4)`` thành ``ADC1_TEST_CHANNEL (0)``
   | Board IoT Wifi Uno | https://github.com/esp32vn/esp32-iot-uno                 |
   +--------------------+----------------------------------------------------------+
 
-**Đấu nối:**
+**Đấu nối**
 
 Ta kết nối chân GPIO36 của Esp32 Uno với chân nguồn 3v3 ( hoặc bất kì chân nào có tín hiệu ).
 
 **Code**
 
-.. code:: bash
+.. code:: cpp
 
 	#include <stdio.h>
 	#include <string.h>
@@ -218,7 +232,7 @@ Ta kết nối chân GPIO36 của Esp32 Uno với chân nguồn 3v3 ( hoặc b�
 
 Chạy các lệnh dưới đây trên terminal
 
-.. code:: bash
+.. code:: cpp
 
 	$cd ~/esp/esp-idf/examples/peripherals/adc
 	$make flash

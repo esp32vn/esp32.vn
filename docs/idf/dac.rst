@@ -1,4 +1,4 @@
-Digital To Analog Converter
+CHUYỂN ĐỔI SỐ SANG TƯƠNG TỰ
 ===========================
 
 Tổng quan
@@ -19,7 +19,7 @@ API Reference
 
 **Các hàm trong thư viện dac.h**
 
-.. code:: bash
+.. code:: cpp
 	
 	esp_err_t dac_output_voltage(dac_channel_t channel, uint8_t dac_value)
 
@@ -39,19 +39,21 @@ Ngõ ra DAC 8-bit nên gía trị tối đa là 255 tương đương với VDD.
 	* ``chanel`` : Kênh DAC được cấu hình
 	* ``dac_value`` : gía trị ngõ ra DAC
 
-.. code::
+****
+
+.. code:: cpp
 
 	esp_err_t dac_output_enable(dac_channel_t channel)
 
 Cho phép ngõ ra DAC
 
-**chú ý:** DAC kênh 1 tương ứng với GPIO25, còn DAC kênh 2 tương ứng với GPIO26.Kênh I2S bên trái sẽ được ánh xạ tới DAC kênh 2,kênh I2S  bên phải sẽ được ánh xạ tới DAC kênh 1.
-
-**** 
+**chú ý:** DAC kênh 1 tương ứng với GPIO25, còn DAC kênh 2 tương ứng với GPIO26.Kênh I2S bên trái sẽ được ánh xạ tới DAC kênh 2,kênh I2S  bên phải sẽ được ánh xạ tới DAC kênh 1. 
 
 	* ``channel``: lựa chọn kênh DAC
 
-.. code::
+****
+
+.. code:: cpp
 
 	esp_err_t dac_output_disable(dac_channel_t channel)
 
@@ -61,15 +63,17 @@ Vô hiệu hóa ngõ ra kênh DAC.
 
 	* ``channel``: lựa chọn kênh DAC
 
+****
 
-.. code::
+.. code:: cpp
 
 	esp_err_t dac_i2s_enable()
 
 Cho phép dữ liệu ngõ ra DAC từ I2S
 
+****
 
-.. code::
+.. code:: cpp
 
 	esp_err_t dac_i2s_disable()
 
@@ -77,7 +81,7 @@ Vô hiệu hóa dữ liệu ngõ ra DAC từ I2S
 
 **CÁC ĐỐI SỐ**
 
-.. code:: bash
+.. code:: cpp
 
 	enum dac_channel_t
 
@@ -146,7 +150,7 @@ Ta sẽ lần lượt kết nối chân GPIO 36 với chân GPIO 25 và GPIO26.
 
 **Hướng dẫn sửa và tạo make file:**
 
-.. code:: bash
+.. code:: cpp
 
   PROJECT_NAME := myProject
   include $(IDF_PATH)/make/project.mk
