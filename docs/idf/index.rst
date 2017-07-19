@@ -2,9 +2,12 @@ ESP32 IDF
 *********
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 7
 
    Cài đặt <install>
    Hello World <hello-world>
-   SPI_Master <spi_master>
-
+   Blink <blink-idf>
+   Nút nhấn <button>
+   ADC <adc>
+   DAC <dac>
+   SPI Master <spi_master>
