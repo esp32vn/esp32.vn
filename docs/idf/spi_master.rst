@@ -1,23 +1,24 @@
 SPI Master driver
 =================
 
-Overview
---------
+Tổng quan
+---------
 
-ESP32 có 4 kiểu giao tiếp SPI với thiết bị ngoại vi , gọi là SPI0,SPI1,HSPI và VSPI. SPI0 chỉ dành riêng để kết nối bộ nhớ flash của ESP32 với các thiết bị bộ nhớ flash khác bên ngoài. SPI1 được kết nối cũng tương tự như kiểu SPI0 nhưng nó dùng để ghi dữ liệu cho bộ nhớ flash của chíp. HSPI và VSPI được sử dụng tự do. SPI1, HSPI và VSPI đều có 3 cổng kết nối với chip, giúp chúng ta dễ dàng kết nối đồng thời với 3 slave bằng giao tiếp SPI mà ESP32 sẽ là thiết bị master.
+ESP32 có 4 module giao tiếp SPI với thiết bị ngoại vi, gọi là SPI0, SPI1, HSPI và VSPI. SPI0 chỉ dành riêng để kết nối bộ nhớ flash của ESP32 với các thiết bị bộ nhớ flash khác bên ngoài. SPI1 được kết nối cũng tương tự như kiểu SPI0 nhưng nó dùng để ghi dữ liệu cho bộ nhớ flash của chíp. HSPI và VSPI được sử dụng tự do. SPI1, HSPI và VSPI đều có 3 cổng kết nối với chip, giúp chúng ta dễ dàng kết nối đồng thời với 3 slave bằng giao tiếp SPI mà ESP32 sẽ là thiết bị master.
 
 The spi_master driver
 ^^^^^^^^^^^^^^^^^^^^^
 
-Trình điều khiển SPI master của ESP32 cho phép kết nối dễ dàng với những thiết bị slave khác , thông qua cách truyền dữ liệu đa luồng (full duplex). Nó có nghĩa là truyền và nhận dữ liệu có thể xảy ra tại một thời điểm.
+Trình điều khiển SPI master của ESP32 cho phép kết nối dễ dàng với những thiết bị slave khác, thông qua cách truyền dữ liệu đa luồng (full duplex). Nó có nghĩa là truyền và nhận dữ liệu có thể xảy ra tại một thời điểm.
 
 Terminology
 ^^^^^^^^^^^
 
 Trình điều khiển của SPI master sẽ dùng các thuật ngữ sau:
 
-* Host: thiết bị bên trong ESP32 theo giao tiếp spi sẽ bắt đầu hoạt động truyền. một trong 3 kiểu giao tiếp SPI1, HSPI hay VSPI (nhưng hiện nay chỉ có 2 kiểu HSPI và VSPI được hỗ trợ trong việc điều khiển, trong tương lai có lẽ sẽ có thể dùng thêm SPI1 trong điều khiển).
-* Bus: chân giao tiếp SPI trong ESP32 có thể kết nối với tất cả thiết bị bên ngoài giao tiếp theo chuẩn giao tiếp SPI. trong chuẩn giao tiếp SPI trong ESP32 sẽ có gồm các đường giao tiếp là : miso,mosi,sclk và 2 chân tùy chọn tín hiệu là quadwp và quadhd. chân slave seclect sẽ được kết nối tùy ý như các chân tín hiệu :
+* Host: thiết bị bên trong ESP32 theo giao tiếp SPI sẽ bắt đầu hoạt động truyền. Một trong 3 module giao tiếp SPI1, HSPI hay VSPI (nhưng hiện nay chỉ có 2 module HSPI và VSPI được hỗ trợ trong việc điều khiển, trong tương lai có lẽ sẽ có thể dùng thêm SPI1 trong điều khiển).
+
+* Bus: bus SPI trong ESP32 có thể kết nối giao tiếp với tất cả thiết bị bên ngoài theo chuẩn giao tiếp SPI. Chuẩn giao tiếp SPI trong ESP32 sẽ gồm các đường là : miso, mosi, sclk và 2 chân tùy chọn tín hiệu là quadwp và quadhd. Chân slave seclect sẽ được kết nối tùy ý như các chân tín hiệu :
 
   - miso - còn được gọi là q, sẽ là chân input của chip ESP32 nó sẽ lấy dữ liệu từ các slave vào ESP32.
 
@@ -30,9 +31,10 @@ Trình điều khiển của SPI master sẽ dùng các thuật ngữ sau:
   - quadhd - lưu giữ tín hiệu. Chip cũng dùng 4 bit cho nó.
 
 * Device: mỗi thiết bị giao tiếp SPI với ESP32 đều có một đường kết nối riêng gọi là chip select (CS), được kích hoạt khi tín hiệu được truyền đến hoặc lấy tín hiệu từ SPI slave.
-* Transaction: như đã nói ở trên SPI là kiểu truyền dữ liệu đa luồng , cho nên khi chúng ta truyền và nhận các tín hiệu cùng một thời điểm sẽ không có gián đoạn hay ảnh hưởng gì cả.
 
-note:
+* Transaction: như đã nói ở trên, SPI là kiểu truyền dữ liệu đa luồng, cho nên khi chúng ta truyền và nhận các tín hiệu cùng một thời điểm sẽ không có gián đoạn hay ảnh hưởng gì cả.
+
+Note:
 * SPI master: thiết bị master trong giao tiếp SPI.
 * SPI slave: thiết bị slave trong giao tiếp SPI.
 
@@ -40,37 +42,38 @@ SPI transactions
 ^^^^^^^^^^^^^^^^
 Quá trình truyền dữ liệu của giao tiếp SPI trên ESP32 gồm các bước sau. Bất kì bước nào cũng có thể bỏ qua:
 
-* Bước khởi động: trong bước này , một lệnh khởi động (0-16 bit) được xuất ra.
-* Bước lấy địa chỉ của slave: trong bước này , một địa chỉ (0-64 bit) được xuất ra.
+* Bước khởi động: trong bước này, một lệnh khởi động (0-16 bit) được xuất ra.
+* Bước lấy địa chỉ của slave: trong bước này, một địa chỉ (0-64 bit) được xuất ra.
 * Bước đọc : dữ liệu được SPI slave gửi vào cho SPI master.
 * Bước ghi: SPI master sẽ gửi dữ liệu qua cho SPI slave.
 
 Trong truyền dữ liệu đa luồng, giai đoạn đọc và ghi được kết hợp. Dữ liệu truyền giao tiếp SPI sẽ đọc và ghi cùng một lúc.
 
-Ở bước khởi động và lấy địa chỉ slave tùy thuộc vào thiết bị giao tiếp SPI bên ngoài, không phải thiết bị nào cũng cần gửi lệnh khởi động hay lấy địa chỉ. Điều này được biết khi chúng ta cấu hình thiết bị: ``command_bits`` hay ``data_bits`` sẽ không hoạt động khi chúng ta set các bit này ở mức thấp (mức 0).
+Ở bước khởi động và lấy địa chỉ slave, tùy thuộc vào thiết bị giao tiếp SPI bên ngoài, không phải thiết bị nào cũng cần gửi lệnh khởi động hay lấy địa chỉ. Điều này được biết khi chúng ta cấu hình thiết bị: ``command_bits`` hay ``data_bits`` sẽ không hoạt động khi chúng ta set các bit này ở mức thấp (mức 0).
 
-Những trường hợp có thể đúng trong bước ghi và đọc dữ liệu : không phải mọi giao tiếp đều cần ghi và đọc giữ liệu , cũng có những trường hợp chúng ta chỉ cần spi_master chỉ đọc hay chỉ cần ghi dữ liệu thôi. Với những trường hợp như thế chúng ta sẽ làm như sau: khi ``rx_buffer`` được vô hiệu hóa (không set bit ``spi_use_rxdata``) thì bước đọc giữ liệu sẽ được bỏ qua, khi ``tx_buffer`` được vô hiêu hóa (không set bit ``spi_use_txdata``) thì bước ghi dữ liệu sẽ được bỏ qua.
+Những trường hợp có thể đúng trong bước ghi và đọc dữ liệu: không phải mọi giao tiếp đều cần ghi và đọc giữ liệu, cũng có những trường hợp chúng ta chỉ cần spi_master chỉ đọc hay chỉ cần ghi dữ liệu thôi. Với những trường hợp như thế chúng ta sẽ làm như sau: khi ``rx_buffer`` được vô hiệu hóa (không set bit ``spi_use_rxdata``) thì bước đọc giữ liệu sẽ được bỏ qua, khi ``tx_buffer`` được vô hiêu hóa (không set bit ``spi_use_txdata``) thì bước ghi dữ liệu sẽ được bỏ qua.
 
 Using the spi_master driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Khởi tạo bus giao tiếp SPI bằng cách gọi ``spi_bus_initialize``. Đảm bảo chọn đúng chân IO cần dùng trong cấu trúc ``bus_config``. Hãy cẩn thận set những tín hiệu không cần thiết là -1.
 
-- Thông báo điều khiển một thiết bị SPI slave được kết nối với bus bằng cách gọi ``spi_bus_add_device``. Bất cứ khi nào bạn có yêu cầu cấu hình thiết bị của bạn có trong cấu trúc ``dev_config``. Bây giờ bạn đã có một công cụ xử lý việc truyền dữ liệu từ thiết bị, sẽ được sử dụng khi truyền giữ liệu.
+- Thông báo điều khiển một thiết bị SPI slave được kết nối với bus bằng cách gọi ``spi_bus_add_device``. Bất cứ khi nào bạn có yêu cầu cấu hình thiết bị của bạn có trong cấu trúc ``dev_config``. Bây giờ bạn xử lý được việc truyền dữ liệu từ thiết bị, sẽ được sử dụng khi truyền giữ liệu.
 
 - Tương tác với thiết bị, điền vào một hoặc nhiều cấu trúc ``spi_transaction_t`` với bất kì thông số truyền nào bạn cần. Xếp hàng tất cả các giao tiếp bằng cách gọi ``spi_device_queue_trans``, sau đó truy xuất kết quả ta dùng ``spi_device_get_trans_result``, hoặc xử lý đồng bộ tất cả những yêu cầu bằng cách ``spi_device_transmit``.
 
 
 - Optional: khi bạn muốn gỡ  bỏ thiết bị đang kết nối, hãy gọi ``spi_bus_remove_device``.
 
-- Optional: khi bạn muốn ngăt điều khiển cho chân bus, đảm bảo không có một kết nối nào được gắn thêm vào thì ta gọi ``spi_bus_free``.
+- Optional: khi bạn muốn ngắt điều khiển cho bus, đảm bảo không có một kết nối nào được gắn thêm vào thì ta gọi ``spi_bus_free``.
 
 Transaction data
 ^^^^^^^^^^^^^^^^
 
-Thông thường, dữ liệu được nhận vào hoặc truyền đi từ thiết bị, sẽ được đọc hoặc ghi vào 1 đoạn bộ nhớ được chỉ ra bằng cách set các thành phần ``rx_buffer`` và ``tx_buffer`` của cấu trúc giao tiếp. Giao tiếp SPI có thể truyền dữ liệu theo cơ chế DMA , vì thường thì dữ liệu được chuyển từ thiết bị I/O tới bộ nhớ ram phải thông qua cpu theo tuần tự là: đầu tiên nhập một đơn vị thông tin từ thiết bị đến bộ nhớ của cpu, sau đó cpu ghi lại thông tin đó từ bộ nhớ cpu qua bộ nhớ ram. Như thế thì tốc độ truyền thông tin là khá chậm và mất thời gian, nên chúng ta nên truyền theo chế độ DMA cho phép chuyển dữ liệu trực tiếp từ thiết bị I/O vào trong bộ nhớ ram mà không cần phải thông qua cpu. Do đó các bộ đệm này nên được phân bổ trong bộ nhớ có khả năng sử dụng DMA ``pvPortMallocCaps(size, MALLOC_CAP_DMA)``.
+Thông thường, dữ liệu được nhận vào hoặc truyền đi từ thiết bị, sẽ được đọc hoặc ghi vào 1 đoạn bộ nhớ, được chỉ ra bằng cách set các thành phần ``rx_buffer`` và ``tx_buffer`` của cấu trúc giao tiếp. Giao tiếp SPI có thể truyền dữ liệu theo cơ chế DMA, vì thường thì dữ liệu được chuyển từ thiết bị I/O tới bộ nhớ ram phải thông qua cpu theo tuần tự là: đầu tiên nhập một đơn vị thông tin từ thiết bị đến bộ nhớ của cpu, sau đó cpu ghi lại thông tin đó từ bộ nhớ cpu qua bộ nhớ ram. Như thế thì tốc độ truyền thông tin là khá chậm và mất thời gian, nên chúng ta nên truyền theo chế độ DMA cho phép chuyển dữ liệu trực tiếp từ thiết bị I/O vào trong bộ nhớ ram mà không cần phải thông qua cpu. Do đó các bộ đệm này nên được phân bổ trong bộ nhớ có khả năng sử dụng DMA ``pvPortMallocCaps(size, MALLOC_CAP_DMA)``.
 
-Thỉnh thoảng, số lượng dữ liệu rất nhỏ ít hơn cả cả bộ nhớ được phân bổ riêng cho nó. Nếu dữ liệu truyền 32 bit hay ít hơn thế , nó có thể được lưu trữ trong cấu trúc trao đổi dữ liệu của chính nó. Đối với dữ liệu truyền, ta dùng ``rx_data``  cho nó và set bit ``spi_use_rxdata``. Trong cả 2 trường hợp trên các bạn thấy sao chúng ta không dùng như các trường hợp trên là dùng ``rx_buffer`` hay ``tx_buffer`` , bởi vì ``tx_data`` và ``rx_data`` sử dụng vị trí bộ nhớ cũng tương tự như chúng.
+Thỉnh thoảng, số lượng dữ liệu rất nhỏ ít hơn cả cả bộ nhớ được phân bổ riêng cho nó. Nếu dữ liệu truyền là 32 bit hay ít hơn thế, nó có thể được lưu trữ trong cấu trúc trao đổi dữ liệu của chính nó. Đối với dữ liệu truyền, ta dùng thành phần ``tx_data``  cho nó và set cờ ``spi_use_txdata`` trên sự truyền tải dữ liệu. Đối với nhận dữ liệu, ta dùng ``rx_buffer`` và set ``spi_use_txdata``. Trong cả 2 trường hợp trên các bạn thấy, tại sao chúng ta không dùng như các trường hợp trên là dùng ``rx_buffer`` hay ``tx_buffer``, mà dùng ``tx_data`` và ``rx_data`` bởi vì ``tx_data`` và ``rx_data`` sử dụng vị trí bộ nhớ cũng tương tự như chúng.
+
 
 Application Example
 -------------------
@@ -89,7 +92,9 @@ Header File.
 Functions
 ^^^^^^^^^
 
-``bool spicommon_periph_claim(spi_host_device_t host)``
+.. code:: cpp
+
+    bool spicommon_periph_claim(spi_host_device_t host)
 
 Thử kết nối với thiết bị bên ngoài bằng giao tiếp SPI.
 
@@ -103,7 +108,9 @@ Parameters
 
 * ``host``: là thiết bị mà chúng ta muốn kết nối.
 
-``bool spicommon_periph_free(spi_host_device_t host)``
+.. code:: cpp
+
+    bool spicommon_periph_free(spi_host_device_t host)
 
 Thoát kết nối với thiết bị, để thiết bị có thể được kết nối với một giao tiếp khác.
 
@@ -121,13 +128,13 @@ Parameters
 
 kết nối thiết bị ngoại vi với chân GPIO của ESP32.
 
-Lệnh này dùng để kết nối thiết bị ngoại vi SPI với chân IO và dùng chế độ DMA trong việc giao tiếp. Tùy thuộc vào chân IO mà chúng ta dùng IO_mux hay dùng GPIO matrix.
+Lệnh này dùng để kết nối thiết bị ngoại vi SPI với chân IO và dùng DMA trong việc giao tiếp. Tùy thuộc vào chân IO mà chúng ta dùng IO_mux hay dùng GPIO matrix.
 
 Return
 
 * ESP_ERR_INVALID_ARG nếu thông số không hợp lệ.
 
-* ESP_OK chúng ta thành công rồi đó.
+* ESP_OK thành công.
 
 Parameters
 
@@ -139,9 +146,11 @@ Parameters
 
 * ``flags``: kết hợp với các cờ của SPICOMMON_BUSFLAG_*.
 
-* ``is_native``: giá trị 'đúng' sẽ được ghi vào địa chỉ này nếu chúng ta dùng IO_mux và 'sai' khi ta dùng ma trận GPIO.
+* ``is_native``: giá trị 'đúng' sẽ được ghi vào địa chỉ này nếu chúng ta dùng IO_mux và 'sai' khi ta dùng GPIO matrix.
 
-``esp_err_t spicommon_bus_free_io(spi_host_device_t host)``
+.. code:: cpp
+
+    esp_err_t spicommon_bus_free_io(spi_host_device_t host)
 
 Thoát kết nối cho chân IO với một thiết bị ngoại vi SPI.
 
@@ -149,13 +158,15 @@ Return
 
 * ESP_ERR_INVALID_ARG nếu thông số không hợp lệ.
 
-* ESP_OK thành công rồi đó.
+* ESP_OK thành công.
 
 Parameters
 
 * ``host``: thiết bị ngoại vi SPI chúng ta muốn thoát kết nối.
 
-``void spicommon_cs_initialize(spi_host_device_t host, int cs_io_num, int cs_num, int force_gpio_matrix)``
+.. code:: cpp
+
+    void spicommon_cs_initialize(spi_host_device_t host, int cs_io_num, int cs_num, int force_gpio_matrix)
 
 Khởi tạo chân chip select CS (chân chọn slave mà chúng ta cần giao tiếp) cho thiết bị ngoại vi SPI mà mình cần giao tiếp.
 
@@ -165,9 +176,11 @@ Parameters
 
 * ``cs_io_num``: chọn chân GPIO mà mình cần dùng.
 
-* ``force_gpio_matrix``: nếu đúng, thì chân CS(chip select) của chúng ta sẽ luôn truyền thông qua GPIO matrix. Sai, nếu chân chúng ta chọn cho phép thì nó sẽ được truyền thông qua IO_mux.
+* ``force_gpio_matrix``: chân CS(chip select) của chúng ta sẽ luôn truyền thông qua GPIO matrix. Ngược lại, nếu chân chúng ta chọn cho phép thì nó sẽ được truyền thông qua IO_mux.
 
-``void spicommon_cs_free(spi_host_device_t host, int cs_num)``
+.. code:: cpp
+
+    void spicommon_cs_free(spi_host_device_t host, int cs_num)
 
 Thoát kết nối với một chân CS(chip select) nếu bạn không muốn dùng chân đó nữa.
 
@@ -177,12 +190,14 @@ Parameters
 
 * ``cs_num``: chân CS mà chúng ta muốn thoát.
 
-``void spicommon_setup_dma_desc_links(lldesc_t *dmadesc, int len, const uint8_t *data, bool isrx)``
+.. code:: cpp
+
+    void spicommon_setup_dma_desc_links(lldesc_t *dmadesc, int len, const uint8_t *data, bool isrx)
 
 Thiết lập một chuỗi liên kết DMA.
 
-Hàm này sẽ thiết lập một chuỗi các bộ DMA được liên kết với nhau trong mảng được trỏ bởi ``dmadesc``. Tất cả bộ DMA sẽ được dùng sao cho phù hợp cho bộ đệm của các byte ``len``, chúng sẽ được trỏ đến những vị trí tương ứng trong bộ đệm và liên kết với nhau. Cuối cùng kết quả ``dmadesc[0]`` được đưa vào thanh ghi phần cứng DMA trong toàn bộ byte ``len`` của ``data`` đọc và ghi.
-
+Hàm này sẽ thiết lập một chuỗi các bộ DMA được liên kết với nhau trong mảng được trỏ bởi ``dmadesc``. Tất cả bộ DMA sẽ được dùng sao cho phù hợp với bộ đệm của các byte ``len``, chúng sẽ được trỏ đến những vị trí tương ứng trong bộ đệm và liên kết với nhau. Kết quả cuối cùng là cho ``dmadesc[0]`` vào thanh ghi phần cứng DMA trong toàn bộ byte ``len`` của ``data`` đọc và ghi.
+ 
 Parameters
 
 * ``dmadesc``: trỏ tới mảng của DMA đủ lớn để có thể chuyển tải tất cả các byte ``len``.
@@ -193,7 +208,9 @@ Parameters
 
 * ``isrx``: đúng nếu dữ liệu được ghi vào ``data``, sai nếu dữ liệu được đọc từ ``data``.
 
-``spi_dev_t *spicommon_hw_for_host(spi_host_device_t host)``
+.. code:: cpp
+
+    spi_dev_t *spicommon_hw_for_host(spi_host_device_t host)
 
 Lấy vị trí của thanh ghi phần cứng cho một host SPI riêng.
 
@@ -203,33 +220,37 @@ Mô tả việc trỏ đến cấu trúc thanh ghi, trỏ vào thanh ghi của p
 
 Parameters
 
-* ``host``: the SPI host.
+* ``host``: SPI host.
 
-``int spicommon_irqsource_for_host(spi_host_device_t host)``
+.. code:: cpp
 
-Lấy kênh ngắt IRQ(interrupt request lines) cho một SPI host.
+    int spicommon_irqsource_for_host(spi_host_device_t host)
+
+Lấy kênh ngắt IRQ (interrupt request lines) cho một SPI host.
 
 Return
 
-Kênh ngắt của các máy chủ.
+Kênh ngắt của các host.
 
 Parameters
 
-* ``host``: the SPI host.
+* ``host``: SPI host.
 
-``bool spicommon_dmaworkaround_req_reset(int dmachan, dmaworkaround_cb_t cb, void *arg)``
+.. code:: cpp
+
+    bool spicommon_dmaworkaround_req_reset(int dmachan, dmaworkaround_cb_t cb, void *arg)
 
 Yêu cầu reset cho một kênh DMA.
 
-Về cơ bản, khi việc reset là cần thiết, trình điều khiển có thể yêu cầu dùng spicommon_dmaworkaround_req_reset. Đây chắc chắn là nhiệm vụ phải được gọi do người dùng cung cấp có chức năng như để đối chiếu. Nếu cả hai kênh DMA đều không hoạt động, lệnh gọi này nó sẽ reset hệ thống phụ của DMA và trả về đúng. Nếu kênh DMA khác vẫn còn đang bận, nó sẽ trả về sai, trong khi kênh DMA khác đã được làm việc xong. Tuy nhiên, nó sẽ reset hệ thống phụ của DMA và gọi callback (gọi quay về). Việc dùng callback sẽ giúp trình điều khiển SPI sẽ tiếp tục hoạt động bình thường.
+Về cơ bản, khi việc reset cần thiết, trình điều khiển có thể yêu cầu dùng ``spicommon_dmaworkaround_req_reset``. Đây chắc chắn là nhiệm vụ phải được gọi do người dùng cung cấp, có chức năng như để đối chiếu. Nếu cả hai kênh DMA đều không hoạt động, lệnh gọi này nó sẽ reset hệ thống phụ của DMA và trả về đúng. Nếu kênh DMA khác vẫn còn đang bận, nó sẽ trả về sai, ngay khi kênh DMA kia đã làm xong nhiệm vụ. Tuy nhiên, nó sẽ reset hệ thống phụ của DMA và gọi callback (gọi quay về). Việc dùng callback sẽ giúp trình điều khiển SPI sẽ tiếp tục trở lại hoạt động bình thường.
 
 Note
 
-Trong một số trường hợp (được xác định) trong ESP32 (ít nhất là ở phiên bản v.0 và v.1), một kênh DMA trong giao tiếp SPI sẽ bị nhầm lẫn. Việc này chúng ta có thể khắc phục bằng cách reset phần cứng DMA trong giao tiếp SPI trong trường hợp việc này xảy ra. Không may là nút reset này nó dùng cho việc reset cả 2 kênh DMA, nên việc này chỉ được sử dụng khi thật sự cần thiết và an toàn nhất là khi hai kênh DMA đều đã ngưng hoạt động.
+Trong một số trường hợp (được xác định) trong ESP32 (ít nhất là ở phiên bản v.0 và v.1), một kênh DMA trong giao tiếp SPI sẽ bị nhầm lẫn. Việc này chúng ta có thể khắc phục bằng cách reset phần cứng DMA trong giao tiếp SPI khi trường hợp việc này xảy ra. Không may là nút reset này nó dùng cho việc reset cả 2 kênh DMA, nên việc này chỉ được sử dụng khi thật sự cần thiết và an toàn nhất là khi hai kênh DMA đều đã ngưng hoạt động.
 
 Return
 
-Đúng khi việc reset được thực hiện ngay. Ngược lại thì sẽ trả về sai, trong trường hợp callback sẽ được gọi với các đối chiếu đã được chỉ định khi về mặt logic chúng ta có thể thực hiện một reset, sau đó sẽ được reset.
+Đúng khi việc reset được thực hiện ngay. Ngược lại thì sẽ trả về sai, trong trường hợp này callback sẽ được gọi với các đối chiếu đã được chỉ định khi logic chúng ta có thể thực hiện lại một reset, sau đó sẽ được reset.
 
 Parameters
 
@@ -239,15 +260,19 @@ Parameters
 
 * ``arg``: chỉ định đối chiếu cho việc callback. 
 
-``bool spicommon_dmaworkaround_reset_in_progress()``
+.. code:: cpp
 
-Kiểm tra xem nếu việc yêu cầu reset của chúng ta chưa hoàn thành.
+    bool spicommon_dmaworkaround_reset_in_progress()
+
+Kiểm tra xem nếu việc yêu cầu reset của chúng ta chưa được chấp thuận.
 
 Return
 
-Đúng khi yêu cầu reset của chúng ta chưa hoàn thành, nếu không thì sai.
+Đúng khi yêu cầu reset của chúng ta chưa được chấp thuận, nếu không thì sai.
 
-``void spicommon_dmaworkaround_idle(int dmachan)``
+.. code:: cpp
+    
+    void spicommon_dmaworkaround_idle(int dmachan)
 
 Đánh dấu hoạt động của kênh DMA.
 
@@ -256,71 +281,96 @@ Gọi hàm này có chức năng giải quyết một cách logic cho kênh này
 Structures
 ^^^^^^^^^^
 
-``struct spi_bus_config_t``
+.. code:: cpp
+   
+    struct spi_bus_config_t
 
-Đây là một cấu trúc cấu hình cho một SPI bus.
+Đây là một cấu trúc cấu hình cho một bus SPI.
 
 Bạn có thể sử dụng cấu trúc này để xác định các chân GPIO của bus. Thông thường, trình điều khiển sẽ sử dụng GPIO matrix để định tuyến các tín hiệu. Một ngoại lệ là có thể định tuyến các tín hiệu thông qua IO_MUX hoặc là -1. Trong trường hợp IO_MUX được sử dụng sẽ có tốc độ cho phép >40MHz.
 
 Note
 
-Không nên dùng hai đường quadwp/quadhd để điều khiển thiết bị SPI slave và trong vùng spi_bus_config_t, chúng có thể bị bỏ qua và để an toàn bạn có thể chọn những chân khác.
+Không nên dùng hai đường quadwp/quadhd để điều khiển thiết bị SPI slave và trong vùng spi_bus_config_t, đề cập những dòng này sẽ bị bỏ qua và để an toàn bạn có thể chọn những chân khác.
 
 Public Members
 ^^^^^^^^^^^^^^
 
-``int mosi_io_num``
+.. code:: cpp
+
+    int mosi_io_num
 
 Khai báo chân GPIO (chân MOSI) truyền tín hiệu từ master qua slave (=spi_d), set là -1 nếu bạn không muốn dùng nó.
 
-``int miso_io_num``
+.. code:: cpp
+
+    int miso_io_num
 
 Khai báo chân GPIO (chân MISO) lấy tín hiệu từ slave vào master (=spi_q),set là -1 nếu bạn không dùng nó.
 
-``int sclk_io_num``
+.. code:: cpp
+
+    int sclk_io_num
 
 Khai báo chân GPIO (chân SCLK) cho tín hiệu xung clock, set là -1 nếu bạn không dùng.
 
-``int quadwp_io_num``
+.. code:: cpp
 
-Khai báo chân cho WP(write protect) (chân quadwp) tín hiệu được dùng như D2 trong chế độ truyền 4-bit , không sử dụng thì set là -1.
+    int quadwp_io_num
 
-``int quadhd_io_num``
+Khai báo chân cho WP(write protect) (chân quadwp) tín hiệu được dùng như D2 trong chế độ truyền 4-bit, không sử dụng thì set là -1.
+
+.. code:: cpp
+
+    int quadhd_io_num
 
 Khai báo chân cho HD(HolD) (chân quadhd) tín hiệu dùng như D3 trong chế độ truyền 4-bit, set -1 nếu không sử dụng.
 
-``int max_transfer_sz``
+.. code:: cpp
+    int max_transfer_sz
 
 Kích thước truyền tối đa, tính bằng byte. Mặc định là 4094 nếu có 0.
 
 Macros
 ^^^^^^
 
-``SPI_MAX_DMA_LEN (4096-4)``
+.. code:: cpp
 
-``SPICOMMON_BUSFLAG_SLAVE 0``
+    SPI_MAX_DMA_LEN (4096-4)
+
+.. code:: cpp
+
+    SPICOMMON_BUSFLAG_SLAVE 0
 
 Khởi tạo I/O ở chế độ slave.
 
-``SPICOMMON_BUSFLAG_MASTER (1<<0)``
+.. code:: cpp
+
+    SPICOMMON_BUSFLAG_MASTER (1<<0)
 
 Khởi tạo I/O ở chế độ master.
 
-``SPICOMMON_BUSFLAG_QUAD (1<<1)``
+.. code:: cpp
+
+    SPICOMMON_BUSFLAG_QUAD (1<<1)
 
 Khởi tạo chân WP/HD, nếu dùng.
 
 Type Definitions
 ^^^^^^^^^^^^^^^^
 
-``typedef void (*dmaworkaround_cb_t)(void *arg)``
+.. code:: cpp
 
-Callback, được gọi khi chúng ta nhấn nút reset cho DMA mà không reset được.
+    typedef void (*dmaworkaround_cb_t)(void *arg)
+
+Callback, được gọi khi chúng ta nhấn nút reset cho DMA mà không reset ngay được.
 
 Enumerations
 ^^^^^^^^^^^^^
 
-``enum spi_host_device_t``
+.. code:: cpp
+
+    enum spi_host_device_t
 
 Khai báo với 3 thiết bị ngoại vi mà phần mềm có thể truy cập vào nó.
 
@@ -350,7 +400,9 @@ Header File
 Functions
 ^^^^^^^^^
 
-``esp_err_t spi_bus_initialize(spi_host_device_t host, const spi_bus_config_t *bus_config, int dma_chan)``
+.. code:: cpp
+
+    esp_err_t spi_bus_initialize(spi_host_device_t host, const spi_bus_config_t *bus_config, int dma_chan)
 
 Khởi tạo một SPI bus.
 
@@ -364,7 +416,7 @@ Return
 
 * ESP_ERR_INVALID_ARG nếu cấu hình không hợp lệ.
 
-* ESP_ERR_INVALID_STATE nếu máy chủ đã được dùng.
+* ESP_ERR_INVALID_STATE nếu host đã được dùng.
 
 * ESP_ERR_NO_MEM nếu tràn bộ nhớ.
 
@@ -374,11 +426,13 @@ Parameters
 
 * ``host``: thiết bị ngoại vi được điều khiển bằng bus này.
 
-* ``bus_config``: trỏ tới cấu trúc spi_bus_config_t xác định máy chủ cần được khởi tạo như thế nào.
+* ``bus_config``: trỏ tới cấu trúc spi_bus_config_t xác định host cần được khởi tạo như thế nào.
 
-* ``dma_chan``: set là 1 hoặc 2,hoặc là 0 trong trường hợp không muốn dùng DMA. Chọn kênh DMA cho một SPI bus thì kích thước cho phép dữ liệu truyền được giới hạn bởi bộ nhớ trong. Không chọn kênh DMA thì giới hạn dữ liệu truyền là 32 byte.
+* ``dma_chan``: set là 1 hoặc 2, hoặc là 0 trong trường hợp không muốn dùng DMA. Chọn kênh DMA cho một bus SPI thì kích thước cho phép dữ liệu truyền, được giới hạn bởi bộ nhớ trong. Không chọn kênh DMA thì giới hạn dữ liệu truyền là 32 byte.
 
-``esp_err_t spi_bus_free(spi_host_device_t host)``
+.. code:: cpp
+
+    esp_err_t spi_bus_free(spi_host_device_t host)
 
 Thoát giao tiếp SPI cho một bus.
 
@@ -397,14 +451,15 @@ Return
 Parameters
 
 * ``host``:thiết bị ngoại vi SPI cần được thoát.
+
 .. code:: cpp
 
-  /* esp_err_t spi_bus_add_device(spi_host_device_t host, spi_device_interface_config_t *dev_config, spi_device_handle_t *handle)
+   esp_err_t spi_bus_add_device(spi_host_device_t host, spi_device_interface_config_t *dev_config, spi_device_handle_t *handle)
 
 
-Cấp một thiết bị trên một SPI bus.
+Cấp một thiết bị trên một bus SPI.
 
-Điều này khởi tạo cấu trúc bên trong cho thiết bị, cấp một chân CS(chip select) trên thiết bị ngoại vi và định tuyến đến chân GPIO mà chúng ta đã chọn,tất cả các thiết bị SPI master đều có 3 chân CS do đó có thể kết nối điều khiển 3 thiết bị ngoại vi.
+Điều này khởi tạo cấu trúc bên trong cho thiết bị, cấp một chân CS (chip select) trên thiết bị ngoại vi và định tuyến đến chân GPIO mà chúng ta đã chọn, tất cả các thiết bị SPI master đều có 3 chân CS do đó có thể kết nối điều khiển 3 thiết bị ngoại vi.
 
 Note
 
@@ -414,7 +469,7 @@ Return
 
 * ESP_ERR_INVALID_ARG nếu thông số không hợp lệ.
 
-* ESP_ERR_NOT_FOUND nếu thiết bị(host) không còn chân CS nào trống.
+* ESP_ERR_NOT_FOUND nếu thiết bị không còn chân CS nào trống.
 
 * ESP_ERR_NO_MEM nếu bộ nhớ đầy.
 
@@ -426,11 +481,13 @@ Parameters
 
 * ``dev_config``: giao thức cấu hình giao diện cho thiết bị SPI.
 
-* ``handle``: trỏ đến biến giữ handle của thiết bị.
+* ``handle``: trỏ đến biến xử lí của thiết bị.
 
-``esp_err_t spi_bus_remove_device(spi_device_handle_t handle)``
+.. code:: cpp
 
-Loại bỏ một thiết bị từ SPI bus.
+    esp_err_t spi_bus_remove_device(spi_device_handle_t handle)
+
+Loại bỏ một thiết bị từ bus SPI.
 
 Return
 
@@ -442,11 +499,13 @@ Return
 
 Parameters
 
-* ``handle``: handle của thiết bị muốn loại bỏ.
+* ``handle``: xử lí thiết bị muốn loại bỏ.
 
-``esp_err_t spi_device_queue_trans(spi_device_handle_t handle, spi_transaction_t *trans_desc, TickType_t ticks_to_wait)``
+.. code:: cpp
+ 
+    esp_err_t spi_device_queue_trans(spi_device_handle_t handle, spi_transaction_t *trans_desc, TickType_t ticks_to_wait)
 
-Xếp hàng một thực hiện giao tiếp SPI.
+Xếp hàng một giao tiếp SPI muốn thực hiện.
 
 Return
 
@@ -456,18 +515,19 @@ Return
 
 Parameters
 
-* ``handle``: dùng handle của thiết bị bằng cách sử dụng spi_host_add_dev.
+* ``handle``: xử lí thiết bị bằng cách sử dụng spi_host_add_dev.
 
-* ``trans_desc``:mô tả thực hiện trao đổi tín hiệu.
+* ``trans_desc``: mô tả thực hiện trao đổi tín hiệu.
 
-* ``ticks_to_wait``:Tick để đợi cho đến khi có chỗ trong hàng, dùng portMAX_DELAY để không bao giờ hết thời gian chờ.
+* ``ticks_to_wait``: đánh dấu để đợi cho đến khi có chỗ trong hàng, dùng portMAX_DELAY để không hết thời gian chờ.
+
 .. code:: cpp
 
   esp_err_t spi_device_get_trans_result(spi_device_handle_t handle, spi_transaction_t **trans_desc, TickType_t ticks_to_wait)
 
 Lấy kết quả của một giao tiếp SPI đã được hoàn thành.
 
-Thủ tục này sẽ đợi đến khi một giao tiếp với thiết bị đã cho (đã được xếp trước với ``spi_device_queue_trans``) hoàn thành. Sau đó, nó sẽ trả lại những mô tả của giao tiếp đã hoàn tất để phần mềm có thể kiểm tra lại kết quả và ví dụ: giải phóng bộ nhớ hoặc tái sử dụng bộ đệm.
+Thủ tục này sẽ đợi đến khi một giao tiếp với thiết bị đã cho (đã được xếp trước với ``spi_device_queue_trans``) hoàn thành. Sau đó, nó sẽ trả lại những mô tả của giao tiếp đã hoàn tất để phần mềm có thể kiểm tra lại kết quả, ví dụ: giải phóng bộ nhớ hoặc tái sử dụng bộ đệm.
 
 Return
 
@@ -477,13 +537,15 @@ Return
 
 Parameters
 
-* ``handle``: handle của thiết bị thu được bằng cách sử dụng spi_host_add_dev.
+* ``handle``: xử lí thiết bị thu được bằng cách sử dụng spi_host_add_dev.
 
-* ``trans_desc``:trỏ đến biến chứa con trỏ mô tả giao tiếp đã thực hiện.
+* ``trans_desc``: trỏ đến biến chứa con trỏ mô tả giao tiếp đã thực hiện.
 
-* ``ticks_to_wait``:tick để đợi cho đến khi trả lại một mục, sử dụng portMAX_DELAY để không hết thời gian chờ.
+* ``ticks_to_wait``: đánh dấu để đợi cho đến khi trả lại một mục, sử dụng portMAX_DELAY để không hết thời gian chờ.
 
-``esp_err_t spi_device_transmit(spi_device_handle_t handle, spi_transaction_t *trans_desc)``
+.. code:: cpp
+ 
+   esp_err_t spi_device_transmit(spi_device_handle_t handle, spi_transaction_t *trans_desc)
 
 Thực hiện giao tiếp SPI.
 
@@ -497,15 +559,17 @@ Return
 
 Parameters
 
-* ``handle``: handle của thiết bị thu được bằng cách sử dụng spi_host_add_dev.
+* ``handle``: xử lí thiết bị thu được bằng cách sử dụng spi_host_add_dev.
 
-* ``trans_desc``:trỏ đến biến chứa con trỏ mô tả giao tiếp đã thực hiện.
+* ``trans_desc``: trỏ đến biến chứa con trỏ mô tả giao tiếp đã thực hiện.
 
 
 Structures
 ^^^^^^^^^^
 
-``struct spi_device_interface_config_t``
+.. code:: cpp
+
+    struct spi_device_interface_config_t
 
 Đây là cấu hình cho một thiết bị SPI slave được kết nối với một trong các bus.
 
@@ -522,7 +586,7 @@ Số bit cho việc lấy địa chỉ (0-64).
 
 ``uint8_t dummy_bits``
 
-Số bit ảo được dùng để chèn giữa địa chỉ và dữ liệu.
+Số bit được dùng để chèn giữa địa chỉ và dữ liệu.
 
 ``uint8_t mode``
 
@@ -612,7 +676,7 @@ Macros
 
 ``SPI_DEVICE_TXBIT_LSBFIRST (1<<0)``
 
-Truyền lệnh,địa chỉ,dữ liệu LSB đầu tiên thay vì MSB được mặc định truyền đầu tiên.
+Truyền lệnh, địa chỉ, dữ liệu LSB đầu tiên thay vì MSB được mặc định truyền đầu tiên.
 
 ``SPI_DEVICE_RXBIT_LSBFIRST (1<<1)``
 
