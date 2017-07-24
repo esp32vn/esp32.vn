@@ -108,7 +108,7 @@ Parameters
 
     esp_err_t spi_slave_free(spi_host_device_t host)
 
-Bỏ kết nối một bus của một SPI slave.
+Bỏ kết nối một bus của SPI slave.
 
 Return
 
@@ -134,7 +134,7 @@ Return
 
 * ``host``: thiết bị ngoại vi đang hoạt động như một slave.
 
-* ``trans_desc``: mô tả việc thực hiện truyền tải. Không cố định vì chúng ta có thể muốn viết lại trạng thái mô tả giao tiếp.
+* ``trans_desc``: mô tả việc thực hiện truyền tải. Không cố định, vì chúng ta có thể muốn ghi lại trạng thái mô tả giao tiếp.
 
 * ``ticks_to_wait``: đánh dấu chờ cho tới khi có chỗ trong hàng chờ, dùng portMAX_DELAY để không bao giờ hết thời gian chờ.
 
@@ -144,7 +144,7 @@ Return
 
 Lấy kết quả của một giao tiếp SPI đứng trước trong hàng.
 
-Thủ tục này sẽ chờ cho đến khi một giao tiếp với thiết bị đã cho (xếp hàng trước với spi_slave_queue_trans) đã hoàn thành. Nó sẽ trả lại miêu tả của việc hoàn thành giao tiếp do đó phần mềm có thể xem xét kết quả và ví dụ : giải phóng và tái sử dụng bộ nhớ đệm.
+Thủ tục này sẽ chờ cho đến khi một giao tiếp với thiết bị đã cho (xếp hàng trước với spi_slave_queue_trans) đã hoàn thành. Nó sẽ trả lại mô tả của việc hoàn thành giao tiếp, do đó phần mềm có thể xem xét kết quả, ví dụ : giải phóng và tái sử dụng bộ nhớ đệm.
 
 Bắt buộc nó sử dụng chức năng này cuối cùng cho việc xếp hàng giao tiếp bằng cách ``spi_slave_queue_trans``.
 
@@ -168,7 +168,7 @@ Parameters
 
 Thực hiện một giao tiếp SPI.
 
-Về cơ bản không giống như ``spi_slave_queue_trans`` tiếp theo là ``spi_slave_get_trans_result``. Không nên làm như thế khi vẫn còn một giao tiếp trong hàng chưa hoàn tất sử dụng ``spi_slave_get_trans_result``.
+Về cơ bản không giống như ``spi_slave_queue_trans`` tiếp theo là ``spi_slave_get_trans_result``. Không nên làm như thế khi vẫn còn một giao tiếp trong hàng chưa hoàn tất, dùng ``spi_slave_get_trans_result``.
 
 Return
 
@@ -180,7 +180,7 @@ Parameters
 
 * ``host``: thiết bị ngoại vi SPI hoạt động như một slave.
 
-* ``trans_desc``: trỏ đến biến có thể chứa một con trỏ để mô tả giao tiếp đã thực hiện. Không cố định vì chúng ta có thể muốn viết lại trạng thái mô tả giao tiếp.
+* ``trans_desc``: trỏ đến biến có thể chứa một con trỏ để mô tả giao tiếp đã thực hiện. Không cố định, vì chúng ta có thể muốn ghi lại trạng thái mô tả giao tiếp.
 
 * ``ticks_to_wait``: đánh dấu chờ cho tới khi trả lại về một mục, dùng portMAX_DELAY để không hết thời gian chờ.
 
@@ -252,7 +252,8 @@ Type Definitions
 
 
 ``typedef void (*slave_transaction_cb_t)(spi_slave_transaction_t *trans)
-Next  Previous``
+
+Next  Previous.
 
 
 
