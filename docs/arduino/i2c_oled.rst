@@ -23,7 +23,6 @@ Bên cạnh đó OLED vẫn còn có một số **nhược điểm** sau:
 
   - Chi phí sản xuất cao.
   - Tuổi thọ kém.
-  - Rất sợ nước.
 
 Trong bài viết này sẽ sử dụng đến màn hình `SSD1306 OLED 128x64 0.96"-I2C <https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html>`_.
 
@@ -35,7 +34,7 @@ Thông số kỹ thuật:
   - Điện ấp sử dụng: ``3V3`` đến ``5V`` (DC)
   - Công suất tiêu thụ: ``0.04W``
   - Góc hiển thị: Lớn hơn ``16 độ`` 
-  - Độ phân giải: ``128X64`` pixel (Điểm ảnh)
+  - Độ phân giải: ``128x64`` pixel (Điểm ảnh)
   - Độ rộng màn hình: ``0.96"``
   - Giao tiếp: ``I2C``
   - Màu: Trắng và Đen
@@ -47,21 +46,19 @@ I2C
 
   ``I²C``, viết tắt của từ  **Inter-Integrated Circuit**, là một loại bus nối tiếp được phát triển bởi hãng sản xuất linh kiện điện tử Philips. Ban đầu, loại bus này chỉ được dùng trong các linh kiện điện tử của Philips. Sau đó, do tính ưu việt và đơn giản của nó, I²C đã được chuẩn hóa và được dùng rộng rãi trong các mô đun truyền thông nối tiếp của vi mạch tích hợp ngày nay.
 
-Cấu tạo và nguyên lý hoạt dộng của I2C
+Cấu tạo và nguyên lý hoạt động của I2C
 ++++++++++++++++++++++++++++++++++++++
 
-Khi hai thiết bị được kết nối với nhau qua ``I2C`` thì cần xác định thiết bị nào sẽ phát lệnh và thiết bị nào sẽ nhận lệnh. Nếu thiết bị đó phát lệnh sẽ được gọi là **Master** và thiết bị nhận lệnh gọi là **Slave**.
+Khi có nhiều thiết bị ``I2C`` trên bus, thì phải (và chỉ) có 1 **Master** để điều khiển Bus - Có thể có nhiều **Slave** bị động, được điều khiển bởi **Master**
 
 ``I2C`` sử dụng hai đường truyền tín hiệu:
 
-  - Một đường tạo xung dao động (Clock) thường được gọi là SCL chỉ do **Master** phát đi ( thông thường ở 100kHz và 400kHz, mức cao nhất là 1Mhz và 3.4MHz).
-  - Một đường truyền dữ liệu SDA từ **Master** sang **Slave** hoặc ngược lại.
+  - Một đường tạo xung dao động (SCL) chỉ do **Master** phát đi ( thông thường ở 100kHz và 400kHz, mức cao nhất là 1Mhz và 3.4MHz).
+  - Một đường truyền dữ liệu (SDA) từ **Master** sang **Slave** hoặc ngược lại.
 
-Về lý thuyết lẫn thực tế ``I²C`` sử dụng 7 bit để định địa chỉ, do đó trên một bus có thể có tới 2^7 địa chỉ tương ứng với 128 thiết bị có thể kết nối, nhưng chỉ có 112 , 16 địa chỉ còn lại được sử dụng vào mục đích riêng. Bit còn lại quy định việc đọc hay ghi dữ liệu (1 là write, 0 là read)
+Về lý thuyết lẫn thực tế ``I2C`` sử dụng 7 bit (10 bit - chế độ mở rộng) để định địa chỉ, do đó trên một bus có thể có tới 2^7 địa chỉ tương ứng với 128 thiết bị có thể kết nối, nhưng chỉ có 112 , 16 địa chỉ còn lại được sử dụng vào mục đích riêng. Bit còn lại quy định việc đọc hay ghi dữ liệu (1 là write, 0 là read).
 
-Điểm mạnh của ``I²C`` chính là hiệu suất và sự đơn giản của nó: một khối điều khiển trung tâm có thể điều khiển cả một mạng thiết bị mà chỉ cần hai lối ra điều khiển.
-
-Ngoài ra ``I2C`` còn có chế độ 10bit địa chỉ tương đương với 1024 địa chỉ, tương tự như 7 bit, chỉ có 1008 thiết bị có thể kết nối, còn lại 16 địa chỉ sẽ dùng để sử dụng mục đích riêng.
+Điểm mạnh của ``I2C`` chính là sự đơn giản của nó: một khối điều khiển trung tâm có thể điều khiển cả một mạng thiết bị mà chỉ cần hai lối ra điều khiển.
 
 Các chế độ hoạt động của I2C
 ++++++++++++++++++++++++++++
@@ -75,7 +72,6 @@ Nếu chia theo quan hệ chủ tớ:
 
   - Một Master một Slave.
   - Một Master nhiều Slave.
-  - Nhiều Master nhiều Slave.
 
 .. Note::
   
@@ -88,7 +84,7 @@ Nếu chia theo quan hệ chủ tớ:
 Tài liệu tham khảo
 ++++++++++++++++++
 
-Để có thể hiểu rõ hơn về ``I2C`` bạn có thể vào `đây <http://www.nxp.com/docs/en/application-note/AN10216.pdf>`_ để tham khảo thêm.
+Để có thể hiểu rõ hơn về ``I2C`` bạn có thể vào `đây <http://maxembedded.com/2014/02/inter-integrated-circuits-i2c-basics/>`_ để tìm hiểu thêm.
 
 Demo
 ====
@@ -210,7 +206,7 @@ Chỉnh vị trí của chuỗi (TEXT_ALIGN_LEFT, TEXT_ALIGN_CENTER, TEXT_ALIGN_
 
   .. c:function:: void setTextAlignment(OLEDDISPLAY_TEXT_ALIGNMENT textAlignment)
 
-Có thể xem thêm về thư viện tại ở https://github.com/squix78/esp8266-oled-ssd1306
+Có thể xem thêm về thư viện tại https://github.com/squix78/esp8266-oled-ssd1306
 
 Code Example
 ++++++++++++
