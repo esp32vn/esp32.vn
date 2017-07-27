@@ -2,7 +2,7 @@ ESP32 IDF
 *********
 
 .. toctree::
-   :maxdepth: 8
+   :maxdepth: 9
 
    Cài đặt <install>
    Hello World <hello-world>
@@ -12,5 +12,4 @@ ESP32 IDF
    DAC <dac>
    SPI master <spi_master>
    SPI slave <spi_slave>
-
-   
+   I2C <i2c>
