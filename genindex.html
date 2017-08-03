@@ -187,6 +187,13 @@
 <li class="toctree-l3"><a class="reference internal" href="idf/spi_slave.html#api-reference">API Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="idf/i2s.html">I2S</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="idf/i2s.html#tong-quan">TỔNG QUAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idf/i2s.html#api-reference">API Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idf/i2s.html#vi-du">Ví dụ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idf/i2s.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="idf/i2c.html">I2C</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="idf/i2c.html#tong-quan">Tổng quan</a></li>
 <li class="toctree-l3"><a class="reference internal" href="idf/i2c.html#chuan-bi">Chuẩn bị</a></li>
@@ -285,6 +292,7 @@
  | <a href="#G"><strong>G</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#M"><strong>M</strong></a>
+ | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#V"><strong>V</strong></a>
@@ -429,8 +437,6 @@
 </li>
       <li><a href="idf/i2c.html#c.I2C_MASTER_READ">I2C_MASTER_READ (macro C)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="idf/i2c.html#c.i2c_master_read_byte">i2c_master_read_byte (hàm C)</a>
 </li>
       <li><a href="idf/i2c.html#c.i2c_master_start">i2c_master_start (hàm C)</a>
@@ -457,6 +463,8 @@
 </li>
       <li><a href="idf/i2c.html#_CPPv210i2c_port_t">i2c_port_t (C++ enum)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="idf/i2c.html#c.i2c_reset_rx_fifo">i2c_reset_rx_fifo (hàm C)</a>
 </li>
       <li><a href="idf/i2c.html#c.i2c_reset_tx_fifo">i2c_reset_tx_fifo (hàm C)</a>
@@ -481,6 +489,58 @@
 </li>
       <li><a href="idf/i2c.html#_CPPv216i2c_trans_mode_t">i2c_trans_mode_t (C++ enum)</a>
 </li>
+      <li><a href="idf/i2s.html#c.i2s_bits_per_sample_t">i2s_bits_per_sample_t (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_channel_fmt_t">i2s_channel_fmt_t (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_channel_t">i2s_channel_t (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_comm_format_t">i2s_comm_format_t (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_config_t">i2s_config_t (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_dac_mode_t">i2s_dac_mode_t (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_driver_install">i2s_driver_install (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_driver_uninstall">i2s_driver_uninstall (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_event_t">i2s_event_t (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_event_type_t">i2s_event_type_t (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_isr_handle_t">i2s_isr_handle_t (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_mode_t">i2s_mode_t (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_pin_config_t">i2s_pin_config_t (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.I2S_PIN_NO_CHANGE">I2S_PIN_NO_CHANGE (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_pop_sample">i2s_pop_sample (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_port_t">i2s_port_t (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_push_sample">i2s_push_sample (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_read_bytes">i2s_read_bytes (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_set_clk">i2s_set_clk (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_set_dac_mode">i2s_set_dac_mode (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_set_pin">i2s_set_pin (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_set_sample_rates">i2s_set_sample_rates (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_start">i2s_start (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_stop">i2s_stop (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_write_bytes">i2s_write_bytes (hàm C)</a>
+</li>
+      <li><a href="idf/i2s.html#c.i2s_zero_dma_buffer">i2s_zero_dma_buffer (hàm C)</a>
+</li>
       <li><a href="arduino/i2c_oled.html#c.init">init (hàm C)</a>
 </li>
   </ul></td>
@@ -490,6 +550,18 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="idf/i2c.html#c.mode">mode (thuộc tính C)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/i2s.html#c.pdm_pcm_conv_t">pdm_pcm_conv_t (hàm C)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/i2s.html#c.pdm_sample_rate_ratio_t">pdm_sample_rate_ratio_t (hàm C)</a>
 </li>
   </ul></td>
 </tr></table>
