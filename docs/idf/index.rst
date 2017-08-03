@@ -2,7 +2,7 @@ ESP32 IDF
 *********
 
 .. toctree::
-   :maxdepth: 10
+   :maxdepth: 2
 
    Cài đặt <install>
    Hello World <hello-world>
