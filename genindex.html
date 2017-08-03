@@ -187,6 +187,14 @@
 <li class="toctree-l3"><a class="reference internal" href="idf/spi_slave.html#api-reference">API Reference</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="idf/i2c.html">I2C</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="idf/i2c.html#tong-quan">Tổng quan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idf/i2c.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idf/i2c.html#vi-du-minh-hoa">Ví dụ minh họa:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idf/i2c.html#api-reference">API Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idf/i2c.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="idf/sdcard.html">Thẻ nhớ</a><ul>
@@ -269,20 +277,51 @@
 <h1 id="index">Index</h1>
 
 <div class="genindex-jumpbox">
- <a href="#C"><strong>C</strong></a>
+ <a href="#Biểu tượng"><strong>Biểu tượng</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#I"><strong>I</strong></a>
+ | <a href="#M"><strong>M</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#V"><strong>V</strong></a>
  
 </div>
+<h2 id="Biểu tượng">Biểu tượng</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/i2c.html#c.0">0 (macro C)</a>, <a href="idf/i2c.html#c.0">[1]</a>, <a href="idf/i2c.html#c.0">[2]</a>, <a href="idf/i2c.html#c.0">[3]</a>, <a href="idf/i2c.html#c.0">[4]</a>, <a href="idf/i2c.html#c.0">[5]</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/i2c.html#c.1">1 (macro C)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/i2c.html#c.addr_10bit_en">addr_10bit_en (thuộc tính C)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/i2c.html#c.APB_CLK_FREQ">APB_CLK_FREQ (macro C)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="arduino/i2c_oled.html#c.clear">clear (hàm C)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/i2c.html#c.clk_speed">clk_speed (thuộc tính C)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -340,7 +379,117 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/i2c.html#c.I2C_ADDR_BIT_10">I2C_ADDR_BIT_10 (macro C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.I2C_ADDR_BIT_MAX">I2C_ADDR_BIT_MAX (macro C)</a>
+</li>
+      <li><a href="idf/i2c.html#_CPPv215i2c_addr_mode_t">i2c_addr_mode_t (C++ enum)</a>
+</li>
+      <li><a href="idf/i2c.html#c.I2C_CMD_END">I2C_CMD_END (macro C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_cmd_handle_t">i2c_cmd_handle_t (kiểu C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_cmd_link_create">i2c_cmd_link_create (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_cmd_link_delete">i2c_cmd_link_delete (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.I2C_CMD_READ">I2C_CMD_READ (macro C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.I2C_CMD_STOP">I2C_CMD_STOP (macro C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.I2C_CMD_WRITE">I2C_CMD_WRITE (macro C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_config_t">i2c_config_t (thuộc tính C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.I2C_DATA_MODE_MAX">I2C_DATA_MODE_MAX (macro C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_driver_delete">i2c_driver_delete (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_driver_install">i2c_driver_install (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.I2C_FIFO_LEN">I2C_FIFO_LEN (macro C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_get_data_mode">i2c_get_data_mode (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_get_data_timing">i2c_get_data_timing (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_get_period">i2c_get_period (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_get_start_timing">i2c_get_start_timing (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_get_stop_timing">i2c_get_stop_timing (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_isr_free">i2c_isr_free (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_isr_register">i2c_isr_register (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_master_cmd_begin">i2c_master_cmd_begin (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_master_read">i2c_master_read (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.I2C_MASTER_READ">I2C_MASTER_READ (macro C)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/i2c.html#c.i2c_master_read_byte">i2c_master_read_byte (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_master_start">i2c_master_start (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_master_stop">i2c_master_stop (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_master_write">i2c_master_write (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_master_write_byte">i2c_master_write_byte (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.I2C_MODE_MASTER">I2C_MODE_MASTER (macro C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.I2C_MODE_MAX">I2C_MODE_MAX (macro C)</a>
+</li>
+      <li><a href="idf/i2c.html#_CPPv210i2c_mode_t">i2c_mode_t (C++ enum)</a>
+</li>
+      <li><a href="idf/i2c.html#c.I2C_NUM_1">I2C_NUM_1 (macro C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.I2C_NUM_MAX">I2C_NUM_MAX (macro C)</a>
+</li>
+      <li><a href="idf/i2c.html#_CPPv212i2c_opmode_t">i2c_opmode_t (C++ enum)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_param_config">i2c_param_config (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#_CPPv210i2c_port_t">i2c_port_t (C++ enum)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_reset_rx_fifo">i2c_reset_rx_fifo (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_reset_tx_fifo">i2c_reset_tx_fifo (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#_CPPv28i2c_rw_t">i2c_rw_t (C++ enum)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_set_data_mode">i2c_set_data_mode (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_set_data_timing">i2c_set_data_timing (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_set_period">i2c_set_period (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_set_pin">i2c_set_pin (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_set_start_timing">i2c_set_start_timing (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_set_stop_timing">i2c_set_stop_timing (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_slave_read_buffer">i2c_slave_read_buffer (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.i2c_slave_write_buffer">i2c_slave_write_buffer (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#_CPPv216i2c_trans_mode_t">i2c_trans_mode_t (C++ enum)</a>
+</li>
       <li><a href="arduino/i2c_oled.html#c.init">init (hàm C)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/i2c.html#c.mode">mode (thuộc tính C)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -360,15 +509,25 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/i2c.html#c.scl_io_num">scl_io_num (thuộc tính C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.scl_pullup_en">scl_pullup_en (thuộc tính C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.sda_io_num">sda_io_num (thuộc tính C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.sda_pullup_en">sda_pullup_en (thuộc tính C)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="arduino/i2c_oled.html#c.setColor">setColor (hàm C)</a>
 </li>
       <li><a href="arduino/i2c_oled.html#c.setContrast">setContrast (hàm C)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="arduino/i2c_oled.html#c.setPixel">setPixel (hàm C)</a>
 </li>
       <li><a href="arduino/i2c_oled.html#c.setTextAlignment">setTextAlignment (hàm C)</a>
+</li>
+      <li><a href="idf/i2c.html#c.slave_addr">slave_addr (thuộc tính C)</a>
 </li>
   </ul></td>
 </tr></table>
