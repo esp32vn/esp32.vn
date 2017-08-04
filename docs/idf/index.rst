@@ -10,4 +10,4 @@ ESP32 IDF
    Nút nhấn <button>
    ADC <adc>
    DAC <dac>
-   
+   Touch  <touch_pad>

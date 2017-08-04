@@ -2,13 +2,13 @@ CHUYỂN ĐỔI TƯƠNG TỰ SANG SỐ
 ============================
 
 Tổng quan
---------
+---------
 
 ESP32 tích hợp 12-bit SAR (Successive Approximation Register) ADCs và hỗ trợ đo trên 18 chân analog. Một trong số các chân này được dùng để xây dựng bộ khuyếch đại có độ lợi khả trình (programmable gain amplifier) nhằm đo các tín hiệu analog yếu.
 
 .. note::
 
-    SAR (thanh ghi xấp xỉ liên tiếp)  sử dụng thuật toán tìm kiếm nhị phân giúp hội tụ tín hiệu đầu vào, từ đó giúp tăng dung lượng và tốc độ so sánh của ADC    
+    SAR (thanh ghi xấp xỉ liên tiếp)  sử dụng thuật toán tìm kiếm nhị phân giúp hội tụ tín hiệu đầu vào, từ đó giúp tăng dung lượng và tốc độ so sánh của ADC
 
 Các API điểu khiển ADC hiện tại chỉ hổ trợ 9 kênh ADC1 (từ GPIO32 đến GPIO39).
 Việc đo ADC bao gồm cấu hình ADC với độ chính sác mong muốn , cài đặt độ suy giảm, gọi hàm adc1_get_voltage() để lấy gía trị đo được.
@@ -84,7 +84,7 @@ Gía trị trả về:
 	- ``ESP_OK`` : thành công.
 	- ``ESP_ERR_INVALID_ARG`` : lỗi đối số
 Các đối số:
-	- ``channel`` : Kênh ADC được cấu hình 
+	- ``channel`` : Kênh ADC được cấu hình
 	- ``atten`` : Độ suy giảm.
 
 ****
@@ -167,13 +167,13 @@ Gía trị:
 	-``ADC1_CHANNEL_2``	    : ADC1 kênh 2 (GPIO38)
 
 	-``ADC1_CHANNEL_3``	    : ADC1 kênh 3 (GPIO39)
-	
+
 	-``ADC1_CHANNEL_4``	    : ADC1 kênh 4 (GPIO32)
-	
+
 	-``ADC1_CHANNEL_5``	    : ADC1 kênh 5 (GPIO33)
-	
+
 	-``ADC1_CHANNEL_6``	    : ADC1 kênh 6 (GPIO34)
-	
+
 	-``ADC1_CHANNEL_7``     : ADC1 kênh 7 (GPIO35)
 
 	-``ADC1_CHANNEL_MAX``
