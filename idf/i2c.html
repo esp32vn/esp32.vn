@@ -37,7 +37,7 @@
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu ESP32 1.0" href="../index.html"/>
         <link rel="up" title="ESP32 IDF" href="index.html"/>
-        <link rel="next" title="Thẻ nhớ" href="sdcard.html"/>
+        <link rel="next" title="GPIO &amp; RTC GPIO" href="gpio.html"/>
         <link rel="prev" title="I2S" href="i2s.html"/> 
 
   
@@ -204,6 +204,18 @@
 <li class="toctree-l3"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="gpio.html">GPIO &amp; RTC GPIO</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gpio.html#tong-quan">Tổng Quan</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gpio.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpio.html#vi-du-minh-hoa">Ví dụ minh họa:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gpio.html#application-example">Application Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gpio.html#api-reference-normal-gpio">API Reference - Normal GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gpio.html#api-reference-rtc-gpio">API Reference - RTC GPIO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gpio.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sdcard.html">Thẻ nhớ</a><ul>
@@ -789,7 +801,7 @@ esp_err_t <code class="descname">i2c_isr_free</code><span class="sig-paren">(</s
 
 <dl class="function">
 <dt id="c.i2c_set_pin">
-esp_err_t <code class="descname">i2c_set_pin</code><span class="sig-paren">(</span>i2c_port_t<em>&nbsp;i2c_num</em>, gpio_num_t<em>&nbsp;sda_io_num</em>, gpio_num_t<em>&nbsp;scl_io_num</em>, gpio_pullup_t<em>&nbsp;sda_pullup_en</em>, gpio_pullup_t<em>&nbsp;scl_pullup_en</em>, i2c_mode_t<em>&nbsp;mode</em><span class="sig-paren">)</span><a class="headerlink" href="#c.i2c_set_pin" title="Permalink to this definition">¶</a></dt>
+esp_err_t <code class="descname">i2c_set_pin</code><span class="sig-paren">(</span>i2c_port_t<em>&nbsp;i2c_num</em>, <a class="reference internal" href="gpio.html#c.gpio_num_t" title="gpio_num_t">gpio_num_t</a><em>&nbsp;sda_io_num</em>, <a class="reference internal" href="gpio.html#c.gpio_num_t" title="gpio_num_t">gpio_num_t</a><em>&nbsp;scl_io_num</em>, <a class="reference internal" href="gpio.html#c.gpio_pullup_t" title="gpio_pullup_t">gpio_pullup_t</a><em>&nbsp;sda_pullup_en</em>, <a class="reference internal" href="gpio.html#c.gpio_pullup_t" title="gpio_pullup_t">gpio_pullup_t</a><em>&nbsp;scl_pullup_en</em>, i2c_mode_t<em>&nbsp;mode</em><span class="sig-paren">)</span><a class="headerlink" href="#c.i2c_set_pin" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Mô tả hàm:</dt>
 <dd>Cấu hình chân GPIO thành SCL và SDA để kết nối I2C.</dd>
@@ -1296,25 +1308,25 @@ i2c_mode_t <code class="descname">mode</code><a class="headerlink" href="#c.mode
 
 <dl class="member">
 <dt id="c.sda_io_num">
-gpio_num_t <code class="descname">sda_io_num</code><a class="headerlink" href="#c.sda_io_num" title="Permalink to this definition">¶</a></dt>
+<a class="reference internal" href="gpio.html#c.gpio_num_t" title="gpio_num_t">gpio_num_t</a> <code class="descname">sda_io_num</code><a class="headerlink" href="#c.sda_io_num" title="Permalink to this definition">¶</a></dt>
 <dd><p>Chân GPIO cho tín hiệu SDA</p>
 </dd></dl>
 
 <dl class="member">
 <dt id="c.sda_pullup_en">
-gpio_pullup_t <code class="descname">sda_pullup_en</code><a class="headerlink" href="#c.sda_pullup_en" title="Permalink to this definition">¶</a></dt>
+<a class="reference internal" href="gpio.html#c.gpio_pullup_t" title="gpio_pullup_t">gpio_pullup_t</a> <code class="descname">sda_pullup_en</code><a class="headerlink" href="#c.sda_pullup_en" title="Permalink to this definition">¶</a></dt>
 <dd><p>Chế độ pull-up cho tín hiệu SDA</p>
 </dd></dl>
 
 <dl class="member">
 <dt id="c.scl_io_num">
-gpio_num_t <code class="descname">scl_io_num</code><a class="headerlink" href="#c.scl_io_num" title="Permalink to this definition">¶</a></dt>
+<a class="reference internal" href="gpio.html#c.gpio_num_t" title="gpio_num_t">gpio_num_t</a> <code class="descname">scl_io_num</code><a class="headerlink" href="#c.scl_io_num" title="Permalink to this definition">¶</a></dt>
 <dd><p>Chân GPIO cho tín hiệu SCL</p>
 </dd></dl>
 
 <dl class="member">
 <dt id="c.scl_pullup_en">
-gpio_pullup_t <code class="descname">scl_pullup_en</code><a class="headerlink" href="#c.scl_pullup_en" title="Permalink to this definition">¶</a></dt>
+<a class="reference internal" href="gpio.html#c.gpio_pullup_t" title="gpio_pullup_t">gpio_pullup_t</a> <code class="descname">scl_pullup_en</code><a class="headerlink" href="#c.scl_pullup_en" title="Permalink to this definition">¶</a></dt>
 <dd><p>Chế độ pull-up cho tín hiệu SCL</p>
 </dd></dl>
 
@@ -1538,7 +1550,7 @@ I2C_ADDR_BIT_7 = <code class="descname">0</code></dt>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sdcard.html" class="btn btn-neutral float-right" title="Thẻ nhớ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gpio.html" class="btn btn-neutral float-right" title="GPIO &amp; RTC GPIO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="i2s.html" class="btn btn-neutral" title="I2S" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

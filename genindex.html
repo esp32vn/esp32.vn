@@ -202,6 +202,18 @@
 <li class="toctree-l3"><a class="reference internal" href="idf/i2c.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="idf/gpio.html">GPIO &amp; RTC GPIO</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="idf/gpio.html#tong-quan">Tổng Quan</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="idf/gpio.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idf/gpio.html#vi-du-minh-hoa">Ví dụ minh họa:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="idf/gpio.html#application-example">Application Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idf/gpio.html#api-reference-normal-gpio">API Reference - Normal GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idf/gpio.html#api-reference-rtc-gpio">API Reference - RTC GPIO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="idf/gpio.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="idf/sdcard.html">Thẻ nhớ</a><ul>
@@ -301,10 +313,12 @@
 <h2 id="Biểu tượng">Biểu tượng</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="idf/i2c.html#c.0">0 (macro C)</a>, <a href="idf/i2c.html#c.0">[1]</a>, <a href="idf/i2c.html#c.0">[2]</a>, <a href="idf/i2c.html#c.0">[3]</a>, <a href="idf/i2c.html#c.0">[4]</a>, <a href="idf/i2c.html#c.0">[5]</a>
+      <li><a href="idf/gpio.html#c.(gpio_num)">(gpio_num) (hàm C)</a>, <a href="idf/gpio.html#c.(gpio_num)">[1]</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/i2c.html#c.0">0 (macro C)</a>, <a href="idf/i2c.html#c.0">[1]</a>, <a href="idf/i2c.html#c.0">[2]</a>, <a href="idf/i2c.html#c.0">[3]</a>, <a href="idf/i2c.html#c.0">[4]</a>, <a href="idf/i2c.html#c.0">[5]</a>
+</li>
       <li><a href="idf/i2c.html#c.1">1 (macro C)</a>
 </li>
   </ul></td>
@@ -380,6 +394,70 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="arduino/i2c_oled.html#c.getStringWidth">getStringWidth (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_config">gpio_config (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_config_t">gpio_config_t (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_get_level">gpio_get_level (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_install_isr_service">gpio_install_isr_service (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_int_type_t">gpio_int_type_t (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_intr_disable">gpio_intr_disable (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_intr_enable">gpio_intr_enable (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_isr_handle_t">gpio_isr_handle_t (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_isr_handler_add">gpio_isr_handler_add (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_isr_handler_remove">gpio_isr_handler_remove (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_isr_register">gpio_isr_register (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_isr_t">gpio_isr_t (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_mode_t">gpio_mode_t (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_num_t">gpio_num_t (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_pull_mode_t">gpio_pull_mode_t (hàm C)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/gpio.html#c.gpio_pulldown_dis">gpio_pulldown_dis (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_pulldown_en">gpio_pulldown_en (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_pulldown_t">gpio_pulldown_t (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_pullup_dis">gpio_pullup_dis (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_pullup_en">gpio_pullup_en (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_pullup_t">gpio_pullup_t (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.GPIO_SEL_0">GPIO_SEL_0 (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.GPIO_SEL_1">GPIO_SEL_1 (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.GPIO_SEL_2">GPIO_SEL_2 (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_set_direction">gpio_set_direction (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_set_intr_type">gpio_set_intr_type (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_set_level">gpio_set_level (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_set_pull_mode">gpio_set_pull_mode (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_uninstall_isr_service">gpio_uninstall_isr_service (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_wakeup_disable">gpio_wakeup_disable (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.gpio_wakeup_enable">gpio_wakeup_enable (hàm C)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -571,9 +649,39 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="arduino/i2c_oled.html#c.reconnect">reconnect (hàm C)</a>
 </li>
+      <li><a href="arduino/i2c_oled.html#c.resetDisplay">resetDisplay (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.rtc_gpio_deinit">rtc_gpio_deinit (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.rtc_gpio_desc_t">rtc_gpio_desc_t (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.rtc_gpio_force_hold_dis_all">rtc_gpio_force_hold_dis_all (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.rtc_gpio_get_level">rtc_gpio_get_level (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.rtc_gpio_hold_dis">rtc_gpio_hold_dis (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.rtc_gpio_hold_en">rtc_gpio_hold_en (hàm C)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="arduino/i2c_oled.html#c.resetDisplay">resetDisplay (hàm C)</a>
+      <li><a href="idf/gpio.html#c.rtc_gpio_init">rtc_gpio_init (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.RTC_GPIO_IS_VALID_GPIO">RTC_GPIO_IS_VALID_GPIO (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.rtc_gpio_is_valid_gpio">rtc_gpio_is_valid_gpio (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.rtc_gpio_mode_t">rtc_gpio_mode_t (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.rtc_gpio_pulldown_disIO.">rtc_gpio_pulldown_disIO. (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.rtc_gpio_pullup_dis">rtc_gpio_pullup_dis (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.rtc_gpio_pullup_en">rtc_gpio_pullup_en (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.rtc_gpio_set_direction">rtc_gpio_set_direction (hàm C)</a>
+</li>
+      <li><a href="idf/gpio.html#c.rtc_gpio_set_level">rtc_gpio_set_level (hàm C)</a>
 </li>
   </ul></td>
 </tr></table>
