@@ -533,8 +533,9 @@ Một số hàm tham khảo
       - ``high_level``: Khoảng thời gian mức cao của sóng mang.
       - ``low_level``: Khoảng thời gian mức thấp của sóng mang.
       - ``carrier_level``: Điều chỉnh cách biến đổi sóng mang cho các kênh.
-              1'b1: Truyền ngõ ra mức thấp.
-              1'b0: Truyền ngõ ra mức cao.
+      
+              - 1'b1: Truyền ngõ ra mức thấp.
+              - 1'b0: Truyền ngõ ra mức cao.
 
 .. c:function:: esp_err_t rmt_set_mem_pd(rmt_channel_t channel, bool pd_en)
 
