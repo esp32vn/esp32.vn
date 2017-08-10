@@ -214,6 +214,14 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="idf/gpio.html#luu-y">Lưu ý</a></li>
+<li class="toctree-l2"><a class="reference internal" href="idf/RMT.html">Remote Control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="idf/RMT.html#tong-quan">Tổng quan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idf/RMT.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idf/RMT.html#vi-du-minh-hoa">Ví dụ minh họa:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idf/RMT.html#api-reference">API Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="idf/RMT.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="idf/sdcard.html">Thẻ nhớ</a><ul>
@@ -303,10 +311,12 @@
  | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
  | <a href="#V"><strong>V</strong></a>
  
 </div>
@@ -317,9 +327,9 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="idf/i2c.html#c.0">0 (macro C)</a>, <a href="idf/i2c.html#c.0">[1]</a>, <a href="idf/i2c.html#c.0">[2]</a>, <a href="idf/i2c.html#c.0">[3]</a>, <a href="idf/i2c.html#c.0">[4]</a>, <a href="idf/i2c.html#c.0">[5]</a>
+      <li><a href="idf/RMT.html#c.0">0 (macro C)</a>, <a href="idf/RMT.html#c.0">[1]</a>, <a href="idf/RMT.html#c.0">[2]</a>, <a href="idf/RMT.html#c.0">[3]</a>, <a href="idf/RMT.html#c.0">[4]</a>, <a href="idf/RMT.html#c.0">[5]</a>, <a href="idf/RMT.html#c.0">[6]</a>, <a href="idf/i2c.html#c.0">[7]</a>, <a href="idf/i2c.html#c.0">[8]</a>, <a href="idf/i2c.html#c.0">[9]</a>, <a href="idf/i2c.html#c.0">[10]</a>, <a href="idf/i2c.html#c.0">[11]</a>, <a href="idf/i2c.html#c.0">[12]</a>
 </li>
-      <li><a href="idf/i2c.html#c.1">1 (macro C)</a>
+      <li><a href="idf/RMT.html#c.1">1 (macro C)</a>, <a href="idf/RMT.html#c.1">[1]</a>, <a href="idf/i2c.html#c.1">[2]</a>
 </li>
   </ul></td>
 </tr></table>
@@ -339,10 +349,22 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="arduino/i2c_oled.html#c.clear">clear (hàm C)</a>
+      <li><a href="idf/RMT.html#c.carrier_duty_percent">carrier_duty_percent (thuộc tính C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.carrier_en">carrier_en (thuộc tính C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.carrier_freq_hz">carrier_freq_hz (thuộc tính C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.carrier_level">carrier_level (thuộc tính C)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/RMT.html#c.channel">channel (thuộc tính C)</a>
+</li>
+      <li><a href="arduino/i2c_oled.html#c.clear">clear (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.clk_div">clk_div (thuộc tính C)</a>
+</li>
       <li><a href="idf/i2c.html#c.clk_speed">clk_speed (thuộc tính C)</a>
 </li>
   </ul></td>
@@ -381,9 +403,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="arduino/i2c_oled.html#c.fillCircle">fillCircle (hàm C)</a>
 </li>
+      <li><a href="arduino/i2c_oled.html#c.fillRect">fillRect (hàm C)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="arduino/i2c_oled.html#c.fillRect">fillRect (hàm C)</a>
+      <li><a href="idf/RMT.html#c.filter_en">filter_en (thuộc tính C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.filter_ticks_thresh">filter_ticks_thresh (thuộc tính C)</a>
 </li>
       <li><a href="arduino/i2c_oled.html#c.flipScreenVertically">flipScreenVertically (hàm C)</a>
 </li>
@@ -421,12 +447,14 @@
 </li>
       <li><a href="idf/gpio.html#c.gpio_mode_t">gpio_mode_t (hàm C)</a>
 </li>
-      <li><a href="idf/gpio.html#c.gpio_num_t">gpio_num_t (hàm C)</a>
+      <li><a href="idf/RMT.html#c.gpio_num">gpio_num (thuộc tính C)</a>
 </li>
-      <li><a href="idf/gpio.html#c.gpio_pull_mode_t">gpio_pull_mode_t (hàm C)</a>
+      <li><a href="idf/gpio.html#c.gpio_num_t">gpio_num_t (hàm C)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/gpio.html#c.gpio_pull_mode_t">gpio_pull_mode_t (hàm C)</a>
+</li>
       <li><a href="idf/gpio.html#c.gpio_pulldown_dis">gpio_pulldown_dis (hàm C)</a>
 </li>
       <li><a href="idf/gpio.html#c.gpio_pulldown_en">gpio_pulldown_en (hàm C)</a>
@@ -541,12 +569,12 @@
 </li>
       <li><a href="idf/i2c.html#_CPPv210i2c_port_t">i2c_port_t (C++ enum)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="idf/i2c.html#c.i2c_reset_rx_fifo">i2c_reset_rx_fifo (hàm C)</a>
 </li>
       <li><a href="idf/i2c.html#c.i2c_reset_tx_fifo">i2c_reset_tx_fifo (hàm C)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="idf/i2c.html#_CPPv28i2c_rw_t">i2c_rw_t (C++ enum)</a>
 </li>
       <li><a href="idf/i2c.html#c.i2c_set_data_mode">i2c_set_data_mode (hàm C)</a>
@@ -619,13 +647,31 @@
 </li>
       <li><a href="idf/i2s.html#c.i2s_zero_dma_buffer">i2s_zero_dma_buffer (hàm C)</a>
 </li>
+      <li><a href="idf/RMT.html#c.idle_level">idle_level (thuộc tính C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.idle_output_en">idle_output_en (thuộc tính C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.idle_threshold">idle_threshold (thuộc tính C)</a>
+</li>
       <li><a href="arduino/i2c_oled.html#c.init">init (hàm C)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/RMT.html#c.loop_en">loop_en (thuộc tính C)</a>
 </li>
   </ul></td>
 </tr></table>
 
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/RMT.html#c.mem_block_num">mem_block_num (thuộc tính C)</a>
+</li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="idf/i2c.html#c.mode">mode (thuộc tính C)</a>
 </li>
@@ -651,6 +697,150 @@
 </li>
       <li><a href="arduino/i2c_oled.html#c.resetDisplay">resetDisplay (hàm C)</a>
 </li>
+      <li><a href="idf/RMT.html#c.RMT_BASECLK_APB">RMT_BASECLK_APB (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_BASECLK_MAX">RMT_BASECLK_MAX (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_CARRIER_LEVEL_HIGH">RMT_CARRIER_LEVEL_HIGH (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_CARRIER_LEVEL_MAX">RMT_CARRIER_LEVEL_MAX (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#_CPPv219rmt_carrier_level_t">rmt_carrier_level_t (C++ enum)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_CHANNEL_1">RMT_CHANNEL_1 (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_CHANNEL_2">RMT_CHANNEL_2 (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_CHANNEL_3">RMT_CHANNEL_3 (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_CHANNEL_4">RMT_CHANNEL_4 (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_CHANNEL_5">RMT_CHANNEL_5 (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_CHANNEL_6">RMT_CHANNEL_6 (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_CHANNEL_7">RMT_CHANNEL_7 (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_CHANNEL_MAX">RMT_CHANNEL_MAX (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#_CPPv213rmt_channel_t">rmt_channel_t (C++ enum)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_clr_intr_enable_mask">rmt_clr_intr_enable_mask (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_config">rmt_config (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_config_t">rmt_config_t (thuộc tính C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_DATA_MODE_MAX">RMT_DATA_MODE_MAX (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#_CPPv215rmt_data_mode_t">rmt_data_mode_t (C++ enum)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_driver_install">rmt_driver_install (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_driver_uninstall">rmt_driver_uninstall (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_fill_tx_items">rmt_fill_tx_items (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_get_clk_div">rmt_get_clk_div (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_get_mem_block_num">rmt_get_mem_block_num (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_get_mem_pd">rmt_get_mem_pd (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_get_memory_owner">rmt_get_memory_owner (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_get_ringbuf_handler">rmt_get_ringbuf_handler (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_get_rx_idle_thresh">rmt_get_rx_idle_thresh (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_get_source_clk">rmt_get_source_clk (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_get_status">rmt_get_status (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_get_tx_loop_mode">rmt_get_tx_loop_mode (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_IDLE_LEVEL_HIGH">RMT_IDLE_LEVEL_HIGH (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_IDLE_LEVEL_MAX">RMT_IDLE_LEVEL_MAX (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#_CPPv216rmt_idle_level_t">rmt_idle_level_t (C++ enum)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_isr_deregister">rmt_isr_deregister (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_isr_handle_t">rmt_isr_handle_t (kiểu C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_isr_register">rmt_isr_register (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_MEM_BLOCK_BYTE_NUM">RMT_MEM_BLOCK_BYTE_NUM (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_MEM_ITEM_NUM">RMT_MEM_ITEM_NUM (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_MEM_OWNER_MAX">RMT_MEM_OWNER_MAX (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#_CPPv215rmt_mem_owner_t">rmt_mem_owner_t (C++ enum)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_memory_rw_rst">rmt_memory_rw_rst (hàm C)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/RMT.html#c.rmt_mode">rmt_mode (thuộc tính C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_MODE_MAX">RMT_MODE_MAX (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.RMT_MODE_RX">RMT_MODE_RX (macro C)</a>
+</li>
+      <li><a href="idf/RMT.html#_CPPv210rmt_mode_t">rmt_mode_t (C++ enum)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_rx_config_t">rmt_rx_config_t (thuộc tính C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_rx_start">rmt_rx_start (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_rx_stop">rmt_rx_stop (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_set_clk_div">rmt_set_clk_div (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_set_err_intr_en">rmt_set_err_intr_en (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_set_idle_level">rmt_set_idle_level (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_set_intr_enable_mask">rmt_set_intr_enable_mask (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_set_mem_block_num">rmt_set_mem_block_num (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_set_mem_pd">rmt_set_mem_pd (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_set_memory_owner">rmt_set_memory_owner (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_set_pin">rmt_set_pin (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_set_rx_filter">rmt_set_rx_filter (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_set_rx_idle_thresh">rmt_set_rx_idle_thresh (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_set_rx_intr_en">rmt_set_rx_intr_en (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_set_source_clk">rmt_set_source_clk (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_set_tx_carrier">rmt_set_tx_carrier (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_set_tx_intr_en">rmt_set_tx_intr_en (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_set_tx_loop_mode">rmt_set_tx_loop_mode (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_set_tx_thr_intr_en">rmt_set_tx_thr_intr_en (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#_CPPv216rmt_source_clk_t">rmt_source_clk_t (C++ enum)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_tx_config_t">rmt_tx_config_t (thuộc tính C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_tx_start">rmt_tx_start (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_tx_stop">rmt_tx_stop (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_wait_tx_done">rmt_wait_tx_done (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rmt_write_items">rmt_write_items (hàm C)</a>
+</li>
       <li><a href="idf/gpio.html#c.rtc_gpio_deinit">rtc_gpio_deinit (hàm C)</a>
 </li>
       <li><a href="idf/gpio.html#c.rtc_gpio_desc_t">rtc_gpio_desc_t (hàm C)</a>
@@ -663,8 +853,6 @@
 </li>
       <li><a href="idf/gpio.html#c.rtc_gpio_hold_en">rtc_gpio_hold_en (hàm C)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="idf/gpio.html#c.rtc_gpio_init">rtc_gpio_init (hàm C)</a>
 </li>
       <li><a href="idf/gpio.html#c.RTC_GPIO_IS_VALID_GPIO">RTC_GPIO_IS_VALID_GPIO (hàm C)</a>
@@ -682,6 +870,8 @@
       <li><a href="idf/gpio.html#c.rtc_gpio_set_direction">rtc_gpio_set_direction (hàm C)</a>
 </li>
       <li><a href="idf/gpio.html#c.rtc_gpio_set_level">rtc_gpio_set_level (hàm C)</a>
+</li>
+      <li><a href="idf/RMT.html#c.rx_config">rx_config (thuộc tính C)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -708,6 +898,14 @@
       <li><a href="arduino/i2c_oled.html#c.setTextAlignment">setTextAlignment (hàm C)</a>
 </li>
       <li><a href="idf/i2c.html#c.slave_addr">slave_addr (thuộc tính C)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="idf/RMT.html#c.tx_config">tx_config (thuộc tính C)</a>
 </li>
   </ul></td>
 </tr></table>

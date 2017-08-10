@@ -37,7 +37,7 @@
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu ESP32 1.0" href="../index.html"/>
         <link rel="up" title="ESP32 IDF" href="index.html"/>
-        <link rel="next" title="Thẻ nhớ" href="sdcard.html"/>
+        <link rel="next" title="Remote Control Module" href="RMT.html"/>
         <link rel="prev" title="Giao tiếp I2C" href="i2c.html"/> 
 
   
@@ -216,6 +216,14 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RMT.html">Remote Control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="RMT.html#tong-quan">Tổng quan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RMT.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RMT.html#vi-du-minh-hoa">Ví dụ minh họa:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RMT.html#api-reference">API Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RMT.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sdcard.html">Thẻ nhớ</a><ul>
@@ -826,13 +834,13 @@ struct <code class="descname">gpio_config_t</code><span class="sig-paren">(</spa
 <p>Số macros cứ như thế tới chân 39, không bao gồm chân 20,24 và 28..31. Chúng không được show ở đây để giảm những thông tin dư thừa cho các bạn.</p>
 <dl class="function">
 <dt id="c.(gpio_num)">
-GPIO_IS_VALID_GPIO<code class="descname">(gpio_num)</code><span class="sig-paren">(</span>(gpio_num &lt; GPIO_PIN_COUNT &amp;&amp; GPIO_PIN_MUX_REG[gpio_num] !=<em>&nbsp;0)</em><span class="sig-paren">)</span><a class="headerlink" href="#c.(gpio_num)" title="Permalink to this definition">¶</a></dt>
+GPIO_IS_VALID_GPIO<code class="descname">(gpio_num)</code><span class="sig-paren">(</span>(<a class="reference internal" href="RMT.html#c.gpio_num" title="gpio_num">gpio_num</a> &lt; GPIO_PIN_COUNT &amp;&amp; GPIO_PIN_MUX_REG[<a class="reference internal" href="RMT.html#c.gpio_num" title="gpio_num">gpio_num</a>] !=<em>&nbsp;0)</em><span class="sig-paren">)</span><a class="headerlink" href="#c.(gpio_num)" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>Kiểm tra xem số chân GPIO hợp lệ hay chưa.</p>
 <dl class="function">
 <dt>
-GPIO_IS_VALID_OUTPUT_GPIO<code class="descname">(gpio_num)</code><span class="sig-paren">(</span>(GPIO_IS_VALID_GPIO(gpio_num)) &amp;&amp; (gpio_num &lt;<em>&nbsp;34)</em><span class="sig-paren">)</span></dt>
+GPIO_IS_VALID_OUTPUT_GPIO<code class="descname">(gpio_num)</code><span class="sig-paren">(</span>(GPIO_IS_VALID_GPIO(<a class="reference internal" href="RMT.html#c.gpio_num" title="gpio_num">gpio_num</a>)) &amp;&amp; (<a class="reference internal" href="RMT.html#c.gpio_num" title="gpio_num">gpio_num</a> &lt;<em>&nbsp;34)</em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
 <p>Kiểm tra xem có thể nó là các chân chỉ có chế độ output.</p>
@@ -1164,7 +1172,7 @@ struct <code class="descname">rtc_gpio_desc_t</code><span class="sig-paren">(</s
 <h3>Macros<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="c.RTC_GPIO_IS_VALID_GPIO">
-<code class="descname">RTC_GPIO_IS_VALID_GPIO</code><span class="sig-paren">(</span>gpio_num)<em>&nbsp;rtc_gpio_is_valid_gpio(gpio_num</em><span class="sig-paren">)</span><a class="headerlink" href="#c.RTC_GPIO_IS_VALID_GPIO" title="Permalink to this definition">¶</a></dt>
+<code class="descname">RTC_GPIO_IS_VALID_GPIO</code><span class="sig-paren">(</span><a class="reference internal" href="RMT.html#c.gpio_num" title="gpio_num">gpio_num</a>)<em>&nbsp;rtc_gpio_is_valid_gpio(gpio_num</em><span class="sig-paren">)</span><a class="headerlink" href="#c.RTC_GPIO_IS_VALID_GPIO" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -1206,7 +1214,7 @@ enum <code class="descname">rtc_gpio_mode_t</code><span class="sig-paren">(</spa
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sdcard.html" class="btn btn-neutral float-right" title="Thẻ nhớ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="RMT.html" class="btn btn-neutral float-right" title="Remote Control Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="i2c.html" class="btn btn-neutral" title="Giao tiếp I2C" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
