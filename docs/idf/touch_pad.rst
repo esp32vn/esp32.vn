@@ -6,24 +6,20 @@ Giới thiệu
 
 * ESP32 hỗ trợ đọc lên đến 10 bộ cảm biến cảm ứng điện dung (T0 - T9), được kết nối với các chân GPIO cụ thể:
 
-  * ``TOUCH_PAD_NUM0``: Touch pad channel 0 is GPIO4
-  * ``TOUCH_PAD_NUM1``: Touch pad channel 0 is GPIO0
-  * ``TOUCH_PAD_NUM2``: Touch pad channel 0 is GPIO2
-  * ``TOUCH_PAD_NUM3``: Touch pad channel 0 is GPIO15
-  * ``TOUCH_PAD_NUM4``: Touch pad channel 0 is GPIO13
-  * ``TOUCH_PAD_NUM5``: Touch pad channel 0 is GPIO12
-  * ``TOUCH_PAD_NUM6``: Touch pad channel 0 is GPIO14
-  * ``TOUCH_PAD_NUM7``: Touch pad channel 0 is GPIO27
-  * ``TOUCH_PAD_NUM8``: Touch pad channel 0 is GPIO33
-  * ``TOUCH_PAD_NUM9``: Touch pad channel 0 is GPIO32
+  * ``TOUCH_PAD_NUM0``: Touch pad channel 0 là ``GPIO4``
+  * ``TOUCH_PAD_NUM1``: Touch pad channel 0 là ``GPIO0``
+  * ``TOUCH_PAD_NUM2``: Touch pad channel 0 là ``GPIO2``
+  * ``TOUCH_PAD_NUM3``: Touch pad channel 0 là ``GPIO15``
+  * ``TOUCH_PAD_NUM4``: Touch pad channel 0 là ``GPIO13``
+  * ``TOUCH_PAD_NUM5``: Touch pad channel 0 là ``GPIO12``
+  * ``TOUCH_PAD_NUM6``: Touch pad channel 0 là ``GPIO14``
+  * ``TOUCH_PAD_NUM7``: Touch pad channel 0 là ``GPIO27``
+  * ``TOUCH_PAD_NUM8``: Touch pad channel 0 là ``GPIO33``
+  * ``TOUCH_PAD_NUM9``: Touch pad channel 0 là ``GPIO32``
 
-* Dưới đây là ví dụ đọc và hiển thị giá trị từ các cảm biến cảm ứng điện dung pad được kết nối với kênh T0 (GPIO4) lập trình trên board ESP32-Wifi-Uno.
+* Dưới đây là ví dụ đọc và hiển thị giá trị từ các cảm biến cảm ứng điện dung được kết nối với kênh T0 ``GPIO4`` lập trình trên board ESP32-Wifi-Uno.
 
 * Khi đã được cấu hình, ESP32 liên tục đo điện dung của cảm biến cảm ứng. Điện dung lớn khi ngón tay chạm vào Touch PAD và giá trị đo sẽ nhỏ. Trong trường hợp ngược lại, khi không được chạm, giá trị điện dung nhỏ và giá trị đo lớn.
-
-Demo
-====
-.. youtube:: https://www.youtube.com/watch?v=SxPDVPu8tug
 
 Chuẩn bị
 ========
@@ -47,72 +43,33 @@ Include
 *******
 .. code:: cpp
 
+    #include "freertos/FreeRTOS.h"
+    #include "freertos/task.h"
     #include "driver/touch_pad.h"
 
-* ``driver/touch_pad.h``: Bao gồm cấu hình các thiết bị ngoại vi trong hệ thống ESP. Chức năng của nó như là hệ thống khởi tạo.
+* ``freertos/FreeRTOS.h``: Thư viện này bao gồm các thiết lập cấu hình yêu cầu để chạy freeRTOS.
+* ``freertos/task.h``: Cung cấp chức năng đa nhiệm.
+* ``driver/touch_pad.h``: Bao gồm cấu hình, thiết lập liên quan đến cảm ứng. Chức năng của nó như là hệ thống khởi tạo.
 
-Define
-******
+API
+***
 .. code:: cpp
 
-		#define LED_GPIO 23
-		#define BTN_GPIO 18
+		touch_pad_init();
 
-* Định nghĩa ``LED_GPIO 23`` là ``GPIO23``.
-* Định nghĩa ``BTN_GPIO 18`` là ``GPIO18``.
+* Chức năng khởi tạo module touch pad , kích hoạt module cảm ứng hoạt động.
 
-GPIO
-****
-.. code:: cpp
-
-    gpio_pad_select_gpio (uint8_t gpio_num);
-
-* Chọn pad làm chức năng GPIO từ IOMUX.
-
-.. code:: cpp
-
-		gpio_set_direction (gpio_num_t gpio_num, gpio_mode_t mode);
-
-* Định hướng GPIO, chẳng hạn như output only, input only, output and input.
-* Có 2 đối số được truyền vào hàm:
-	* ``gpio_num_t gpio_num``: Lựa chon PIN
-		*	``GPIO_NUM_0`` ... ``GPIO_NUM_39``  hoặc ``0`` ... ``39``.
-	* ``gpio_mode_t mode``	: Lựa chọn Mode
-		* ``GPIO_MODE_INPUT``: input only
-		* ``GPIO_MODE_OUTPUT``: output only mode
-		* ``GPIO_MODE_OUTPUT_OD``: output only with open-drain mode
-		* ``GPIO_MODE_INPUT_OUTPUT_OD``: output and input with open-drain mode
-		* ``GPIO_MODE_INPUT_OUTPUT``: output and input mode
-
-.. code:: cpp
-
-		gpio_set_pull_mode (gpio_num_t gpio_num, gpio_pull_mode_t pull);
-
-* Sử dụng chức năng này để configure GPIO pull mode, chẳng hạn như pull-up, pull-down.
-* Hàm này có 2 đối số được truyền vào:
-	* ``gpio_num_t gpio_num``: Lựa chon PIN
-	* ``gpio_pull_mode_t pull``	: Lựa chon chế độ
-		* ``GPIO_PULLUP_ONLY``: Pad pull up
-		* ``GPIO_PULLDOWN_ONLY``: Pad pull down
-		* ``GPIO_PULLUP_PULLDOWN``: Pad pull up and pull down
-		* ``GPIO_FLOATING``: Pad floating
-
-.. code:: cpp
-
-    gpio_get_level (gpio_num_t gpio_num);
-
-* Hàm này trả về mức logic giá trị đầu vào:
 .. code:: cpp
 
 		touch_pad_read(touch_pad_t touch_num, uint16_t * touch_value);
 
-* Thiết lập mức (LOW hoặc HIGH) cho GPIO.
-* Có 2 đối số được truyền vào hàm:
-	* ``gpio_num_t gpio_num``: Lựa chon PIN
-		*	``GPIO_NUM_0`` ... ``GPIO_NUM_39``  hoặc ``0`` ... ``39``.
-	* ``uint32_t level``	: Lựa chọn mức logic
-		* ``0``: Mức thấp
-		* ``1``: Mức cao
+* Có 1 đối số được truyền vào hàm và 1 con trỏ trả về giá trị:
+
+  * ``touch_pad_t touch_num``: Lựa chon kênh cảm ứng
+
+    *	``TOUCH_PAD_NUM0`` ... ``TOUCH_PAD_NUM9``  hoặc ``0`` ... ``9``.
+
+  * ``uint16_t * touch_value``	: Giá trị trả về  kiểu số nguyên 16 bit của cảm biến.
 
 Make file:
 **********
@@ -175,6 +132,22 @@ Hướng dẫn config, nạp và debug chương trình:
     make menuconfig
     make flash
     make moniter
+
+Hiển thị một số giá trị thu được trên terminal:
+***********************************************
+
+.. code:: cpp
+
+    T0:1043
+    T0:1107
+    T0:1109
+    T0:17
+    T0:19
+    T0:11
+    T0:999
+    T0:1104
+    T0:1103
+    T0:1102
 
 Lưu ý
 =====
