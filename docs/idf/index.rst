@@ -10,10 +10,10 @@ ESP32 IDF
    Nút nhấn <button>
    ADC <adc>
    DAC <dac>
-   Touch  <touch_pad>
    SPI master <spi_master>
    SPI slave <spi_slave>
    I2S <i2s>
    I2C <i2c>
    GPIO (Bao gồm RTC low power I/O) <gpio>
    Remote Control <RMT>
+   Touch  <touch_pad>
