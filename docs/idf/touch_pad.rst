@@ -1,10 +1,10 @@
-Lập trình cảm ứng (Touch) với ESP32 IDF
----------------------------------------
+Lập trình cảm ứng với ESP32 IDF
+-------------------------------
 
 Giới thiệu
 ==========
 
-* Trong ESP32 có tất cả 10 kênh Touch:
+* ESP32 hỗ trợ đọc lên đến 10 bộ cảm biến cảm ứng điện dung (T0 - T9), được kết nối với các chân GPIO cụ thể:
 
   * ``TOUCH_PAD_NUM0``: Touch pad channel 0 is GPIO4
   * ``TOUCH_PAD_NUM1``: Touch pad channel 0 is GPIO0
@@ -17,7 +17,9 @@ Giới thiệu
   * ``TOUCH_PAD_NUM8``: Touch pad channel 0 is GPIO33
   * ``TOUCH_PAD_NUM9``: Touch pad channel 0 is GPIO32
 
-* Dưới đây là ví dụ đơn giản bật tắt LED bằng cách chạm vào tấm cảm ứng lập trình trên board ESP32-Wifi-Uno.
+* Dưới đây là ví dụ đọc và hiển thị giá trị từ các cảm biến cảm ứng điện dung pad được kết nối với kênh T0 (GPIO4) lập trình trên board ESP32-Wifi-Uno.
+
+* Khi đã được cấu hình, ESP32 liên tục đo điện dung của cảm biến cảm ứng. Điện dung lớn khi ngón tay chạm vào Touch PAD và giá trị đo sẽ nhỏ. Trong trường hợp ngược lại, khi không được chạm, giá trị điện dung nhỏ và giá trị đo lớn.
 
 Demo
 ====
@@ -100,12 +102,9 @@ GPIO
     gpio_get_level (gpio_num_t gpio_num);
 
 * Hàm này trả về mức logic giá trị đầu vào:
-	* ``0``: nếu ngõ vào là mức thấp.
-	* ``1``: nếu ngõ vào là mức cao.
-
 .. code:: cpp
 
-		gpio_set_direction (gpio_num_t gpio_num, gpio_mode_t mode);
+		touch_pad_read(touch_pad_t touch_num, uint16_t * touch_value);
 
 * Thiết lập mức (LOW hoặc HIGH) cho GPIO.
 * Có 2 đối số được truyền vào hàm:
@@ -145,18 +144,16 @@ Lập trình
     #include "driver/touch_pad.h"
 
     /*
-      Read values sensed at all available touch pads.
+      Read values sensed at T0 (GPIO4) available touch pads.
       Print out values in a loop on a serial monitor.
     */
     static void tp_example_read_task(void *pvParameter)
     {
       while (1) {
           uint16_t touch_value;
-          for (int i=0; i<TOUCH_PAD_MAX; i++) {
-              ESP_ERROR_CHECK(touch_pad_read(i, &touch_value));
-              printf("T%d:%4d ", i, touch_value);
-          }
-          printf("\n");
+
+          ESP_ERROR_CHECK(touch_pad_read(TOUCH_PAD_NUM0, &touch_value));
+          printf("T:%4d \n", touch_value);
           vTaskDelay(500 / portTICK_PERIOD_MS);
       }
     }

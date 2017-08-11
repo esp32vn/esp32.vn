@@ -2,7 +2,7 @@ ESP32 IDF
 *********
 
 .. toctree::
-   :maxdepth: 6
+   :maxdepth: 2
 
    Cài đặt <install>
    Hello World <hello-world>
@@ -11,3 +11,7 @@ ESP32 IDF
    ADC <adc>
    DAC <dac>
    Touch  <touch_pad>
+   SPI master <spi_master>
+   SPI slave <spi_slave>
+   I2S <i2s>
+   I2C <i2c>
