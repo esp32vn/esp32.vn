@@ -15,3 +15,5 @@ ESP32 IDF
    SPI slave <spi_slave>
    I2S <i2s>
    I2C <i2c>
+   GPIO (Bao gồm RTC low power I/O) <gpio>
+   Remote Control <RMT>
