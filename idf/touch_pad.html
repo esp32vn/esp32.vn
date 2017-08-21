@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Lập trình chớp tắt LED với ESP32 bằng ESP-IDF &mdash; Tài liệu ESP32 1.0</title>
+  <title>Lập trình cảm ứng với ESP32 IDF &mdash; Tài liệu ESP32 1.0</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu ESP32 1.0" href="../index.html"/>
         <link rel="up" title="ESP32 IDF" href="index.html"/>
-        <link rel="next" title="Lập trình nút nhấn với ESP32 bằng ESP-IDF" href="button.html"/>
-        <link rel="prev" title="Lập trình &#34;Hello World&#34; với ESP32 IDF" href="hello-world.html"/> 
+        <link rel="next" title="WIFI" href="wifi.html"/>
+        <link rel="prev" title="Remote Control Module" href="RMT.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -142,14 +142,14 @@
 <li class="toctree-l3"><a class="reference internal" href="hello-world.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Blink</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#gioi-thieu">Giới thiệu.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#chuan-bi">Chuẩn bị.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ket-noi">Kết nối.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#demo">Demo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#huong-dan">Hướng dẫn</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blink-idf.html">Blink</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#gioi-thieu">Giới thiệu.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#chuan-bi">Chuẩn bị.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#ket-noi">Kết nối.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#demo">Demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#huong-dan">Hướng dẫn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blink-idf.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="button.html">Nút nhấn</a><ul>
@@ -224,12 +224,12 @@
 <li class="toctree-l3"><a class="reference internal" href="RMT.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="touch_pad.html">Touch</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="touch_pad.html#gioi-thieu">Giới thiệu</a></li>
-<li class="toctree-l3"><a class="reference internal" href="touch_pad.html#chuan-bi">Chuẩn bị</a></li>
-<li class="toctree-l3"><a class="reference internal" href="touch_pad.html#huong-dan">Hướng dẫn</a></li>
-<li class="toctree-l3"><a class="reference internal" href="touch_pad.html#lap-trinh">Lập trình</a></li>
-<li class="toctree-l3"><a class="reference internal" href="touch_pad.html#luu-y">Lưu ý</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Touch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gioi-thieu">Giới thiệu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#huong-dan">Hướng dẫn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="wifi.html">Wifi</a><ul>
@@ -301,13 +301,13 @@
         
           <li><a href="index.html">ESP32 IDF</a> &raquo;</li>
         
-      <li>Lập trình chớp tắt LED với ESP32 bằng ESP-IDF</li>
+      <li>Lập trình cảm ứng với ESP32 IDF</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/idf/blink-idf.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/idf/touch_pad.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -320,37 +320,30 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="lap-trinh-chop-tat-led-voi-esp32-bang-esp-idf">
-<h1>Lập trình chớp tắt LED với ESP32 bằng ESP-IDF<a class="headerlink" href="#lap-trinh-chop-tat-led-voi-esp32-bang-esp-idf" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="lap-trinh-cam-ung-voi-esp32-idf">
+<h1>Lập trình cảm ứng với ESP32 IDF<a class="headerlink" href="#lap-trinh-cam-ung-voi-esp32-idf" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="gioi-thieu">
-<h2>Giới thiệu.<a class="headerlink" href="#gioi-thieu" title="Permalink to this headline">¶</a></h2>
+<h2>Giới thiệu<a class="headerlink" href="#gioi-thieu" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><dl class="first docutils">
-<dt>Trong ESP32 có tất cả 34 chân GPIO:</dt>
-<dd><ul class="first last">
-<li>GPIO 00 - GPIO 19</li>
-<li>GPIO 21 - GPIO 23</li>
-<li>GPIO 25 - GPIO 27</li>
-<li>GPIO 32 - GPIO 39</li>
+<li>ESP32 hỗ trợ đọc lên đến 10 bộ cảm biến cảm ứng điện dung (T0 - T9), được kết nối với các chân GPIO cụ thể:<ul>
+<li><code class="docutils literal"><span class="pre">TOUCH_PAD_NUM0</span></code>: Touch pad channel 0 là <code class="docutils literal"><span class="pre">GPIO4</span></code></li>
+<li><code class="docutils literal"><span class="pre">TOUCH_PAD_NUM1</span></code>: Touch pad channel 0 là <code class="docutils literal"><span class="pre">GPIO0</span></code></li>
+<li><code class="docutils literal"><span class="pre">TOUCH_PAD_NUM2</span></code>: Touch pad channel 0 là <code class="docutils literal"><span class="pre">GPIO2</span></code></li>
+<li><code class="docutils literal"><span class="pre">TOUCH_PAD_NUM3</span></code>: Touch pad channel 0 là <code class="docutils literal"><span class="pre">GPIO15</span></code></li>
+<li><code class="docutils literal"><span class="pre">TOUCH_PAD_NUM4</span></code>: Touch pad channel 0 là <code class="docutils literal"><span class="pre">GPIO13</span></code></li>
+<li><code class="docutils literal"><span class="pre">TOUCH_PAD_NUM5</span></code>: Touch pad channel 0 là <code class="docutils literal"><span class="pre">GPIO12</span></code></li>
+<li><code class="docutils literal"><span class="pre">TOUCH_PAD_NUM6</span></code>: Touch pad channel 0 là <code class="docutils literal"><span class="pre">GPIO14</span></code></li>
+<li><code class="docutils literal"><span class="pre">TOUCH_PAD_NUM7</span></code>: Touch pad channel 0 là <code class="docutils literal"><span class="pre">GPIO27</span></code></li>
+<li><code class="docutils literal"><span class="pre">TOUCH_PAD_NUM8</span></code>: Touch pad channel 0 là <code class="docutils literal"><span class="pre">GPIO33</span></code></li>
+<li><code class="docutils literal"><span class="pre">TOUCH_PAD_NUM9</span></code>: Touch pad channel 0 là <code class="docutils literal"><span class="pre">GPIO32</span></code></li>
 </ul>
-</dd>
-</dl>
 </li>
-<li><dl class="first docutils">
-<dt>Lưu ý:</dt>
-<dd><ul class="first last">
-<li><code class="docutils literal"><span class="pre">Không</span> <span class="pre">bao</span> <span class="pre">gồm</span></code> các chân <code class="docutils literal"><span class="pre">20,</span> <span class="pre">24,</span> <span class="pre">28,</span> <span class="pre">29,</span> <span class="pre">30</span> <span class="pre">và</span> <span class="pre">31</span></code>.</li>
-<li>Các chân <code class="docutils literal"><span class="pre">GPIO34</span> <span class="pre">-</span> <span class="pre">GPIO39</span></code> chỉ thiết lập ở chế độ <code class="docutils literal"><span class="pre">INPUT</span></code> và không có chức năng pullup hoặc pulldown cho phần mềm.</li>
-<li>Các chân <code class="docutils literal"><span class="pre">GPIO06</span> <span class="pre">-</span> <span class="pre">GPIO11</span></code> thường được dùng để giao tiếp với thẻ nhớ ngoài thông qua giao thức SPI nên hạn chế sử dụng để thiết lập IO.</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li>Dưới đây là ví dụ đơn giản nhấp nháy LED sử dụng board ESP32-Wifi-Uno.</li>
+<li>Dưới đây là ví dụ đọc và hiển thị giá trị từ các cảm biến cảm ứng điện dung được kết nối với kênh T0 <code class="docutils literal"><span class="pre">GPIO4</span></code> lập trình trên board ESP32-Wifi-Uno.</li>
+<li>Khi đã được cấu hình, ESP32 liên tục đo điện dung của cảm biến cảm ứng. Điện dung lớn khi ngón tay chạm vào Touch PAD và giá trị đo sẽ nhỏ. Trong trường hợp ngược lại, khi không được chạm, giá trị điện dung nhỏ và giá trị đo lớn.</li>
 </ul>
 </div>
 <div class="section" id="chuan-bi">
-<h2>Chuẩn bị.<a class="headerlink" href="#chuan-bi" title="Permalink to this headline">¶</a></h2>
+<h2>Chuẩn bị<a class="headerlink" href="#chuan-bi" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="41%" />
@@ -368,17 +361,6 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="ket-noi">
-<h2>Kết nối.<a class="headerlink" href="#ket-noi" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
-<li>Trên board ESP32-Wifi-Uno đã có đèn D3 nối với chân GPIO23.</li>
-</ul>
-</div></blockquote>
-</div>
-<div class="section" id="demo">
-<h2>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h2>
-<iframe width="640" height="360" src="//www.youtube.com/embed/E0ZU68mlbj4?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
 <div class="section" id="huong-dan">
 <h2>Hướng dẫn<a class="headerlink" href="#huong-dan" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="tai-du-an-mau">
@@ -389,94 +371,36 @@
 </div>
 <div class="section" id="include">
 <h3>Include<a class="headerlink" href="#include" title="Permalink to this headline">¶</a></h3>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &lt;stdio.h&gt;</span>
-<span class="c1">#include &quot;freertos/FreeRTOS.h&quot;</span>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &quot;freertos/FreeRTOS.h&quot;</span>
 <span class="c1">#include &quot;freertos/task.h&quot;</span>
-<span class="c1">#include &quot;driver/gpio.h&quot;</span>
+<span class="c1">#include &quot;driver/touch_pad.h&quot;</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">driver/gpio.h</span></code>: Bao gồm cấu hình đầu vào và đầu ra với mục đích cơ bản.</li>
+<li><code class="docutils literal"><span class="pre">freertos/FreeRTOS.h</span></code>: Thư viện này bao gồm các thiết lập cấu hình yêu cầu để chạy freeRTOS.</li>
+<li><code class="docutils literal"><span class="pre">freertos/task.h</span></code>: Cung cấp chức năng đa nhiệm.</li>
+<li><code class="docutils literal"><span class="pre">driver/touch_pad.h</span></code>: Bao gồm cấu hình, thiết lập liên quan đến cảm ứng. Chức năng của nó như là hệ thống khởi tạo.</li>
 </ul>
 </div>
-<div class="section" id="define">
-<h3>Define<a class="headerlink" href="#define" title="Permalink to this headline">¶</a></h3>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#define BLINK_GPIO 23</span>
+<div class="section" id="api">
+<h3>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h3>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">touch_pad_init</span><span class="p">();</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>Định nghĩa <code class="docutils literal"><span class="pre">BLINK_GPIO</span></code> là <code class="docutils literal"><span class="pre">GPIO23</span></code>.</li>
+<li>Chức năng khởi tạo module touch pad , kích hoạt module cảm ứng hoạt động.</li>
 </ul>
-</div>
-<div class="section" id="gpio">
-<h3>GPIO<a class="headerlink" href="#gpio" title="Permalink to this headline">¶</a></h3>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">gpio_pad_select_gpio</span> <span class="p">(</span><span class="n">uint8_t</span> <span class="n">gpio_num</span><span class="p">);</span>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">touch_pad_read</span><span class="p">(</span><span class="n">touch_pad_t</span> <span class="n">touch_num</span><span class="p">,</span> <span class="n">uint16_t</span> <span class="o">*</span> <span class="n">touch_value</span><span class="p">);</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>Chọn pad làm chức năng GPIO từ IOMUX.</li>
+<li>Có 1 đối số được truyền vào hàm và 1 con trỏ trả về giá trị:<ul>
+<li><code class="docutils literal"><span class="pre">touch_pad_t</span> <span class="pre">touch_num</span></code>: Lựa chon kênh cảm ứng<ul>
+<li><code class="docutils literal"><span class="pre">TOUCH_PAD_NUM0</span></code> ... <code class="docutils literal"><span class="pre">TOUCH_PAD_NUM9</span></code>  hoặc <code class="docutils literal"><span class="pre">0</span></code> ... <code class="docutils literal"><span class="pre">9</span></code>.</li>
 </ul>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">gpio_set_direction</span> <span class="p">(</span><span class="n">gpio_num_t</span> <span class="n">gpio_num</span><span class="p">,</span> <span class="n">gpio_mode_t</span> <span class="n">mode</span><span class="p">);</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li>Định hướng GPIO, chẳng hạn như output only, input only, output and input.</li>
-<li><dl class="first docutils">
-<dt>Có 2 đối số được truyền vào hàm:</dt>
-<dd><ul class="first last">
-<li><dl class="first docutils">
-<dt><code class="docutils literal"><span class="pre">gpio_num_t</span> <span class="pre">gpio_num</span></code>: Lựa chon PIN</dt>
-<dd><ul class="first last">
-<li><code class="docutils literal"><span class="pre">GPIO_NUM_0</span></code> ... <code class="docutils literal"><span class="pre">GPIO_NUM_39</span></code>  hoặc <code class="docutils literal"><span class="pre">0</span></code> ... <code class="docutils literal"><span class="pre">39</span></code>.</li>
-</ul>
-</dd>
-</dl>
 </li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal"><span class="pre">gpio_mode_t</span> <span class="pre">mode</span></code> <span class="classifier-delimiter">:</span> <span class="classifier">Lựa chọn Mode</span></dt>
-<dd><ul class="first last">
-<li><code class="docutils literal"><span class="pre">GPIO_MODE_INPUT</span></code>: input only</li>
-<li><code class="docutils literal"><span class="pre">GPIO_MODE_OUTPUT</span></code>: output only mode</li>
-<li><code class="docutils literal"><span class="pre">GPIO_MODE_OUTPUT_OD</span></code>: output only with open-drain mode</li>
-<li><code class="docutils literal"><span class="pre">GPIO_MODE_INPUT_OUTPUT_OD</span></code>: output and input with open-drain mode</li>
-<li><code class="docutils literal"><span class="pre">GPIO_MODE_INPUT_OUTPUT</span></code>: output and input mode</li>
+<li><code class="docutils literal"><span class="pre">uint16_t</span> <span class="pre">*</span> <span class="pre">touch_value</span></code>  : Giá trị trả về  kiểu số nguyên 16 bit của cảm biến.</li>
 </ul>
-</dd>
-</dl>
-</li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">gpio_set_level</span> <span class="p">(</span><span class="n">gpio_num_t</span> <span class="n">gpio_num</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">level</span><span class="p">);</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li>Thiết lập mức (LOW hoặc HIGH) cho GPIO.</li>
-<li><dl class="first docutils">
-<dt>Có 2 đối số được truyền vào hàm:</dt>
-<dd><ul class="first last">
-<li><dl class="first docutils">
-<dt><code class="docutils literal"><span class="pre">gpio_num_t</span> <span class="pre">gpio_num</span></code>: Lựa chon PIN</dt>
-<dd><ul class="first last">
-<li><code class="docutils literal"><span class="pre">GPIO_NUM_0</span></code> ... <code class="docutils literal"><span class="pre">GPIO_NUM_39</span></code>  hoặc <code class="docutils literal"><span class="pre">0</span></code> ... <code class="docutils literal"><span class="pre">39</span></code>.</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt><code class="docutils literal"><span class="pre">uint32_t</span> <span class="pre">level</span></code> <span class="classifier-delimiter">:</span> <span class="classifier">Lựa chọn mức logic</span></dt>
-<dd><ul class="first last">
-<li><code class="docutils literal"><span class="pre">0</span></code>: Mức thấp</li>
-<li><code class="docutils literal"><span class="pre">1</span></code>: Mức cao</li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</dd>
-</dl>
 </li>
 </ul>
 </div>
@@ -495,45 +419,67 @@ include $(IDF_PATH)/make/project.mk
 <h2>Lập trình<a class="headerlink" href="#lap-trinh" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div>Bây giờ, bạn có thể xem code hoàn chỉnh.</div></blockquote>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">Blink</span> <span class="n">Example</span>
-   <span class="n">This</span> <span class="n">example</span> <span class="n">code</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">Public</span> <span class="n">Domain</span> <span class="p">(</span><span class="ow">or</span> <span class="n">CC0</span> <span class="n">licensed</span><span class="p">,</span> <span class="n">at</span> <span class="n">your</span> <span class="n">option</span><span class="o">.</span><span class="p">)</span>
-   <span class="n">Unless</span> <span class="n">required</span> <span class="n">by</span> <span class="n">applicable</span> <span class="n">law</span> <span class="ow">or</span> <span class="n">agreed</span> <span class="n">to</span> <span class="ow">in</span> <span class="n">writing</span><span class="p">,</span> <span class="n">this</span>
-   <span class="n">software</span> <span class="ow">is</span> <span class="n">distributed</span> <span class="n">on</span> <span class="n">an</span> <span class="s2">&quot;AS IS&quot;</span> <span class="n">BASIS</span><span class="p">,</span> <span class="n">WITHOUT</span> <span class="n">WARRANTIES</span> <span class="n">OR</span>
-   <span class="n">CONDITIONS</span> <span class="n">OF</span> <span class="n">ANY</span> <span class="n">KIND</span><span class="p">,</span> <span class="n">either</span> <span class="n">express</span> <span class="ow">or</span> <span class="n">implied</span><span class="o">.</span>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">Touch</span> <span class="n">Pad</span> <span class="n">Read</span> <span class="n">Example</span>
+
+  <span class="n">This</span> <span class="n">example</span> <span class="n">code</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">Public</span> <span class="n">Domain</span> <span class="p">(</span><span class="ow">or</span> <span class="n">CC0</span> <span class="n">licensed</span><span class="p">,</span> <span class="n">at</span> <span class="n">your</span> <span class="n">option</span><span class="o">.</span><span class="p">)</span>
+
+  <span class="n">Unless</span> <span class="n">required</span> <span class="n">by</span> <span class="n">applicable</span> <span class="n">law</span> <span class="ow">or</span> <span class="n">agreed</span> <span class="n">to</span> <span class="ow">in</span> <span class="n">writing</span><span class="p">,</span> <span class="n">this</span>
+  <span class="n">software</span> <span class="ow">is</span> <span class="n">distributed</span> <span class="n">on</span> <span class="n">an</span> <span class="s2">&quot;AS IS&quot;</span> <span class="n">BASIS</span><span class="p">,</span> <span class="n">WITHOUT</span> <span class="n">WARRANTIES</span> <span class="n">OR</span>
+  <span class="n">CONDITIONS</span> <span class="n">OF</span> <span class="n">ANY</span> <span class="n">KIND</span><span class="p">,</span> <span class="n">either</span> <span class="n">express</span> <span class="ow">or</span> <span class="n">implied</span><span class="o">.</span>
 <span class="o">*/</span>
 <span class="c1">#include &lt;stdio.h&gt;</span>
 <span class="c1">#include &quot;freertos/FreeRTOS.h&quot;</span>
 <span class="c1">#include &quot;freertos/task.h&quot;</span>
-<span class="c1">#include &quot;driver/gpio.h&quot;</span>
 
-<span class="c1">#define BLINK_GPIO 23</span>
+<span class="c1">#include &quot;driver/touch_pad.h&quot;</span>
 
-<span class="n">void</span> <span class="n">blink_task</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pvParameter</span><span class="p">)</span>
+<span class="o">/*</span>
+  <span class="n">Read</span> <span class="n">values</span> <span class="n">sensed</span> <span class="n">at</span> <span class="n">T0</span> <span class="p">(</span><span class="n">GPIO4</span><span class="p">)</span> <span class="n">available</span> <span class="n">touch</span> <span class="n">pads</span><span class="o">.</span>
+  <span class="n">Print</span> <span class="n">out</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">loop</span> <span class="n">on</span> <span class="n">a</span> <span class="n">serial</span> <span class="n">monitor</span><span class="o">.</span>
+<span class="o">*/</span>
+<span class="n">static</span> <span class="n">void</span> <span class="n">tp_example_read_task</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pvParameter</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="o">/*</span> <span class="n">Configure</span> <span class="n">the</span> <span class="n">IOMUX</span> <span class="n">register</span> <span class="k">for</span> <span class="n">pad</span> <span class="n">BLINK_GPIO</span> <span class="p">(</span><span class="n">some</span> <span class="n">pads</span> <span class="n">are</span>
-       <span class="n">muxed</span> <span class="n">to</span> <span class="n">GPIO</span> <span class="n">on</span> <span class="n">reset</span> <span class="n">already</span><span class="p">,</span> <span class="n">but</span> <span class="n">some</span> <span class="n">default</span> <span class="n">to</span> <span class="n">other</span>
-       <span class="n">functions</span> <span class="ow">and</span> <span class="n">need</span> <span class="n">to</span> <span class="n">be</span> <span class="n">switched</span> <span class="n">to</span> <span class="n">GPIO</span><span class="o">.</span> <span class="n">Consult</span> <span class="n">the</span>
-       <span class="n">Technical</span> <span class="n">Reference</span> <span class="k">for</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">pads</span> <span class="ow">and</span> <span class="n">their</span> <span class="n">default</span>
-       <span class="n">functions</span><span class="o">.</span><span class="p">)</span>
-    <span class="o">*/</span>
-    <span class="n">gpio_pad_select_gpio</span><span class="p">(</span><span class="n">BLINK_GPIO</span><span class="p">);</span>
-    <span class="o">/*</span> <span class="n">Set</span> <span class="n">the</span> <span class="n">GPIO</span> <span class="k">as</span> <span class="n">a</span> <span class="n">push</span><span class="o">/</span><span class="n">pull</span> <span class="n">output</span> <span class="o">*/</span>
-    <span class="n">gpio_set_direction</span><span class="p">(</span><span class="n">BLINK_GPIO</span><span class="p">,</span> <span class="n">GPIO_MODE_OUTPUT</span><span class="p">);</span>
-    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="o">/*</span> <span class="n">Blink</span> <span class="n">off</span> <span class="p">(</span><span class="n">output</span> <span class="n">low</span><span class="p">)</span> <span class="o">*/</span>
-        <span class="n">gpio_set_level</span><span class="p">(</span><span class="n">BLINK_GPIO</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-        <span class="n">vTaskDelay</span><span class="p">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">);</span>
-        <span class="o">/*</span> <span class="n">Blink</span> <span class="n">on</span> <span class="p">(</span><span class="n">output</span> <span class="n">high</span><span class="p">)</span> <span class="o">*/</span>
-        <span class="n">gpio_set_level</span><span class="p">(</span><span class="n">BLINK_GPIO</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-        <span class="n">vTaskDelay</span><span class="p">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">);</span>
-    <span class="p">}</span>
+  <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">uint16_t</span> <span class="n">touch_value</span><span class="p">;</span>
+
+      <span class="n">ESP_ERROR_CHECK</span><span class="p">(</span><span class="n">touch_pad_read</span><span class="p">(</span><span class="n">TOUCH_PAD_NUM0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">touch_value</span><span class="p">));</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;T:</span><span class="si">%4d</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">touch_value</span><span class="p">);</span>
+      <span class="n">vTaskDelay</span><span class="p">(</span><span class="mi">500</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">);</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">void</span> <span class="n">app_main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">xTaskCreate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">blink_task</span><span class="p">,</span> <span class="s2">&quot;blink_task&quot;</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">NULL</span><span class="p">);</span>
+  <span class="o">//</span> <span class="n">Initialize</span> <span class="n">touch</span> <span class="n">pad</span> <span class="n">peripheral</span>
+  <span class="n">touch_pad_init</span><span class="p">();</span>
+
+  <span class="o">//</span> <span class="n">Start</span> <span class="n">task</span> <span class="n">to</span> <span class="n">read</span> <span class="n">values</span> <span class="n">sensed</span> <span class="n">by</span> <span class="n">pads</span>
+  <span class="n">xTaskCreate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tp_example_read_task</span><span class="p">,</span> <span class="s2">&quot;touch_pad_read_task&quot;</span><span class="p">,</span> <span class="mi">2048</span><span class="p">,</span> <span class="n">NULL</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">NULL</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+<div class="section" id="huong-dan-config-nap-va-debug-chuong-trinh">
+<h3>Hướng dẫn config, nạp và debug chương trình:<a class="headerlink" href="#huong-dan-config-nap-va-debug-chuong-trinh" title="Permalink to this headline">¶</a></h3>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">menuconfig</span>
+<span class="n">make</span> <span class="n">flash</span>
+<span class="n">make</span> <span class="n">moniter</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hien-thi-mot-so-gia-tri-thu-duoc-tren-terminal">
+<h3>Hiển thị một số giá trị thu được trên terminal:<a class="headerlink" href="#hien-thi-mot-so-gia-tri-thu-duoc-tren-terminal" title="Permalink to this headline">¶</a></h3>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">T0</span><span class="p">:</span><span class="mi">1043</span>
+<span class="n">T0</span><span class="p">:</span><span class="mi">1107</span>
+<span class="n">T0</span><span class="p">:</span><span class="mi">1109</span>
+<span class="n">T0</span><span class="p">:</span><span class="mi">17</span>
+<span class="n">T0</span><span class="p">:</span><span class="mi">19</span>
+<span class="n">T0</span><span class="p">:</span><span class="mi">11</span>
+<span class="n">T0</span><span class="p">:</span><span class="mi">999</span>
+<span class="n">T0</span><span class="p">:</span><span class="mi">1104</span>
+<span class="n">T0</span><span class="p">:</span><span class="mi">1103</span>
+<span class="n">T0</span><span class="p">:</span><span class="mi">1102</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="luu-y">
@@ -556,10 +502,10 @@ include $(IDF_PATH)/make/project.mk
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="button.html" class="btn btn-neutral float-right" title="Lập trình nút nhấn với ESP32 bằng ESP-IDF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="wifi.html" class="btn btn-neutral float-right" title="WIFI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="hello-world.html" class="btn btn-neutral" title="Lập trình &#34;Hello World&#34; với ESP32 IDF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="RMT.html" class="btn btn-neutral" title="Remote Control Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -16,4 +16,5 @@ ESP32 IDF
    I2C <i2c>
    GPIO (Bao gồm RTC low power I/O) <gpio>
    Remote Control <RMT>
+   Touch  <touch_pad>
    Wifi <wifi>
